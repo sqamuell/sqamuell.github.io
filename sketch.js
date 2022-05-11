@@ -1,10 +1,18 @@
 let points = [];
-
 let spacing = 400;
+let accel = 0.0001
+let maxVel = 5;
 
 function setup() {
   frameRate(60);
-  createCanvas(windowWidth/2, windowHeight/2);
+
+  var myDiv = select('#scriptContainer');
+  myWidth = myDiv.width-3;
+  myHeight = myDiv.height-3;
+
+  var myCanvas = createCanvas(myWidth, myHeight);
+  myCanvas.parent("scriptContainer");
+  // createCanvas(windowWidth/2, windowHeight/2);
   background(255);
   for (let i = 50; i < width; i += spacing) {
     for (let j = 50; j < height; j += spacing) {
@@ -23,7 +31,16 @@ function draw() {
 }
 
 function mousePressed() {
-  background(255);
+  accel = 0.001;
+}
+
+function mouseReleased() {
+  accel = 0.0001
+  // background(255);
+}
+
+function mouseWheel() {
+  background(255,255,255,30);
 }
 
 class movePoint {
@@ -35,32 +52,58 @@ class movePoint {
   }
 
   acceleration() {
-    this.accelerationX = (mouseX - this.x) * 0.0001;
-    this.accelerationY = (mouseY - this.y) * 0.0001;
+    this.accelerationX = (mouseX - this.x) * accel;
+    this.accelerationY = (mouseY - this.y) * accel;
   }
 
   velocity() {
     this.velocityX += this.accelerationX;
+    if (this.velocityX > maxVel) {
+      this.velocityX = maxVel;
+    }
+    if (this.velocityX < -maxVel) {
+      this.velocityX = -maxVel;
+    }
     this.velocityY += this.accelerationY;
+    if (this.velocityY > maxVel) {
+      this.velocityY = maxVel;
+    }
+    if (this.velocityY < -maxVel) {
+        this.velocityY = -maxVel;
+    }
   }
 
   move() {
     this.x = this.x + this.velocityX;
     this.y = this.y + this.velocityY;
-    if (this.x < 0 || this.x > windowWidth/2) {
+    if (this.x < 0 || this.x > myWidth) {
       this.velocityX = -this.velocityX;
       this.accelerationX = -this.accelerationX;
+      if (this.x < 0) {
+        this.x = 0;
+      }
+      if (this.x > myWidth) {
+        this.x =myWidth;
+      }
     }
-    if (this.y < 0 || this.y > windowHeight/2) {
+    if (this.y < 0 || this.y > myHeight) {
       this.velocityY = -this.velocityY;
       this.accelerationY = -this.accelerationY;
+      if (this.y < 0) {
+        this.y = 0;
+      }
+      if (this.y > myHeight) {
+        this.y = myHeight;
+      }
     }
   }
 
   display() {
     strokeWeight(
-      min(1 / abs((this.accelerationX + this.accelerationY) * 100), 20)
+      min(1 / abs((this.accelerationX + this.accelerationY) * 100), 30)
     );
     point(this.x, this.y);
+    // size = min(1 / abs((this.accelerationX + this.accelerationY) * 100), 20);
+    // square(this.x, this.y, 10);
   }
 }
