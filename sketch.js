@@ -16,7 +16,8 @@ function setup() {
   background(255);
   for (let i = 50; i < width; i += spacing) {
     for (let j = 50; j < height; j += spacing) {
-      points.push(new movePoint(i, j));
+      rand = random(-600,600)
+      points.push(new movePoint(i + rand, j + rand));
     }
   }
 }
@@ -100,7 +101,7 @@ class movePoint {
 
   display() {
     strokeWeight(
-      min(1 / abs((this.accelerationX + this.accelerationY) * 100), 30)
+      (abs(this.accelerationX) + abs(this.accelerationY) * 30)
     );
     point(this.x, this.y);
     // size = min(1 / abs((this.accelerationX + this.accelerationY) * 100), 20);
