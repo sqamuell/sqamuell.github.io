@@ -4,6 +4,7 @@ let accel = 0.0001
 let maxVel = 5;
 
 function setup() {
+  pixelDensity(1);
   frameRate(60);
 
   var myDiv = select('#scriptContainer');
