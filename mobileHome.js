@@ -10,6 +10,9 @@ let offsetX = 0;
 let offsetY = 0;
 let tran = 0;
 
+let last = 0;
+let curr = 0;
+
 let t = 20;
 
 function setup() {
@@ -120,7 +123,6 @@ function drawFrame(offsetAnim) {
 
 
 function touchMoved(event) {
-  text(touches, myWidth/2, myHeight/2);
   console.log(event.movementX);
   t = 80;
   if (event.movementX < -8 && tileR.length > 0) {
@@ -128,6 +130,30 @@ function touchMoved(event) {
   }
   else if (event.movementX > 8 && tileL.length > 0)  {
     scrollLeft();
+  }
+
+  if (last != 0 && curr != 0) {
+    val = last - curr;
+
+    console.log(val);
+
+    if (val < -5 && tileR.length > 0) {
+      scrollRight();
+    }
+    else if (val > 5 && tileL.length > 0)  {
+      scrollLeft();
+    }
+    curr = last;
+    last = touches[0].x;
+  }
+
+  else if (last != 0 && curr == 0) {
+    curr = last;
+    last = touches[0].x;
+  }
+
+  else if (last == 0 && curr == 0) {
+    last = touches[0].x;
   }
 }
 
