@@ -120,6 +120,7 @@ function drawFrame(offsetAnim) {
 
 
 function touchMoved(event) {
+  text(touches, myWidth/2, myHeight/2);
   console.log(event.movementX);
   t = 80;
   if (event.movementX < -8 && tileR.length > 0) {
