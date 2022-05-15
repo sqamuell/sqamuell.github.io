@@ -5,7 +5,7 @@
     if (screen && screen.width > 480) {
       document.write('<script type="text/javascript" src="sketch.js"></script>');
     }
-    else {
+    if (screen && screen.width <= 480)
       document.write('<script type="text/javascript" src="mobileHome.js"></script>');
     }
   </script>
