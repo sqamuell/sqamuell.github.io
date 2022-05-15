@@ -2,20 +2,27 @@ let tileL = ["1","2","3","4","5"];
 let c = "6";
 let tileR = ["11","10","9","8","7"];
 
+let myWidth = 0;
+let myHeight = 0;
 
-var myDiv = select('#scriptContainer');
-let myWidth = myDiv.width-3;
-let myHeight = myDiv.height-3;
-
-let cenSize = myHeight/7;
-let offsetX = cenSize/1.3;
-let offsetY = cenSize/3;
-let tran = cenSize/3;
+let cenSize = 0;
+let offsetX = 0;
+let offsetY = 0;
+let tran = 0;
 
 let t = 20;
 
 function setup() {
   pixelDensity(1);
+
+  var myDiv = select('#scriptContainer');
+  myWidth = myDiv.width-3;
+  myHeight = myDiv.height-3;
+
+  cenSize = myHeight/7;
+  offsetX = cenSize/1.3;
+  offsetY = cenSize/3;
+  tran = cenSize/3;
 
   var myCanvas = createCanvas(myWidth, myHeight);
   myCanvas.parent("scriptContainer");
