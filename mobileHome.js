@@ -96,27 +96,27 @@ function drawFrame(offsetAnim) {
        x2 - (offsetAnim*3), y1 + (offsetAnim));
 }
 
-function mouseWheel(event) {
-  print(event.delta);
-  t = 20;
-  if (event.delta > 0 && tileR.length > 0) {
-    scrollRight();
-  }
-  else if (event.delta < 0 && tileL.length > 0)  {
-    scrollLeft();
-  }
-}
+// function mouseWheel(event) {
+//   print(event.delta);
+//   t = 20;
+//   if (event.delta > 0 && tileR.length > 0) {
+//     scrollRight();
+//   }
+//   else if (event.delta < 0 && tileL.length > 0)  {
+//     scrollLeft();
+//   }
+// }
 
-function keyPressed() {
-  if (keyCode === RIGHT_ARROW && tileR.length > 0) {
-    t = 120;
-    scrollRight();
-  }
-  else if (keyCode === LEFT_ARROW && tileL.length > 0)  {
-    t = 120;
-    scrollLeft();
-  }
-}
+// function keyPressed() {
+//   if (keyCode === RIGHT_ARROW && tileR.length > 0) {
+//     t = 120;
+//     scrollRight();
+//   }
+//   else if (keyCode === LEFT_ARROW && tileL.length > 0)  {
+//     t = 120;
+//     scrollLeft();
+//   }
+// }
 
 
 function touchMoved(event) {
