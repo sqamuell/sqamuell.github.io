@@ -137,10 +137,10 @@ function touchMoved(event) {
 
     console.log(val);
 
-    if (val < -5 && tileR.length > 0) {
+    if (val < -20 && tileR.length > 0) {
       scrollRight();
     }
-    else if (val > 5 && tileL.length > 0)  {
+    else if (val > 20 && tileL.length > 0)  {
       scrollLeft();
     }
     curr = last;
