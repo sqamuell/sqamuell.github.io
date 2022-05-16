@@ -98,6 +98,9 @@ function drawFrame(offsetAnim) {
        x1 - (offsetAnim*3), y2 + (offsetAnim),
        x2 - (offsetAnim*3), y2 - (offsetAnim),
        x2 - (offsetAnim*3), y1 + (offsetAnim));
+
+  textAlign(CENTER, CENTER);
+  text(c, myWidth/2, myHeight*0.75);
 }
 
 // function mouseWheel(event) {
