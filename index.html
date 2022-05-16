@@ -4,19 +4,21 @@
   <link rel="stylesheet" href="styles.css">
 
   <script>
+    var head = document.getElementsByTagName('head')[0];
+    var js = document.createElement("script");
+    js.type = "text/javascript";
     if(screen.width < screen.height) {
       //Conditional script here
-      document.write('<script type="text/javascript" src="mobileHome.js"></script>');
+      js.src "mobileHome.js";
       alert("This is a mobile device.");
     }
     else {
       //The viewport is greater than 700 pixels wide
-      document.write('<script type="text/javascript" src="sketch.js"></script>');
+      js.src "sketch.js";
       alert("This is not a mobile device.");
     }
+    head.appendChild(js);
   </script>
-
-  <!-- <script type="text/javascript" src="mobileHome.js"></script> -->
 
 </head>
 <body>
