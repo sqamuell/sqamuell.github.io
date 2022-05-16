@@ -14,6 +14,7 @@ let last = 0;
 let curr = 0;
 
 let t = 20;
+let swipeSense = 55;
 
 function setup() {
   pixelDensity(1);
@@ -137,10 +138,10 @@ function touchMoved(event) {
 
     console.log(val);
 
-    if (val < -20 && tileR.length > 0) {
+    if (val < -swipeSense && tileR.length > 0) {
       scrollRight();
     }
-    else if (val > 20 && tileL.length > 0)  {
+    else if (val > swipeSense && tileL.length > 0)  {
       scrollLeft();
     }
     curr = last;
