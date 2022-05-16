@@ -1,46 +1,23 @@
 <html>
 <head>
   <script src="p5.js"></script>
-
-  <!-- <script>
-      let isMobileDevice = window.matchMedia("only screen and (max-width: 760px)").matches;
-      if(isMobileDevice) {
-        // The viewport is less than 768 pixels wide
-        //Conditional script here
-        alert("This is a mobile device.");
-      }
-      else {
-        //The viewport is greater than 700 pixels wide
-        alert("This is not a mobile device.");
-      }
-  </script> -->
-
-  <!-- <script>
-    if( /AndroidwebOSiPhoneiPadiPodBlackBerryIEMobileOpera Mini/i.test(navigator.userAgent) ) {
-      //Conditional script here
-      alert("This is a mobile device.");
-      console.log(window.matchMedia());
-    }
-    else {
-      //The viewport is greater than 700 pixels wide
-      alert("This is not a mobile device.");
-      console.log(window.matchMedia());
-    }
-  </script> -->
+  <link rel="stylesheet" href="styles.css">
 
   <script>
     if(screen.width < screen.height) {
       //Conditional script here
+      document.write('<script type="text/javascript" src="mobileHome.js"></script>');
       alert("This is a mobile device.");
     }
     else {
       //The viewport is greater than 700 pixels wide
+      document.write('<script type="text/javascript" src="sketch.js"></script>');
       alert("This is not a mobile device.");
     }
   </script>
 
   <!-- <script type="text/javascript" src="mobileHome.js"></script> -->
-  <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
   <!-- <div class="landingText">
