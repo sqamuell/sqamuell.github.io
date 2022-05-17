@@ -13,7 +13,7 @@ function setup() {
 
   var myCanvas = createCanvas(myWidth, myHeight);
   myCanvas.parent("scriptContainer");
-  // createCanvas(windowWidth/2, windowHeight/2);
+
   background(255);
   for (let i = 50; i < width; i += spacing) {
     for (let j = 50; j < height; j += spacing) {
