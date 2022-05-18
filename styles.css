@@ -1,11 +1,11 @@
 @font-face {
     font-family: "Avenir-Roman";
-    src: url("fonts\\AvenirLTStd-Roman.otf");
+    src: url("fonts\\eau_sans_book.otf");
 }
 
 @font-face {
     font-family: "Avenir-Bold";
-    src: url("fonts\\AvenirLTStd-Black.otf");
+    src: url("fonts\\eau_sans_book_obl.otf");
     font-weight: bold;
 }
 
@@ -31,7 +31,7 @@
 .menu {
     float:left;
     margin: 5px;
-    width: 10vw;
+    width: auto+10px;
 }
 
 body {
@@ -47,6 +47,7 @@ body {
 .menuItem:hover {
     font-family: "Avenir-Bold";
     color: #F8C471;
+    /* color: #CCCCCC; */
 }
 
 ul {
@@ -56,5 +57,10 @@ ul {
 
 li {
   list-style: none;
-  padding: 3px;
+  padding: 5px;
+}
+
+img {
+  max-width: 800px;
+  max-height: 800px;
 }
