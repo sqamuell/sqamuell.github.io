@@ -35,19 +35,18 @@ main {
 }
 
 .menuItem:hover {
-    font-family: "Hover-Font";
+    font-family: "Body-Menu-Font";
     color: #F8C471;
     /* color: #CCCCCC; */
 }
 
 ul {
   list-style: none;
-  padding: 5px;
+  padding: 0 5px;
 }
 
 li {
   list-style: none;
-  /* padding: 5px; */
 }
 
 /* IMAGE SIZE AND CLASSES  */
@@ -69,8 +68,8 @@ img {
     src: url("fonts\\Anonymous.ttf");
 }
 
-@font-face {
+/* @font-face {
     font-family: "Hover-Font";
     src: url("fonts\\eau_sans_book_obl.otf");
     font-weight: bold;
-}
+} */
