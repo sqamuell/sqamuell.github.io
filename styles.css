@@ -18,25 +18,23 @@
       float: left;
       margin: 15px;
       width: 75vw;
-      height: auto;
 }
 
 #viewport {
-    float: left;
     margin: 5px;
-    width: 75vw;
+    width: 100%;
     height: 75vh;
 }
 
 .menu {
     float:left;
     margin: 5px;
-    width: auto+10px;
+    width: auto;
 }
 
 body {
     font-family: "Avenir-Roman";
-    font-size: 12pt;
+    /* font-size: 12pt; */
 }
 
 .menuItem {
