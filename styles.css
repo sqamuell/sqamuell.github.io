@@ -9,40 +9,29 @@
     font-weight: bold;
 }
 
-.container {
-    width: 100%;
-    overflow: hidden;
-}
-
-
-.menu {
-    float:left;
-    /* margin: 5px; */
-    width: 180px;
-    height: 100%;
-    /* border-style:dashed;
-    border-color: red; */
-
-}
-
-.aboutText {
-      /* float: left; */
-      /* margin: 15px; */
-      width: 100%;
-      height: auto;
-      /* border-style:dashed; */
-}
-
-#viewport {
-    /* margin: 5px; */
-    float: left;
-    width: 10vw;
-    height: 75vh;
-}
-
 body {
     font-family: "Avenir-Roman";
     /* font-size: 12pt; */
+    overflow: auto;
+    height: 95vh;
+}
+
+aside {
+  flex: 1 0 10%;
+}
+
+main {
+  overflow-y: auto;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+}
+
+#viewport {
+    height: 75vh;
 }
 
 .menuItem {
