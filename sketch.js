@@ -102,9 +102,8 @@ class movePoint {
 
   display() {
     strokeWeight(
-      (abs(this.accelerationX) + abs(this.accelerationY) * 30)
-    );
-    stroke(0,0,0,150);
+      max((abs(this.accelerationX) + abs(this.accelerationY) * 30),0.3));
+    stroke(0,0,0,200);
     point(this.x, this.y);
     // size = min(1 / abs((this.accelerationX + this.accelerationY) * 100), 20);
     // square(this.x, this.y, 10);

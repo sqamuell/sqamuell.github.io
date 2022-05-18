@@ -1,16 +1,7 @@
-@font-face {
-    font-family: "Avenir-Roman";
-    src: url("fonts\\eau_sans_book.otf");
-}
-
-@font-face {
-    font-family: "Avenir-Bold";
-    src: url("fonts\\eau_sans_book_obl.otf");
-    font-weight: bold;
-}
+/* DOCUMENT-WIDE EDITS */
 
 body {
-    font-family: "Avenir-Roman";
+    font-family: "Body-Menu-Font";
     /* font-size: 12pt; */
     overflow: auto;
     height: 95vh;
@@ -30,9 +21,13 @@ main {
   height: 100%;
 }
 
+/* JAVASCRIPT VIEWPORT */
+
 #viewport {
     height: 75vh;
 }
+
+/* MENU ITEMS */
 
 .menuItem {
   color:000000;
@@ -40,7 +35,7 @@ main {
 }
 
 .menuItem:hover {
-    font-family: "Avenir-Bold";
+    font-family: "Hover-Font";
     color: #F8C471;
     /* color: #CCCCCC; */
 }
@@ -52,8 +47,10 @@ ul {
 
 li {
   list-style: none;
-  padding: 5px;
+  /* padding: 5px; */
 }
+
+/* IMAGE SIZE AND CLASSES  */
 
 img {
   max-width: 75vw;
@@ -63,4 +60,17 @@ img {
 .render {
   max-width: 800px;
   max-height: 800px;
+}
+
+/* ADDED FONTS  */
+
+@font-face {
+    font-family: "Body-Menu-Font";
+    src: url("fonts\\Anonymous.ttf");
+}
+
+@font-face {
+    font-family: "Hover-Font";
+    src: url("fonts\\eau_sans_book_obl.otf");
+    font-weight: bold;
 }
