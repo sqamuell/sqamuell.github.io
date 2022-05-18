@@ -39,11 +39,15 @@ body {
 
 .menuItem:hover {
     font-family: "Avenir-Bold";
-    font-size: 11pt;
-    color: 054F0C;
+    color: #F8C471;
 }
 
 ul {
   list-style: none;
   padding: 5px;
+}
+
+li {
+  list-style: none;
+  padding: 3px;
 }
