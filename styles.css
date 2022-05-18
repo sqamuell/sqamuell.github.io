@@ -1,15 +1,49 @@
-.frame {
-    margin: 0 auto;
-    border-width: 0;
-    border-style: solid;
-    height: 70vh;
-    width: 90vw;
+@font-face {
+    font-family: "Avenir-Roman";
+    src: url("fonts\\AvenirLTStd-Roman.otf");
 }
 
-.landingText {
-  height: auto;
-  width: 90vw;
-  margin: 4vh auto;
-  font-family: sans-serif;
-  font-size: 24px;
+@font-face {
+    font-family: "Avenir-Bold";
+    src: url("fonts\\AvenirLTStd-Black.otf");
+    font-weight: bold;
+}
+
+.container {
+    width: 90vw;
+    overflow: hidden;
+}
+
+#viewport {
+    float: left;
+    margin: 5px;
+    width: 75vw;
+    height: 60vh;
+}
+
+.menu {
+    float:left;
+    margin: 5px;
+    width: 10vw;
+}
+
+body {
+    font-family: "Avenir-Roman";
+    font-size: 12pt;
+}
+
+.menuItem {
+  color:000000;
+  text-decoration: none;
+}
+
+.menuItem:hover {
+    font-family: "Avenir-Bold";
+    font-size: 11pt;
+    color: 054F0C;
+}
+
+ul {
+  list-style: none;
+  padding: 5px;
 }

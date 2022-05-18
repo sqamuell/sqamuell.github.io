@@ -7,12 +7,12 @@ function setup() {
   pixelDensity(1);
   frameRate(60);
 
-  var myDiv = select('#scriptContainer');
+  var myDiv = select('#viewport');
   myWidth = myDiv.width-3;
   myHeight = myDiv.height-3;
 
   var myCanvas = createCanvas(myWidth, myHeight);
-  myCanvas.parent("scriptContainer");
+  myCanvas.parent("viewport");
 
   background(255);
   for (let i = 50; i < width; i += spacing) {
