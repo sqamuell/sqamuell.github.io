@@ -36,6 +36,10 @@ h1 {
   font-weight: normal;
 }
 
+p {
+  letter-spacing: 0.025em;
+}
+
 a {
   font-family: "MenuTitle-Font";
 }
