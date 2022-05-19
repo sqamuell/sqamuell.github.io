@@ -33,7 +33,7 @@ main {
 h1 {
   font-family: "MenuTitle-Font";
   font-size: 24px;
-  font-weight: normal;
+  font-weight: normal; 
 }
 
 p {
