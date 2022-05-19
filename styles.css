@@ -15,7 +15,7 @@ aside {
 
 main {
   margin: 0 0 0 235px;
-  max-width: 1000px;
+  max-width: 800px;
 }
 
 .wrapper {
@@ -38,6 +38,7 @@ h1 {
 }
 
 p {
+  text-align: justify;
   letter-spacing: 0.025em;
 }
 
@@ -68,14 +69,21 @@ li {
 
 /* IMAGE SIZE AND CLASSES  */
 
-img {
-  max-width: 75vw;
-  max-height: 800px;
+.gallery img {
+  /* float:left; */
+  /* width: 50%; */
+  max-width: 800px;
 }
 
-.render {
-  max-width: 800px;
-  max-height: 800px;
+img {
+  max-width: 75vw;
+  /* max-height: 800px; */
+}
+
+.in-line {
+  width: 100%;
+  margin: auto;
+  display: block;
 }
 
 /* ADDED FONTS  */
