@@ -9,23 +9,24 @@ body {
 }
 
 aside {
-  flex: 1 0 10%;
+  width: 400px;
+  position: fixed;
 }
 
 main {
-  overflow-y: auto;
-  width: 100%;
+  margin: 0 0 0 215px;
+  max-width: 1000px;
 }
 
 .wrapper {
   display: flex;
-  height: 100%;
 }
 
 /* JAVASCRIPT VIEWPORT */
 
 #viewport {
     height: 90vh;
+    width: 75vw;
 }
 
 /* OTHER TEXT */
@@ -33,7 +34,7 @@ main {
 h1 {
   font-family: "MenuTitle-Font";
   font-size: 24px;
-  font-weight: normal; 
+  font-weight: normal;
 }
 
 p {
