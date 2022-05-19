@@ -9,12 +9,12 @@ body {
 }
 
 aside {
-  width: 400px;
+  width: 235px;
   position: fixed;
 }
 
 main {
-  margin: 0 0 0 215px;
+  margin: 0 0 0 235px;
   max-width: 1000px;
 }
 
