@@ -69,6 +69,12 @@ li {
 
 /* IMAGE SIZE AND CLASSES  */
 
+iframe {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
 img {
   max-width: 75vw;
   /* max-height: 800px; */
