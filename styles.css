@@ -14,7 +14,7 @@ aside {
 }
 
 main {
-  margin: 0 0 0 235px;
+  margin: 50px 0 0 235px;
   max-width: 800px;
 }
 
@@ -25,7 +25,7 @@ main {
 /* JAVASCRIPT VIEWPORT */
 
 #viewport {
-    height: 90vh;
+    height: 75vh;
     width: 75vw;
 }
 
@@ -69,12 +69,6 @@ li {
 
 /* IMAGE SIZE AND CLASSES  */
 
-.gallery img {
-  /* float:left; */
-  /* width: 50%; */
-  max-width: 800px;
-}
-
 img {
   max-width: 75vw;
   /* max-height: 800px; */
@@ -82,6 +76,12 @@ img {
 
 .in-line {
   width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.smaller-in-line {
+  width: 35%;
   margin: auto;
   display: block;
 }
