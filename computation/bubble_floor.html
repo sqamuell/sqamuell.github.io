@@ -41,13 +41,25 @@
           The Bubble2Floor is an implementation of the Pix2Pix GAN-model, and is a tool for
           spatial prototyping of built spaces. It was a collaboration between Twisha Raja and Samuel Losi.
           <br><br>
+          It works in three main steps-
+        </p>
+        <img src="../mats/bubbles_floors/workflow.jpg" class="in-line">
+        <p>
           The objective of the bubble2floor Generator the design of housing units. The workflow
           is includes the use of a few different softwares that are popularly employed in design circles.
+
+        </p>
+        <img src="../mats/bubbles_floors/data.jpg" class="in-line">
+        <p>
           Bubble-diagrams generated from the Rhino-Grasshopper workspace are pushed through a
-          pytorch model trained on bubble-diagram and floor plan pairs. This model is utilized to
+          pytorch model trained on bubble-diagram and floor plan pairs.This model is utilized to
           generate a series of floor plan representations of the bubble-diagram, which then creates
-          approximated room geometries using openCV on these images. Finally, the geometries are
-          pulled back into the Rhino-Grasshopper workspace and tweaked to the designers’ liking.
+          approximated room geometries using openCV on these images.
+        </p>
+        <img src="../mats/bubbles_floors/transform.jpg" class="smaller-in-line">
+        <p>
+          The generated floor plan image is then passed through openCV to define the locations of walls.
+          Finally, the walls are extruded with Rhino & Grasshopper, then tweaked to the designers’ liking.
         </p>
         <img src="../mats/bubbles_floors/axon_result.jpg" class="in-line">
         <br><br>
