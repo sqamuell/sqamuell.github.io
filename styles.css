@@ -46,28 +46,6 @@ p {
 a {
   font-family: "MenuTitle-Font";
 }
-
-/* MENU ITEMS */
-
-.menuItem {
-  font-size: 12px;
-  color:0;
-  text-decoration: none;
-}
-
-.menuItem:hover {
-    color: #F8C471;
-}
-
-ul {
-  list-style: none;
-  padding: 0 5px;
-}
-
-li {
-  list-style: none;
-}
-
 /* IMAGE SIZE AND CLASSES  */
 
 iframe {
@@ -107,6 +85,30 @@ img {
     font-weight: bold;
 }
 
+/* MENU ITEMS */
+
+.menuButton {
+  display: none;
+}
+
+.menuItem {
+  font-size: 12px;
+  color:0;
+  text-decoration: none;
+}
+
+.menuItem:hover {
+    color: #F8C471;
+}
+
+ul {
+  list-style: none;
+  padding: 0 5px;
+}
+
+li {
+  list-style: none;
+}
 
 
 @media screen and (max-width: 678px){
@@ -144,6 +146,7 @@ img {
   }
 
   .menuButton {
+    display: block;
     font-size: 12px;
     color:0;
     text-decoration: none;
