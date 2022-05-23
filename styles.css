@@ -14,7 +14,7 @@ body {
 }
 
 main {
-  margin: 50px 10px 0 200px;
+  margin: 50px 10px 50px 200px;
   max-width: 800px;
 }
 
@@ -87,10 +87,6 @@ img {
 
 /* MENU ITEMS */
 
-.menuButton {
-  display: none;
-}
-
 .menuItem {
   font-size: 12px;
   color:0;
@@ -110,19 +106,23 @@ li {
   list-style: none;
 }
 
+#floating-menu {
+  display-style: none;
+}
+
 
 @media screen and (orientation: portrait){
   .title{
     display: none;
   }
 
-  .menu{
+  #menu{
     display: none;
     background: white;
   }
 
   main {
-    margin: 50px 10px 0 10px;
+    margin: 70px auto 70px auto;
     max-width: 800px;
   }
 
@@ -139,17 +139,12 @@ li {
     width: 100%;
     position: fixed;
   }
+
   .menuItem {
     font-size: 24px;
     color:0;
     text-decoration: none;
-  }
-
-  .menuButton {
-    display: block;
-    font-size: 12px;
-    color:0;
-    text-decoration: none;
     cursor: pointer;
   }
+
 }

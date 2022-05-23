@@ -38,7 +38,7 @@
       </div>
       <nav class="floating-menu">
         <ul>
-          <li><a class="menuButton" id="floating-menu">//</a></li>
+          <li><a class="menuItem" id="floating-menu">//</a></li>
         </ul>
       </nav>
       <main>
@@ -65,15 +65,18 @@
       </main>
     </div>
     <script>
-      const targetDiv = document.getElementById("menu");
-      const btn = document.getElementById("floating-menu");
-      btn.onclick = function () {
-        if (targetDiv.style.display !== "none") {
-          targetDiv.style.display = "none";
-        } else {
-          targetDiv.style.display = "block";
+      window.onload  = function () {
+        const targetDiv = document.getElementById("menu");
+        const btn = document.getElementById("floating-menu");
+        targetDiv.style.display = "none";
+        btn.onclick = function () {
+          if (targetDiv.style.display == "none") {
+            targetDiv.style.display = "block";
+          } else {
+            targetDiv.style.display = "none";
+          }
         }
-      };
+      }
     </script>
   </body>
 </html>
