@@ -136,6 +136,7 @@ li {
     border: 0.1px dotted;
   }
   .menu {
+    display: none;
     width: 100%;
     position: fixed;
   }
