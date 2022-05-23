@@ -125,12 +125,10 @@ li {
 
   .floating-menu {
     display: block;
-    background: white;
-    width: autp;
-    padding: 5px 0;
+    width: auto;
+    padding: 0 5px;
     z-index: 100;
     position: fixed;
-    border: 0.1px dotted;
   }
   .menu {
     display: none;
