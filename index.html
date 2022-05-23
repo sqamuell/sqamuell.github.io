@@ -1,5 +1,6 @@
 <html>
   <head>
+    <title>samlosi.com</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <script src="p5.js"></script>
@@ -7,39 +8,55 @@
   </head>
   <body>
     <div class="wrapper">
-      <aside>
-        <ul>
-          <li><a class="menuItem" href="index.html">//</a></li>
+        <div class="menu" id="menu">
+          <ul>
+            <li><a class="menuItem" href="index.html">//</a></li>
+            <br>
+          </ul>
+          <ul>
+            <li><a>computation:</a></li>
+            <br>
+            <li><a class="menuItem" href="computation/place_holder.html">15-112: placeHolder</a></li>
+            <li><a class="menuItem" href="computation/collaborative_weaving.html">Collaborative Weaving</a></li>
+            <li><a class="menuItem" href="computation/design_fabrication.html">Design Fabrication</a></li>
+            <li><a class="menuItem" href="computation/aggregation.html">Aggregation</a></li>
+            <li><a class="menuItem" href="computation/cybernetic_field.html">Cybernetic Field</a></li>
+            <li><a class="menuItem" href="computation/bubble_floor.html">BubblesToFloors</a></li>
+          </ul>
+          <ul>
+            <li><a>architecture:</a></li>
+            <br>
+            <li><a class="menuItem" href="architecture/sprawl_resilience.html">Sprawl & Resilience</a></li>
+            <li><a class="menuItem" href="architecture/spring_garden_hostel.html">Spring Garden Hostel</a></li>
+            <li><a class="menuItem" href="architecture/environmental_learning_center.html">ELC: Carrick</a></li>
+            <li><a class="menuItem" href="architecture/six_mile_island.html">6-mile Island</a></li>
+            <li><a class="menuItem" href="architecture/hoop_house.html">Hoop House</a></li>
+          </ul>
           <br>
-        </ul>
-        <ul>
-          <li><a>computation:</a></li>
-          <br>
-          <li><a class="menuItem" href="computation/place_holder.html">15-112: placeHolder</a></li>
-          <li><a class="menuItem" href="computation/collaborative_weaving.html">Collaborative Weaving</a></li>
-          <li><a class="menuItem" href="computation/design_fabrication.html">Design Fabrication</a></li>
-          <li><a class="menuItem" href="computation/aggregation.html">Aggregation</a></li>
-          <li><a class="menuItem" href="computation/cybernetic_field.html">Cybernetic Field</a></li>
-          <li><a class="menuItem" href="computation/bubble_floor.html">BubblesToFloors</a></li>
-        </ul>
-        <ul>
-          <li><a>architecture:</a></li>
-          <br>
-          <li><a class="menuItem" href="architecture/sprawl_resilience.html">Sprawl & Resilience</a></li>
-          <li><a class="menuItem" href="architecture/spring_garden_hostel.html">Spring Garden Hostel</a></li>
-          <li><a class="menuItem" href="architecture/environmental_learning_center.html">ELC: Carrick</a></li>
-          <li><a class="menuItem" href="architecture/six_mile_island.html">6-mile Island</a></li>
-          <li><a class="menuItem" href="architecture/hoop_house.html">Hoop House</a></li>
-        </ul>
-        <br>
-        <ul>
-          <li><a class="menuItem" href="">Resume</a></li>
-          <li><a class="menuItem" href="https://issuu.com/samlosi/docs/portfolio"target="_blank">Portfolio</a></li>
-        </ul>
-      </aside>
+          <ul>
+            <li><a class="menuItem" href="">Resume</a></li>
+            <li><a class="menuItem" href="https://issuu.com/samlosi/docs/portfolio"target="_blank">Portfolio</a></li>
+          </ul>
+        </div>
+        <nav class="floating-menu">
+          <ul>
+            <li><a class="menuButton" id="floating-menu">//</a></li>
+          </ul>
+        </nav>
       <main>
       	<div id="viewport"></div>
       </main>
     </div>
+    <script>
+      const targetDiv = document.getElementById("menu");
+      const btn = document.getElementById("floating-menu");
+      btn.onclick = function () {
+        if (targetDiv.style.display !== "none") {
+          targetDiv.style.display = "none";
+        } else {
+          targetDiv.style.display = "block";
+        }
+      };
+    </script>
   </body>
 </html>

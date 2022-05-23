@@ -1,11 +1,12 @@
 <html>
   <head>
+    <title>Sprawl & Resilience</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
   </head>
   <body>
     <div class="wrapper">
-      <aside>
+      <div class="menu" id="menu">
         <ul>
           <li><a class="menuItem" href="../index.html">//</a></li>
           <br>
@@ -34,7 +35,12 @@
           <li><a class="menuItem" href="">Resume</a></li>
           <li><a class="menuItem" href="https://issuu.com/samlosi/docs/portfolio"target="_blank">Portfolio</a></li>
         </ul>
-      </aside>
+      </div>
+      <nav class="floating-menu">
+        <ul>
+          <li><a class="menuButton" id="floating-menu">//</a></li>
+        </ul>
+      </nav>
       <main>
         <h1>Sprawl & Resilience (2022)</h1>
         <p>
@@ -44,5 +50,16 @@
         <br><br>
       </main>
     </div>
+    <script>
+      const targetDiv = document.getElementById("menu");
+      const btn = document.getElementById("floating-menu");
+      btn.onclick = function () {
+        if (targetDiv.style.display !== "none") {
+          targetDiv.style.display = "none";
+        } else {
+          targetDiv.style.display = "block";
+        }
+      };
+    </script>
   </body>
 </html>
