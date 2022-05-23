@@ -112,9 +112,6 @@ li {
 
 
 @media (pointer:none), (pointer:coarse){
-  .title{
-    display: none;
-  }
 
   #menu{
     display: none;
@@ -127,7 +124,7 @@ li {
   }
 
   .floating-menu {
-    display: fixed;
+    display: block;
     background: white;
     width: 50px;
     padding: 5px 0;
