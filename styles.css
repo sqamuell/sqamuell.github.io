@@ -119,14 +119,14 @@ li {
   }
 
   main {
-    margin: 70px auto 70px auto;
+    margin: 100px auto 100px auto;
     max-width: 800px;
   }
 
   .floating-menu {
     display: block;
     background: white;
-    width: 50px;
+    width: autp;
     padding: 5px 0;
     z-index: 100;
     position: fixed;
