@@ -111,7 +111,7 @@ li {
 }
 
 
-@media screen and (orientation: portrait){
+@media (pointer:none), (pointer:coarse){
   .title{
     display: none;
   }
