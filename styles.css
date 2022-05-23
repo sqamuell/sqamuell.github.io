@@ -106,7 +106,7 @@ li {
   list-style: none;
 }
 
-#floating-menu {
+.floating-menu {
   display: none;
 }
 
@@ -127,7 +127,7 @@ li {
   }
 
   .floating-menu {
-    font-family: sans-serif;
+    display: fixed;
     background: white;
     width: 50px;
     padding: 5px 0;
