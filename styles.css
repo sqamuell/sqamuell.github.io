@@ -111,7 +111,7 @@ li {
 }
 
 
-@media screen and (max-width: 678px){
+@media screen and (orientation: portrait){
   .title{
     display: none;
   }
