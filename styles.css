@@ -26,8 +26,8 @@ main {
 /* JAVASCRIPT VIEWPORT */
 
 #viewport {
-    height: 75vh;
-    width: 75vw;
+    height: 50vh;
+    width: 100%;
 }
 
 /* OTHER TEXT */
@@ -94,6 +94,23 @@ img {
 }
 
 .menuItem:hover {
+    color: #F8C471;
+}
+
+.menuItemPresent {
+  font-size: 12px;
+  color:0;
+  text-decoration: none;
+  color: #c7c7c7;
+}
+
+.bodyItem {
+  font-family: "Body-Font";
+  color:0;
+  text-decoration: underline;
+}
+
+.bodyItem:hover {
     color: #F8C471;
 }
 
