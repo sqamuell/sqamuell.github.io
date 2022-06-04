@@ -154,8 +154,11 @@ li {
 
   .menuItem {
     font-size: 48px;
-    color:0;
-    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .menuItemPresent {
+    font-size: 48px;
     cursor: pointer;
   }
 
