@@ -47,18 +47,6 @@ a {
   font-family: "MenuTitle-Font";
 }
 
-.poem {
-  font-family: "Poem-Poem-Font";
-  text-align: left;
-}
-
-.musing {
-  font-family: "Poem-Body-Font";
-  width: 95%;
-  text-align: left;
-  font-weight: 300;
-}
-
 /* IMAGE SIZE AND CLASSES  */
 
 iframe {
@@ -95,18 +83,6 @@ img {
 @font-face {
     font-family: "Body-Font";
     src: url("fonts\\ProximaNova.otf");
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Poem-Poem-Font";
-    src: url("fonts\\EBGaramond.otf");
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Poem-Body-Font";
-    src: url("fonts\\HelveticaNeue.ttf");
     font-weight: bold;
 }
 
@@ -195,18 +171,6 @@ li {
   .wrapper {
     display: flex;
     max-width: 100vw;
-  }
-
-  .poem {
-    font-family: "Poem-Poem-Font";
-    text-align: left;
-  }
-
-  .musing {
-    font-family: "Poem-Body-Font";
-    width: 95%;
-    text-align: left;
-    font-weight: 300;
   }
 
 }
