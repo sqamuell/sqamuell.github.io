@@ -213,6 +213,7 @@ li {
     z-index: 100;
     position: fixed;
   }
+
   .menu {
     display: none;
     width: 100%;
@@ -241,6 +242,10 @@ li {
 
   .modal-content {
     width: 100%;
+  }
+
+  .close {
+    font-size: 80px;
   }
 
 }
