@@ -1,0 +1,368 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>SL: Water Sports</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function openNav() {
+      $("#menu").css("width", "100%");
+      $(".closebtn").css("display", "block");
+      $(".floating-menu").css("display", "none");
+      $('html, body').css({ overflow: 'hidden', height: '100%' });
+    }
+    function closeNav() {
+      $("#menu").css("width", "0");
+      $(".closebtn").css("display", "none");
+      $(".floating-menu").css("display", "block");
+      $('html, body').css({ overflow: 'auto', height: 'unset' });
+    }
+    document.onkeydown = function (e) {
+      switch (e.which) {
+        case 8: // backspace
+          window.history.back();
+          break;
+      }
+    };
+  </script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="menu" id="menu">
+      <ul>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <li><a class="menuItem" href="../index.html">//</a></li>
+        <br>
+      </ul>
+      <ul>
+        <li><a class="menuSection">computation:</a></li>
+        <br>
+        <li><a class="menuItem" href="../projects/honeycomb.html">Honeycomb</a></li>
+        <li><a class="menuItem" href="../projects/horse_chariot.html">Horse & Chariot</a></li>
+        <li><a class="menuItemPresent" href="../projects/water_sports.html">Water Sports</a></li>
+        <li><a class="menuItem" href="../projects/collaborative_weaving.html">Collaborative Weaving</a></li>
+        <li><a class="menuItem" href="../projects/design_fabrication.html">Design Fabrication</a></li>
+        <li><a class="menuItem" href="../projects/aggregation.html">Aggregation</a></li>
+        <li><a class="menuItem" href="../projects/place_holder.html">15-112: placeHolder</a></li>
+        <li><a class="menuItem" href="../projects/cybernetic_field.html">Cybernetic Field</a></li>
+        <li><a class="menuItem" href="../projects/bubble_floor.html">BubblesToFloors</a></li>
+      </ul>
+      <ul>
+        <li><a class="menuSection">architecture:</a></li>
+        <br>
+        <li><a class="menuItem" href="../projects/sprawl_resilience.html">Sprawl & Resilience</a></li>
+        <li><a class="menuItem" href="../projects/spring_garden_hostel.html">Spring Garden Hostel</a></li>
+        <li><a class="menuItem" href="../projects/environmental_learning_center.html">ELC: Carrick</a></li>
+        <li><a class="menuItem" href="../projects/six_mile_island.html">6-mile Island</a></li>
+        <li><a class="menuItem" href="../projects/hoop_house.html">Hoop House</a></li>
+        <li><a class="menuItem" href="../projects/bathhouse.html">Bathhouse</a></li>
+        <li><a class="menuItem" href="../projects/misc.html">Misc</a></li>
+      </ul>
+      <br>
+      <ul>
+        <li><a class="menuItem" href="../mats/samLosi_resume.pdf" download target="_blank">Resume</a></li>
+        <li><a class="menuItem" href="https://issuu.com/samlosi/docs/portfolio" target="_blank">Portfolio</a></li>
+      </ul>
+      <br>
+      <div class="linksContain">
+        <ul class="links">
+          <li><a href="https://www.instagram.com/sqamuel/" target="_blank">
+              <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <rect width="16" height="16" rx="1.5" ry="1.5" />
+                <path
+                  d="M 8 2.313 C 6.457 2.313 6.262 2.32 5.656 2.347 C 5.05 2.375 4.637 2.47 4.275 2.611 C 3.895 2.753 3.551 2.977 3.267 3.267 C 2.978 3.551 2.754 3.895 2.611 4.275 C 2.47 4.636 2.374 5.05 2.347 5.654 C 2.32 6.262 2.313 6.455 2.313 8.001 C 2.313 9.545 2.32 9.738 2.347 10.345 C 2.375 10.95 2.47 11.363 2.611 11.725 C 2.757 12.099 2.951 12.416 3.267 12.733 C 3.583 13.049 3.9 13.244 4.274 13.389 C 4.637 13.53 5.049 13.626 5.655 13.653 C 6.262 13.68 6.455 13.687 8 13.687 C 9.545 13.687 9.738 13.68 10.345 13.653 C 10.95 13.625 11.364 13.53 11.726 13.389 C 12.105 13.246 12.448 13.022 12.733 12.733 C 13.049 12.416 13.243 12.099 13.389 11.725 C 13.529 11.363 13.625 10.95 13.653 10.345 C 13.68 9.738 13.687 9.545 13.687 8 C 13.687 6.455 13.68 6.262 13.653 5.655 C 13.625 5.05 13.529 4.636 13.389 4.275 C 13.246 3.895 13.022 3.551 12.733 3.267 C 12.448 2.977 12.105 2.753 11.725 2.611 C 11.363 2.47 10.949 2.374 10.344 2.347 C 9.737 2.32 9.544 2.313 7.999 2.313 L 8.001 2.313 L 8 2.313 Z M 7.49 3.338 L 8.001 3.338 C 9.519 3.338 9.699 3.343 10.298 3.37 C 10.853 3.395 11.154 3.488 11.355 3.566 C 11.62 3.669 11.81 3.793 12.009 3.992 C 12.208 4.191 12.331 4.38 12.434 4.646 C 12.512 4.846 12.605 5.147 12.63 5.702 C 12.657 6.301 12.663 6.481 12.663 7.999 C 12.663 9.516 12.657 9.697 12.63 10.296 C 12.605 10.851 12.512 11.152 12.434 11.352 C 12.342 11.599 12.197 11.822 12.008 12.005 C 11.809 12.204 11.62 12.327 11.354 12.431 C 11.155 12.509 10.854 12.601 10.298 12.627 C 9.699 12.654 9.519 12.66 8.001 12.66 C 6.482 12.66 6.302 12.654 5.702 12.627 C 5.148 12.601 4.847 12.509 4.647 12.431 C 4.399 12.34 4.176 12.194 3.992 12.005 C 3.803 11.822 3.657 11.598 3.566 11.351 C 3.488 11.152 3.395 10.85 3.37 10.296 C 3.343 9.696 3.338 9.516 3.338 7.997 C 3.338 6.479 3.343 6.299 3.37 5.7 C 3.396 5.146 3.488 4.844 3.567 4.644 C 3.67 4.379 3.793 4.189 3.992 3.99 C 4.192 3.791 4.381 3.668 4.647 3.565 C 4.847 3.486 5.148 3.394 5.702 3.368 C 6.227 3.344 6.43 3.337 7.49 3.336 L 7.49 3.338 Z M 11.036 4.282 C 10.511 4.282 10.183 4.851 10.445 5.306 C 10.567 5.517 10.793 5.647 11.036 5.647 C 11.562 5.647 11.89 5.078 11.627 4.623 C 11.506 4.412 11.28 4.282 11.036 4.282 Z M 8.001 5.08 C 5.752 5.044 4.309 7.456 5.402 9.421 C 5.926 10.362 6.924 10.938 8.001 10.921 C 10.249 10.886 11.616 8.43 10.462 6.5 C 9.942 5.633 9.012 5.095 8.001 5.08 Z M 8.001 6.104 C 9.46 6.104 10.372 7.684 9.642 8.948 C 9.304 9.534 8.678 9.896 8.001 9.896 C 6.541 9.896 5.628 8.316 6.358 7.052 C 6.697 6.465 7.323 6.104 8.001 6.104 Z"
+                  style="fill: rgb(255, 255, 255);" />
+              </svg>
+            </a></li>
+          <li><a href="https://www.linkedin.com/in/samuel-losi-3012bb153" target="_blank">
+              <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+              </svg>
+            </a></li>
+        </ul>
+      </div>
+    </div>
+    <nav class="floating-menu">
+      <a class="menuLines" onclick="openNav()">&#9776;</a>
+    </nav>
+    <main>
+      <h1>Water Sports: <i>Hyper Hydration & Water QWOP</i> (2023)</h1>
+      <hr>
+      <p>
+        <i>Water Sports: Hyper Hydration & Water QWOP</i> is a foray into machine learning via two projects involving
+        optimization algorithms and reinforcement learning. It places a tubular geometry, representing a water bottle at
+        the center of the inquiry. Firstly, single objective optimization for the 3D profile that empties itself the
+        fastest and then mulit-objective optimization by balancing emptying speed and surface area.
+      </p>
+      <p>
+        The code and studies for this project can be found on Github,
+        <a href="https://github.com/sqamuell/hyper-hydration" target="_blank" class="bodyItem">here</a>.
+      </p>
+      <center>
+        <table style="width: 70%;">
+          <tr>
+            <td style="width: 50%"><img id="1" src="../mats/water_sports/hh_cover.jpg"></td>
+            <td style="width: 50%"><img id="2" src="../mats/water_sports/qwop_agent_begin.gif"></td>
+          </tr>
+        </table>
+      </center>
+      <p>
+        This project was developed as part of the Computational Explorations seminar at ITECH master´s program in
+        collaboration with Chris Kang, Markus Renner, and Cornerlius Carl.
+      </p>
+      <h2>Part 1. Hyper Hydration</h2>
+      <p>
+        The project's initial phase involved implementing various algorithms encompassing both single and
+        multi-objective optimization techniques to efficiently optimize the shape of a water bottle. The project aimed
+        to develop a water bottle model with fixed top and bottom sizes while allowing for a variable profile along the
+        entire circumference. The primary objective was identifying optimal parameters for efficient water release,
+        minimizing the time required for water to exit.
+      </p>
+      <img id="3" src="../mats/water_sports/hh_aim.png" class="in-line">
+      <p>
+        The single-objective optimization focused on maximizing water expulsion speed from the bottle. The
+        multi-objective optimization strategy introduced an additional factor – the size of the exit cap. The aim was to
+        strike a balance between water release speed and minimizing the cap size, a challenge due to the conflicting
+        nature of these two objectives.
+      </p>
+      <!-- <img id="1" src="../mats/water_sports/hh_workflow.png" class="medium-in-line"> -->
+      <p>
+        The workflow utilized a Python library to generate NURBS surfaces exported as STL files. These were processed by
+        a Blender script to combine static bodies representing the cap and water storage. An alternative Python library
+        was later used to address seam issues. Post mesh generation, FluidX3d, a modified CFD simulation, used STL files
+        as input. Adjustments were made to the simulation's source code using C++ for dynamic data exchange. A Python
+        script managed the process, leveraging algorithms to trigger simulation runs.
+      </p>
+      <img id="4" src="../mats/water_sports/hh_sim_setup.png" class="in-line">
+      <p>
+        The bottle's design utilized 5 circles with 6 control points each, totaling 30 parameters. Control points
+        allowed flexible shape creation along a line between the central point and a radius of 1. Static bodies were
+        consistently incorporated at both ends of the bottle, serving distinct purposes. The first housed water storage,
+        while the final acted as the cap for controlled water release.
+      </p>
+      <center>
+        <table>
+          <tr>
+            <td><img id="5" src="../mats/water_sports/hh_sim1.gif"></td>
+            <td><img id="6" src="../mats/water_sports/hh_sim2.gif"></td>
+          </tr>
+          <tr>
+            <td><img id="7" src="../mats/water_sports/hh_sim3.gif"></td>
+            <td><img id="8" src="../mats/water_sports/hh_sim4.gif"></td>
+          </tr>
+        </table>
+      </center>
+      <p>
+        Initial observations from single-objective optimization were inconclusive regarding curvature patterns.
+        Throughout experimentation, the rbfopt algorithm outperformed others in speed and robustness, demonstrating
+        advantages in optimization efficiency.
+        Optimized single-objective designs aimed to enhance drainage efficiency through vortex creation, achieving an
+        11% improvement compared to a simple cylinder. Further analysis was needed to understand these improvements.
+      </p>
+      <!-- <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <table>
+          <tr>
+            <td><img id="5" src="../mats/water_sports/x.png"></td>
+            <td><img id="6" src="../mats/water_sports/y.png"></td>
+            <td><img id="7" src="../mats/water_sports/z.png"></td>
+          </tr>
+        </table>
+        <br><br>
+        <table>
+          <tr>
+            <td><img id="8" src="../mats/water_sports/hh_vase003_graph.png"></td>
+            <td><img id="9" src="../mats/water_sports/hh_vase001_graph.png"></td>
+            <td><img id="10" src="../mats/water_sports/hh_vase002_graph.png"></td>
+          </tr>
+        </table> -->
+      <p><b>Single-Objective Convergence & Robustness</b></p>
+      <img id="9" src="../mats/water_sports/hh_single.png" class="in-line">
+      <p>
+        In the context of multi-objective optimization, it was observed that both NSGA2 and NSGA3 yielded similar
+        outputs. However, NSGA2 outperformed other algorithms in terms of convergence and objective achievement.
+        Unfortunately, the extensive simulation time of approximately 12 hours per run posed a challenge in evaluating
+        algorithm robustness.
+      </p>
+      <p><b>Multi-Objective Convergence & Robustness</b></p>
+      <img id="10" src="../mats/water_sports/hh_multi.png" class="in-line">
+      <p>
+        In contrast to single-objective optimization results, the outcomes of multi-objective optimization displayed
+        distinct differences in optimized objectives and overall bottle shape. Unlike single-objective optimization,
+        which focused on specific improvements, multi-objective optimization considered multiple objectives
+        simultaneously.
+      </p>
+      <p><b>Clustering</b></p>
+      <img id="11" src="../mats/water_sports/hh_clustering.png" class="in-line">
+      <p>
+        The optimization process explores a broader range of design possibilities and objectives, leading to a greater
+        diversity in the optimized bottle shapes and objectives achieved. The multi-objective optimization aims to
+        strike a balance between conflicting objectives, such as maximizing drainage efficiency while minimizing
+        simulation steps or achieving an optimal shape while considering stability or other factors.
+      </p>
+      <p><b>Results (in simulation steps)</b></p>
+      <table class="hiddenMobile">
+        <tr>
+          <td><img id="12" src="../mats/water_sports/hh_normal.gif"></td>
+          <td><img id="13" src="../mats/water_sports/hh_rbf_opt.gif"></td>
+          <td><img id="14" src="../mats/water_sports/hh_cmaes.gif"></td>
+          <td><img id="15" src="../mats/water_sports/hh_random.gif"></td>
+        </tr>
+        <tr>
+          <td style="width: 25%;">Unoptimized: 17,396</td>
+          <td style="width: 25%;">RBFOpt: 15,849</td>
+          <td style="width: 25%;">CMAE-S: 15,863</td>
+          <td style="width: 25%;">Random: 16,004</td>
+        </tr>
+      </table>
+      <table class="hiddenDesktop">
+        <tr>
+          <td><img id="12" src="../mats/water_sports/hh_normal.gif"></td>
+          <td><img id="13" src="../mats/water_sports/hh_rbf_opt.gif"></td>
+        </tr>
+        <tr>
+          <td style="width: 50%;">Unoptimized: 17,396</td>
+          <td style="width: 50%;">RBFOpt: 15,849</td>
+        </tr>
+        <tr>
+          <td><img id="14" src="../mats/water_sports/hh_cmaes.gif"></td>
+          <td><img id="15" src="../mats/water_sports/hh_random.gif"></td>
+        </tr>
+        <tr>
+          <td style="width: 50%;">CMAE-S: 15,863</td>
+          <td style="width: 50%;">Random: 16,004</td>
+        </tr>
+      </table>
+      <p>
+        The diverse objectives and inherent trade-offs in multi-objective optimization generated a broader spectrum of
+        optimized bottle shapes and objectives. This diversity allowed for a comprehensive exploration of the design
+        space, enabling decision-makers to select solutions aligned with their specific needs and priorities
+      </p>
+      <br>
+
+
+
+      <h2>Part 2. Water QWOP</h2>
+      <p>
+        Drawing inspiration from the extensively studied game QWOP, the team aimed to develop their own version of the
+        game. In this iteration, the primary objective was to optimize the distance water could be thrown, striving for
+        maximum range.
+      </p>
+      <img id="16" src="../mats/water_sports/qwop_concept.png" class="medium-in-line">
+      <p>
+        To establish a reward system, water droplets were programmed to propel themselves before freezing upon floor
+        contact. Measurements were taken from the bucket's position to the landing spot, determining a reward based on
+        average distance per throw. This reward calculation evaluated the agent's performance in maximizing throwing
+        distance.
+      </p>
+      <img id="17" src="../mats/water_sports/qwop_measurement.gif" class="in-line"
+        style="aspect-ratio: 5 / 2; object-fit: cover;">
+      <p>
+        The Unity-based agent featured elongated arms with hinge joints, connected at the base, and equipped with a
+        bucket. Water spheres within the bucket simulated throwing.
+      </p>
+      <!-- <img id="4" src="../mats/water_sports/qwop_agent.png" class="medium-in-line"> -->
+      <table>
+        <tr>
+          <td style="width: 50%"><img id="18" src="../mats/water_sports/qwop_agent.png"></td>
+          <td style="width: 50%"><img id="19" src="../mats/water_sports/qwop_agent_begin.gif"></td>
+        </tr>
+      </table>
+      <p>
+        The agent's arms are composed of four distinct sections, each equipped with five hinge joints. Among these
+        joints, four are driven by motors that respond to specific key presses, enabling controlled articulation of the
+        arms. The bucket, on the other hand, accommodates ten individual spheres that represent the water. These spheres
+        possess the ability to move freely and are propelled in accordance with the velocity and movement of the bucket,
+        simulating the throwing action.
+      </p>
+      <img id="20" src="../mats/water_sports/qwop_controls.png" class="medium-in-line">
+      <p>
+        The actuation of the right shoulder is assigned to the key Q, the right elbow to the key W, the left elbow to
+        the key O, the right elbow to the key P, and the forward and backward rotation of the bucket at the wrists is
+        controlled by the keys A and S, respectively.
+      </p>
+      <img id="21" src="../mats/water_sports/qwop_agent_array.gif" class="in-line">
+      <p>
+        With the environment now configured, a prefab was generated to streamline the setup process. This prefab served
+        as a template for creating multiple agents that could undergo simultaneous training. By employing this approach,
+        the training process could be efficiently conducted across numerous instances of the agent, allowing for
+        parallel training and enhanced optimization.
+      </p>
+      <p><b>Run 1: Reward & Episode Length</b></p>
+      <img id="22" src="../mats/water_sports/qwop_run1.png" class="in-line">
+      <p>
+        In the initial run, rewards were exclusively based on the speed of the bucket, neglecting other factors. Agents
+        were limited to observing the position, rotation, and velocity of the bucket. Their actions were determined by
+        discrete key presses, with a total of six available controls. The corresponding configuration file (.yaml) can
+        be found in the config folder of the Unity setup. Notably, the agent demonstrated visible improvement within
+        this setup, indicating progress in achieving optimal performance.
+      </p>
+      <img id="23" src="../mats/water_sports/qwop_agent_shakey.gif" class="medium-in-line">
+      <p>
+        Upon conducting a more thorough analysis, it became apparent that due to a bug affecting the rewards attributed
+        to the water being tossed and the subsequent average calculation, the agent's behavior became excessively
+        reliant on the speed of the bucket. This unintended outcome manifested as the observed "shaky-shakey" behavior.
+        Consequently, it was necessary to fine-tune both the observation inputs and reward system in order to correct
+        this issue and achieve the desired behavior from the agent.
+      </p>
+      <p><b>Runs 2-4: Reward & Episode Length</b></p>
+      <img id="24" src="../mats/water_sports/qwop_run2-4.png" class="in-line">
+      <p>
+        Subsequent training runs (2-4) primarily focused on refining the code, identifying and rectifying bugs to
+        enhance the agent's behavior. Unfortunately, these iterations did not yield significant progress in terms of
+        training outcomes beyond bug fixing. The primary objective during this phase was to troubleshoot and resolve
+        issues that were impeding the optimization of the agent's performance.
+      </p>
+      <img id="25" src="../mats/water_sports/qwop_rewards.png" class="medium-in-line">
+      <p>
+        After persistent efforts, the bug that hindered the agent from receiving rewards was successfully resolved.
+        Additionally, the maximum length of steps before resetting the episode was extended to 10,000, granting the
+        agent more opportunities for exploration and learning. Notably, a significant improvement was made by allowing
+        the agent to access the position information of all geometric elements within the scene. This expanded
+        observation capability provided the agent with a more comprehensive understanding of its environment, which
+        would likely contribute to enhanced performance and more sophisticated decision-making.
+      </p>
+      <img id="26" src="../mats/water_sports/qwop_agent_quick.gif" class="medium-in-line">
+      <p>
+        Under the revised constraints and expanded capabilities, the agent underwent an extensive training process,
+        encompassing approximately 18 million steps. Throughout this training period, the agent demonstrated a gradual
+        improvement in its ability to throw water over a distance. It is worth noting that while the agent's performance
+        falls short of that of a skilled human, with an average of 2.5 meter throws, the observed trend reveals
+        promising signs of continual progress and learning over time. This incremental improvement suggests that with
+        further iterations and refinement, the agent's performance has the potential to approach or even surpass human
+        proficiency in the task.
+      </p>
+      <p><b>Run 5: Reward & Episode Length</b></p>
+      <img id="27" src="../mats/water_sports/qwop_run5.png" class="in-line">
+      <p>
+        The observed behavior of the agent, as described above, indicates a tendency to swing the bucket back and forth
+        before dumping the geometry out. It is hypothesized that additional training runs and further fine-tuning of
+        parameters are necessary to achieve the desired outcome and refine the model's behavior. This iterative process
+        of experimentation, adjustment, and evaluation is often required to optimize the training of machine learning
+        models and align their actions more closely with the intended objectives. By conducting additional runs and
+        carefully tweaking the parameters, it is expected that the agent's performance can be further improved and the
+        undesired swinging behavior can be mitigated.
+      </p>
+
+      <br><br>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+      </div>
+
+      <script type="text/javascript" src="../modal.js"></script>
+    </main>
+  </div>
+</body>
+
+</html>
