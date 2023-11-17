@@ -309,7 +309,7 @@ function onTouchMove(event) {
 	else moveAmount = event.touches[0].screenX - moveLast;
 	moveLast = event.touches[0].screenX;
 	for (let i = 0; i < numAlbums; i++) {
-		albumTargets[i] += moveAmount / 100;
+		albumTargets[i] += moveAmount / 50;
 	}
 
 }
