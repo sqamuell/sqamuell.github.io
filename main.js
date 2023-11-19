@@ -4,18 +4,15 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 var albumNames = ["Bubbles2Floor", "Cybernetic Field", "115-12 placeHolder", "Aggregation", "Design Fabrication",
 	"Collaborative Weaving", "Water Sports", "Horse & Chariot", "Honeycomb", "Sprawl & Resilience",
-	"ELC: Carrick", "Spring Garden Hostel", "6-Mile Island", "Hoop House", "Bathhouse", "Miscellaneous"];
+	"Spring Garden Hostel", "ELC: Carrick", "6-Mile Island", "Hoop House", "Bathhouse", "Miscellaneous"];
 var albumYears = ["2021", "2021", "2020", "2019", "2019",
 	"2020", "2023", "2023", "2023", "2022",
-	"2020", "2019", "2019", "2018", "2019", "20xx"];
-var albumYears = ["2021", "2021", "2020", "2019", "2019",
-	"2020", "2023", "2023", "2023", "2022",
-	"2020", "2019", "2019", "2018", "2019", "20xx"];
+	"2019", "2020", "2019", "2018", "2019", "20xx"];
 var albumLinks = ["projects/bubble_floor.html", "projects/cybernetic_field.html", "projects/place_holder.html",
 	"projects/aggregation.html", "projects/design_fabrication.html", "projects/collaborative_weaving.html",
 	"projects/water_sports.html", "projects/horse_chariot.html", "projects/honeycomb.html",
-	"projects/sprawl_resilience.html", "projects/environmental_learning_center.html",
-	"projects/spring_garden_hostel.html", "projects/six_mile_island.html", "projects/hoop_house.html",
+	"projects/sprawl_resilience.html", "projects/spring_garden_hostel.html",
+	"projects/environmental_learning_center.html", "projects/six_mile_island.html", "projects/hoop_house.html",
 	"projects/bathhouse.html", "projects/misc.html"];
 
 let container = document.getElementById('albumHolder');
