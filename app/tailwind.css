@@ -1,0 +1,23 @@
+@tailwind base;
+
+@layer base {
+    h1 {
+        @apply text-2xl font-semibold uppercase;
+    }
+
+    h2 {
+        @apply text-lg font-semibold;
+    }
+
+    p {
+        @apply text-justify;
+    }
+
+    img {
+        @apply ml-auto mr-auto rounded-md;
+    }
+}
+
+;
+@tailwind components;
+@tailwind utilities;

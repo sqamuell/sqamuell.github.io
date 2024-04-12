@@ -1,0 +1,92 @@
+[
+  {
+    "name": "wax-flamingos",
+    "year": "2024",
+    "keywords": "Behavioral Robotics, Additive Manufacturing, Material Indeterminancy"
+  },
+  {
+    "name": "honeycomb",
+    "year": "2023",
+    "keywords": "Symmetry Groups, Parametric Design, Grasshopper Development"
+  },
+  {
+    "name": "water-qwop",
+    "year": "2023",
+    "keywords": "Reinforcement Learning, Unity Modeling, Game Agent Design"
+  },
+  {
+    "name": "horse-and-chariot",
+    "year": "2023",
+    "keywords": "Arduino Programming, Mobile Robotics, Data Transmission"
+  },
+  {
+    "name": "hyper-hydration",
+    "year": "2023",
+    "keywords": "Machine Learning, Optimization, Product Design"
+  },
+  {
+    "name": "sprawl-and-resilience",
+    "year": "2022",
+    "keywords": "Landscape Ecology, Board Game Design, Urban Planning"
+  },
+    {
+      "name": "cybernetic-field",
+      "year": "2021",
+      "keywords": "Cybernetics, Agent-Based Modeling, Human-Computer Interaction"
+    },
+    {
+      "name": "bubble-gan",
+      "year": "2021",
+      "keywords": "Machine Learning, Generative Adversarial Network, Architectural AI"
+    },
+    {
+      "name": "elc-carrick",
+      "year": "2020",
+      "keywords": "Educational Architecture, Materials and Assembly, Pittsburgh"
+    },
+    {
+      "name": "placeholder",
+      "year": "2020",
+      "keywords": "Photogrammetry, Python Programming, Software Design"
+    },
+    {
+      "name": "collaborative-winding",
+      "year": "2020",
+      "keywords": "Architectural Robotics, Dual-Robot, Digital Fabrication"
+    },
+    {
+      "name": "flood-museum",
+      "year": "2019",
+      "keywords": "Cultural Architecture, Combined Sewer System, Pittsburgh"
+    },
+    {
+      "name": "design-fabrication",
+      "year": "2019",
+      "keywords": "Digital Fabrication, Computer-Aided-Design, Spatial Extrapolation"
+    },
+    {
+      "name": "spring-garden-hostel",
+      "year": "2019",
+      "keywords": "Residential Architecture, Adaptive Reuse, Pittsburgh"
+    },
+    {
+      "name": "modular-garden",
+      "year": "2019",
+      "keywords": "Digital Fabrication, CNC Milling, Parametric Design"
+    },
+    {
+      "name": "bathhouse",
+      "year": "2019",
+      "keywords": "Recreational Archtiecture, Architectural Sequencing, White Mountains"
+    },
+    {
+      "name": "hoophouse",
+      "year": "2018",
+      "keywords": "Residential (for plants), Design & Build, Phipps Conservatory"
+    },
+    {
+      "name": "misc",
+      "year": "2017-",
+      "keywords": "Render, Storyboard, Animation, Diagram"
+    }
+]
