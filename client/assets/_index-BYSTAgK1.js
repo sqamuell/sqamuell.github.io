@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime-BlSqMCxk.js";const o=()=>[{title:"Samuel Losi: a Website Portfolio"},{name:"description",content:"Welcome to Remix!"}];function i(){return t.jsx("div",{})}export{i as default,o as meta};
