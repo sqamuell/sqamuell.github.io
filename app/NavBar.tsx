@@ -38,12 +38,12 @@ export default function NavBar() {
                     <li className='text-sm italic pt-3'>2018</li>
                     <li><Link to="./projects/hoophouse" >Hoophouse</Link></li>
                     <li><Link to="./projects/misc">Misc</Link></li>
-                    <br />
+                    {/* <br />
                     <br />
                     <br />
                     <br />
                     <li><Link to="./">Home</Link></li>
-                    {/* <li>About</li>
+                    <li>About</li>
                     <li>Resume</li> */}
                 </ul>
                 <div className='absolute inset-x-40 inset-y-2'>

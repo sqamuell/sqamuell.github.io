@@ -20,9 +20,14 @@ function easeInOutSine(x: number): number {
   else return -(Math.cos(Math.PI * x) - 1) / 2;
 }
 
+function easeOutSine(x: number): number {
+  return Math.sin((x * Math.PI) / 2);
+}
+
 function Album({ cover, location, index, targetOffset, setTargetOffset }) {
   const meshRef = useRef();
   const navigate = useNavigate();
+  const [hovered, setHovered] = useState(false)
 
   const openLink = () => {
     if (meshRef.current.position.x > -0.5 && meshRef.current.position.x < 0.5) { navigate("./projects/" + projects[index].name); }
@@ -36,6 +41,11 @@ function Album({ cover, location, index, targetOffset, setTargetOffset }) {
       else meshRef.current.position.x = location;
     }
   }, [location]);
+
+
+  useEffect(() => {
+    document.body.style.cursor = hovered ? 'pointer' : 'auto'
+  }, [hovered])
 
   useFrame(() => {
     if (meshRef.current) {
@@ -61,7 +71,9 @@ function Album({ cover, location, index, targetOffset, setTargetOffset }) {
     <mesh
       ref={meshRef}
       onClick={(e) => { openLink(); e.stopPropagation() }}
-      onPointerOver={(e) => { document.body.style.cursor = 'pointer'; }}
+      // Onpo
+      onPointerEnter={(e) => { setHovered(true); e.stopPropagation() }}
+      onPointerOut={(e) => { setHovered(false); e.stopPropagation() }}
     >
       <planeGeometry args={[2, 2]} />
       <meshStandardMaterial map={cover} toneMapped={false} />
@@ -136,7 +148,7 @@ function Scene({ setCurCenter }) {
 
   useFrame(() => {
     let movementDistance = targetOffset - currentOffset
-    let movementSpeed = movementDistance * movementFactor
+    let movementSpeed = easeOutSine(movementDistance * movementFactor)
     setCurrentOffset(currentOffset + movementSpeed)
 
     let curCenter = mod(Math.round(-currentOffset), projects.length)

@@ -3,13 +3,16 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "homepage": "https://sqamuell.github.io/",
   "scripts": {
     "format": "npx @biomejs/biome check --diagnostic-level=error --max-diagnostics=100 --log-kind=compact --apply-unsafe --organize-imports-enabled=true ./app",
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "predeploy": "bun run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@react-three/drei": "^9.105.1",
@@ -18,6 +21,7 @@
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
     "expo": "^50.0.14",
+    "gh-pages": "^6.1.1",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
