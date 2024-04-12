@@ -1,0 +1,324 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>SL: Sprawl & Resilience</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function openNav() {
+      $("#menu").css("width", "100%");
+      $(".closebtn").css("display", "block");
+      $(".floating-menu").css("display", "none");
+      $('html, body').css({ overflow: 'hidden', height: '100%' });
+    }
+    function closeNav() {
+      $("#menu").css("width", "0");
+      $(".closebtn").css("display", "none");
+      $(".floating-menu").css("display", "block");
+      $('html, body').css({ overflow: 'auto', height: 'unset' });
+    }
+    document.onkeydown = function (e) {
+      switch (e.which) {
+        case 8: // backspace
+          window.history.back();
+          break;
+      }
+    };
+  </script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="menu" id="menu">
+      <ul>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <li><a class="menuItem" href="../index.html">//</a></li>
+        <br>
+      </ul>
+      <ul>
+        <li><a class="menuSection">computation:</a></li>
+        <br>
+        <li><a class="menuItem" href="../projects/honeycomb.html">Honeycomb</a></li>
+        <li><a class="menuItem" href="../projects/horse_chariot.html">Horse & Chariot</a></li>
+        <li><a class="menuItem" href="../projects/water_sports.html">Water Sports</a></li>
+        <li><a class="menuItem" href="../projects/collaborative_weaving.html">Collaborative Weaving</a></li>
+        <li><a class="menuItem" href="../projects/design_fabrication.html">Design Fabrication</a></li>
+        <li><a class="menuItem" href="../projects/aggregation.html">Aggregation</a></li>
+        <li><a class="menuItem" href="../projects/place_holder.html">15-112: placeHolder</a></li>
+        <li><a class="menuItem" href="../projects/cybernetic_field.html">Cybernetic Field</a></li>
+        <li><a class="menuItem" href="../projects/bubble_floor.html">BubblesToFloors</a></li>
+      </ul>
+      <ul>
+        <li><a class="menuSection">architecture:</a></li>
+        <br>
+        <li><a class="menuItemPresent" href="../projects/sprawl_resilience.html">Sprawl & Resilience</a></li>
+        <li><a class="menuItem" href="../projects/spring_garden_hostel.html">Spring Garden Hostel</a></li>
+        <li><a class="menuItem" href="../projects/environmental_learning_center.html">ELC: Carrick</a></li>
+        <li><a class="menuItem" href="../projects/six_mile_island.html">6-mile Island</a></li>
+        <li><a class="menuItem" href="../projects/hoop_house.html">Hoop House</a></li>
+        <li><a class="menuItem" href="../projects/bathhouse.html">Bathhouse</a></li>
+        <li><a class="menuItem" href="../projects/misc.html">Misc</a></li>
+      </ul>
+      <br>
+      <ul>
+        <li><a class="menuItem" href="../mats/samLosi_resume.pdf" download target="_blank">Resume</a></li>
+        <li><a class="menuItem" href="https://issuu.com/samlosi/docs/portfolio" target="_blank">Portfolio</a></li>
+      </ul>
+      <br>
+      <div class="linksContain">
+        <ul class="links">
+          <li><a href="https://www.instagram.com/sqamuel/" target="_blank">
+              <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <rect width="16" height="16" rx="1.5" ry="1.5" />
+                <path
+                  d="M 8 2.313 C 6.457 2.313 6.262 2.32 5.656 2.347 C 5.05 2.375 4.637 2.47 4.275 2.611 C 3.895 2.753 3.551 2.977 3.267 3.267 C 2.978 3.551 2.754 3.895 2.611 4.275 C 2.47 4.636 2.374 5.05 2.347 5.654 C 2.32 6.262 2.313 6.455 2.313 8.001 C 2.313 9.545 2.32 9.738 2.347 10.345 C 2.375 10.95 2.47 11.363 2.611 11.725 C 2.757 12.099 2.951 12.416 3.267 12.733 C 3.583 13.049 3.9 13.244 4.274 13.389 C 4.637 13.53 5.049 13.626 5.655 13.653 C 6.262 13.68 6.455 13.687 8 13.687 C 9.545 13.687 9.738 13.68 10.345 13.653 C 10.95 13.625 11.364 13.53 11.726 13.389 C 12.105 13.246 12.448 13.022 12.733 12.733 C 13.049 12.416 13.243 12.099 13.389 11.725 C 13.529 11.363 13.625 10.95 13.653 10.345 C 13.68 9.738 13.687 9.545 13.687 8 C 13.687 6.455 13.68 6.262 13.653 5.655 C 13.625 5.05 13.529 4.636 13.389 4.275 C 13.246 3.895 13.022 3.551 12.733 3.267 C 12.448 2.977 12.105 2.753 11.725 2.611 C 11.363 2.47 10.949 2.374 10.344 2.347 C 9.737 2.32 9.544 2.313 7.999 2.313 L 8.001 2.313 L 8 2.313 Z M 7.49 3.338 L 8.001 3.338 C 9.519 3.338 9.699 3.343 10.298 3.37 C 10.853 3.395 11.154 3.488 11.355 3.566 C 11.62 3.669 11.81 3.793 12.009 3.992 C 12.208 4.191 12.331 4.38 12.434 4.646 C 12.512 4.846 12.605 5.147 12.63 5.702 C 12.657 6.301 12.663 6.481 12.663 7.999 C 12.663 9.516 12.657 9.697 12.63 10.296 C 12.605 10.851 12.512 11.152 12.434 11.352 C 12.342 11.599 12.197 11.822 12.008 12.005 C 11.809 12.204 11.62 12.327 11.354 12.431 C 11.155 12.509 10.854 12.601 10.298 12.627 C 9.699 12.654 9.519 12.66 8.001 12.66 C 6.482 12.66 6.302 12.654 5.702 12.627 C 5.148 12.601 4.847 12.509 4.647 12.431 C 4.399 12.34 4.176 12.194 3.992 12.005 C 3.803 11.822 3.657 11.598 3.566 11.351 C 3.488 11.152 3.395 10.85 3.37 10.296 C 3.343 9.696 3.338 9.516 3.338 7.997 C 3.338 6.479 3.343 6.299 3.37 5.7 C 3.396 5.146 3.488 4.844 3.567 4.644 C 3.67 4.379 3.793 4.189 3.992 3.99 C 4.192 3.791 4.381 3.668 4.647 3.565 C 4.847 3.486 5.148 3.394 5.702 3.368 C 6.227 3.344 6.43 3.337 7.49 3.336 L 7.49 3.338 Z M 11.036 4.282 C 10.511 4.282 10.183 4.851 10.445 5.306 C 10.567 5.517 10.793 5.647 11.036 5.647 C 11.562 5.647 11.89 5.078 11.627 4.623 C 11.506 4.412 11.28 4.282 11.036 4.282 Z M 8.001 5.08 C 5.752 5.044 4.309 7.456 5.402 9.421 C 5.926 10.362 6.924 10.938 8.001 10.921 C 10.249 10.886 11.616 8.43 10.462 6.5 C 9.942 5.633 9.012 5.095 8.001 5.08 Z M 8.001 6.104 C 9.46 6.104 10.372 7.684 9.642 8.948 C 9.304 9.534 8.678 9.896 8.001 9.896 C 6.541 9.896 5.628 8.316 6.358 7.052 C 6.697 6.465 7.323 6.104 8.001 6.104 Z"
+                  style="fill: rgb(255, 255, 255);" />
+              </svg>
+            </a></li>
+          <li><a href="https://www.linkedin.com/in/samuel-losi-3012bb153" target="_blank">
+              <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+              </svg>
+            </a></li>
+        </ul>
+      </div>
+    </div>
+    <nav class="floating-menu">
+      <a class="menuLines" onclick="openNav()">&#9776;</a>
+    </nav>
+    <main>
+      <h1>Sprawl & Resilience (Undergraduate Thesis, 2022)</h1>
+      <hr>
+      <!-- <center><h2>>WEBPAGE IN PROCESS<</h2></center> -->
+      <p style="font-family:'Body-Font-Italic'">
+        “News of a human developer surveying the area has shaken the woodland
+        creatures and native plant life. The forest has destabilized and there
+        is chaos among its residents. Can the Woodland Creatures work together in
+        order to combat the impending development?”
+      </p>
+      <!-- <div class="bulletContainer">
+          <ul class="bullets">
+            <li><a class="internalLink" href="#background">Background</a></li>
+            <li><a class="internalLink" href="#position">Synthesis</a></li>
+            <li><a class="internalLink" href="#synthesis">Outcome</a></li>
+          </ul>
+        </div> -->
+      <img id="1" src="../mats/sprawl_resilience/teaser.jpg" class="in-line">
+      <p>
+        This project looks to generate a critique of the suburb within the minds
+        of its residents, challenging the attitude of growth that enables suburban
+        sprawl and giving a voice to non-human residents of pre-developed land.
+        The suburban landscape is vast and growing; a single spatial intervention
+        would not impact a significant amount of suburbanites. Thus, the project
+        materializes itself as a living room board game where players work together
+        and compete to restrain suburban development over the board. Transforming
+        their mindset in the span of a few hours is impossible, so this project
+        positions itself as a platform to catalyze the imagination of collective
+        thoughts.
+        <br><br>
+        The board game takes place in a soon-to-be developed land on the outskirts
+        of American Suburbia. The game’s gameplay is asymmetrical, meaning that
+        each team has differing gameplay styles that begin to determine their
+        power, action, and strategy.
+      </p>
+      <hr id="background">
+      <h2>BACKGROUND</h2>
+      <p>
+        This thesis was born out of my own life experience. My childhood took place in the suburbs south of Cleveland,
+        Ohio, USA and it was there that I gained first-hand experiences of this urban form. But I, much like the
+        majority of people living there, was clueless to the troubles I was inadvertently a part of. It should be noted
+        that no single person is responsible for any of the problems of suburbia. Placing blame on individuals (aside
+        from those who have great power and money) is unhelpful and irrelevant. These problems are something of a wicked
+        nature, where change must be made collectively.
+      </p>
+      <img id="2" src="../mats/sprawl_resilience/arial_of_hickory_ridge.png" class="in-line">
+      <!-- <img id="2" src="../mats/sprawl_resilience/figure_ground.png"> -->
+      <p>
+        While the image of suburbia as we know it began in the late 1940s, its roots can be traced much earlier, namely
+        to the Palace of Versailles. French King Louis XIV’s magnificent show of wealth determined, more than anything
+        else, the quality of the suburban landscape. Versailles’ vast and well-kept lawns, and those at the end of a
+        cul-de-sac may be very different in scale, but both ultimately are a physical manifestation of wealth. The lawn
+        is a visage into American culture and belief. Diller + Scofidio’s The American Lawn: Surface of Everyday
+        Life(1998) “reveals the lawn as a domestic symbol, civic showplace, economic force, and national icon.” The
+        showcasing of lawn-keeping machinery, various types of turf, and reverent depictions of lawn archetypes, a
+        revelation of both respect and irony are created. The curated showmanship of an individual’s lawn lets you
+        understand a lot about them and, on a larger scale, becomes representative of many dimensions of American life.
+      </p>
+      <!-- <img id="3" src="../mats/sprawl_resilience/10050.jpg" class="in-line"> -->
+      <table>
+        <tr>
+          <td><img id="3" src="../mats/sprawl_resilience/10050axon.jpg"></td>
+          <td><img id="4" src="../mats/sprawl_resilience/figure_ground.png"></td>
+        </tr>
+      </table>
+      <p>
+        The lawn is the driving force of spatial use in the suburban landscape. A lawn more curated than its neighbors
+        shows who’s the wealthiest on the street. It’s a social game that requires a massive amount of space where
+        playing is the only option. Suburbanites’ desires for their own personal Garden of Versailles maintains the
+        market for this extremely sparse living, and demand continues to grow. Suburban homes, such as those I grew up
+        in, are isolated from one another. With an average of 2,300 square feet (213 square meters) in 2020, American
+        homes are big for the average of 2.6 people that reside in them. Villas, such as these, are found across the
+        entire suburban landscape. I speculate that this separation of individuals and families leads to psychological
+        issues that have arisen in the past decades. Micro-cultures form within family units and
+        emotional-social-support systems are often not present in children and adolescents’ lives. While this has not
+        yet been examined academically, the lack of cooperative and social lives is astounding.
+      </p>
+      <img id="5" src="../mats/sprawl_resilience/dolores_hayden.jpg" class="in-line">
+      <!-- <img id="3" src="../mats/sprawl_resilience/10050woods.jpg" class="medium-in-line"> -->
+      <p>
+        Soon-to-be felled forests make way for enormous infrastructure projects, housing developments, and retail
+        districts shaping the foundations of mine and other suburbanites’ behaviors. Reliance on automobiles and lack of
+        proper walkable places, even towards the urban center of Cleveland is assumed and not interrogated for many,
+        well-documented reasons. Firstly, automobiles, their quality, and the individual’s upkeep of them are a sign of
+        wealth. Automobiles, like lawns and many other things, are a part of the cultural theatrics that Americans take
+        part in. Secondly, there is a lack of extensive, reliable public transportation. This is partly due to the
+        previously mentioned question of wealth: public transportation in many parts of the country is seen as welfare.
+        See below for the Strongsville, Ohio mall and the size of the parking lot that services it.
+      </p>
+      <img id="6" src="../mats/sprawl_resilience/mall.jpg" class="in-line">
+      <p>
+        To me, suburbanites’ connections to the natural world is the only real amenity that one may not find as
+        accessible anywhere else. Where present, parks and nature reserves serve as a quiet respite from busy life. But
+        even this comes at the cost of the natural world’s commodification; in the eyes of Mother Nature, it is a
+        selfish act to divide forests with innumerable roads and trails for human enjoyment. Forests and lakes,
+        previously undisturbed places, become spots of recreation for those who can afford to make the trip to them and
+        infrastructure facilitating transportation and recreation are quickly created to take advantage of their capital
+        gain. The human landscape is now dominating the natural landscape so much that nature, as we conceptualize it,
+        is now manmade.
+      </p>
+      <img id="7" src="../mats/sprawl_resilience/levittown.png" class="in-line">
+      <p>
+        As someone who grew up in the suburbs and has experienced less resource-intensive ways of living since, I have
+        begun to understand both the advantages and disadvantages, costs and privileges that come with living in an
+        American suburb. From experience and further research, this thesis became an attempt to reveal underlying
+        socio-political tensions of the suburban landscape and to remind suburbanites that our friends in the natural
+        world exist, even as we seek to conform their habitats to our own.
+      </p>
+      <hr id="position">
+      <h2>SYNTHESIS</h2>
+      <p>
+        The problems discussed above are not easy to solve. Habits are grounded in cultural belief and foundational
+        understanding and quick changes to such things across so many people is impossible. Change must come slowly and
+        as a collective. The vastness of the suburban landscape poses an interesting problem for an architecture
+        student: how could a single structure conveying these ideals reach a target audience spread across thousands of
+        miles? Architecture is typically built in one place and serves the community surrounding it. A static structure
+        is clearly not the correct choice. The medium must be something that could travel place to place. A mobile
+        medium that reaches those who might not encounter these ideas otherwise. A direct description might appear as a
+        method of challenging beliefs rather than simply sharing alternative beliefs. Thus, the thesis becomes a board
+        game. Mechanics and rules of board games act as a platform for players to role-play, embody and learn together.
+      </p>
+      <img id="8" src="../mats/sprawl_resilience/equality.jpg" class="medium-in-line">
+      <p>
+        This thesis chose to focus on the issues regarding the devaluation of the natural world. Suburban development
+        continues to expand outwards, covering forests, fields, and other habitats with single-family homes and asphalt.
+        In light of the ever-increasing issues of climate change and biodiversity loss, suburban development and its
+        lifestyle are becoming increasingly negative. The protagonists of the game are the Woodland Creatures of the
+        natural world. In light of their habitat destruction, they must face evil and work together in order to come out
+        alive.
+
+
+        In any good narrative, a well-rounded villain and antagonist is absolutely necessary to drive a conflict. The
+        thesis’s villain is the Developer: a wealthy individual in the suburbs that represents and embodies the issues
+        of suburbia. The Developer and the Woodland Creatures struggle for territory on the board, and power dynamics
+        and imbalances between the two parties arise.
+      </p>
+      <img id="9" src="../mats/sprawl_resilience/reality.jpg" class="medium-in-line">
+      <p>
+        The mechanics of the game give far more power to the Developer than to the Woodland Creatures. It is intended
+        that as players sit around a table together, a social dynamic arises where the few (the Developer) have the
+        majority of the power in changing the board state and the many (the Woodland Creatures) must rapidly adapt their
+        actions to combat impending decisions and strategies.
+      </p>
+      <table>
+        <tr>
+          <td><img id="10" src="../mats/sprawl_resilience/jeff1.jpg"></td>
+          <td><img id="11" src="../mats/sprawl_resilience/jeff2.jpg"></td>
+          <td><img id="12" src="../mats/sprawl_resilience/jeff3.jpg"></td>
+        </tr>
+      </table>
+      <p>
+        Fortunately, the step of creating a dynamic board grounded in reality had unexpected historical precedent the
+        thesis could draw from. In 1785 and to circumvent issues of change in the natural world, Thomas Jefferson
+        proposed that sale and surveying of land in the United States, despite most natural boundaries, be fit to a
+        grid. Jefferson’s method is still in use and these square mile plots of land are clearly visible from an aerial
+        view. The grid’s disregard for the boundaries, habitats, and wildlife of the land set a standard for American
+        living that is still evident in midsets today. The Jefferson Grid, well-documented by artist and photographer
+        Shabtai Panchevshy, serves as a tile system from which the board game thesis took advantage of. The board became
+        a 14in by 14in square, poised for a possible 16 square mile tiles of development.
+      </p>
+      <hr id="synthesis">
+      <h2>OUTCOME</h2>
+      <p>
+        This thesis manifests itself as an asymmetrical board game where the Woodland Creatures and the Developer have a
+        power struggle over a portion of land. The Woodland Creatures, consisting of up to 5 players, fill the roles of
+        native flora and fauna and are powerless on their own. Only through collaboration, communication, and
+        synergizing of character-specific abilities, can begin to have real impact on the board. The Developer, a one
+        player team, makes broad strokes through the process of development. Her gameplay, known as engine building,
+        consists of a positive feedback loop between capital investments and income.
+      </p>
+      <img id="13" src="../mats/sprawl_resilience/woodland_creatures.jpg" class="medium-in-line">
+      <p>
+        On the board, the Woodland Creatures are represented as figurines, open and readily affected by changes in the
+        board state. The Woodland Creatures work together in order to halt the impending development and make the
+        forests resilient. Their gameplay style is all about adapting to change as a team, making decisions together
+        that best fits their collective win-condition. The Developer, on the other hand, is not represented on the
+        board. The player embodies the Developer character, physically representing the idea of the top-down vision of a
+        suburban developer. The Developer works solo, making decisions based on his or her current and projected income,
+        trying to maximize profit while working around the cooperative efforts of the Woodland Creatures. She spends
+        time each turn awarding his or herself capital income, making moves to develop, laughing maniacally, and bathing
+        in her power.
+      </p>
+      <!-- <img id="9" src="../mats/sprawl_resilience/reality.jpg" class="medium-in-line"> -->
+      <p>
+        The actions and relationships between players constructs tensions between the Developer and the Woodland
+        Residents. The constructed dynamic that arises from one player with lots of power vs many with not small amounts
+        becomes contradictory to the physical presence the players have when seated when around the table. This designed
+        experience highlights the inequalities that arise from classes, power struggles, and erasure. The Woodland
+        Creatures are influenced to use practices of commoning to combat the imbalances they face from the other side of
+        the board.
+      </p>
+      <img id="17" src="../mats/sprawl_resilience/exhibition_plans.jpg" class="in-line">
+      <br>
+      <video width="100%" height="auto" controls>
+        <source src="../mats/sprawl_resilience/timelapse.mp4" type="video/mp4">=
+        Your browser does not support the video tag.
+      </video>
+      <p>
+        The thesis and board game were fortunate enough to be exhibited in the 2022 Carnegie Mellon University School of
+        Architecture Symposium, where many took part in learning the rules and playing. The social dynamic between teams
+        did arise. It was exciting to discuss and learn from this experience as problems regarding replayability of the
+        board game were brought to light. I learned that if the game was to become a widespread, accessible critique of
+        the suburbs, some changes would need to be made.
+      </p>
+      <img id="15" src="../mats/sprawl_resilience/playing_game.jpg" class="in-line">
+      <br><br>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+      </div>
+
+      <script type="text/javascript" src="../modal.js"></script>
+      <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+            });
+          });
+        });
+      </script>
+    </main>
+  </div>
+</body>
+
+</html>

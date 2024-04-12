@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/windows,node,react
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,node,react
 
@@ -181,3 +182,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,node,react
+=======
+node_modules/
+>>>>>>> 03c1158103534de1636c0574f0413048199a4eae
