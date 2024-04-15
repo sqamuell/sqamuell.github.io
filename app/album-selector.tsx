@@ -24,10 +24,9 @@ function easeOutSine(x: number): number {
   return Math.sin((x * Math.PI) / 2);
 }
 
-function Album({ cover, location, index, targetOffset, setTargetOffset }) {
+function Album({ cover, location, index, targetOffset, setTargetOffset, hovered, setHovered }) {
   const meshRef = useRef();
   const navigate = useNavigate();
-  const [hovered, setHovered] = useState(false)
 
   const openLink = () => {
     if (meshRef.current.position.x > -0.5 && meshRef.current.position.x < 0.5) { navigate("./projects/" + projects[index].name); }
@@ -41,11 +40,6 @@ function Album({ cover, location, index, targetOffset, setTargetOffset }) {
       else meshRef.current.position.x = location;
     }
   }, [location]);
-
-
-  useEffect(() => {
-    document.body.style.cursor = hovered ? 'pointer' : 'auto'
-  }, [hovered])
 
   useFrame(() => {
     if (meshRef.current) {
@@ -72,8 +66,8 @@ function Album({ cover, location, index, targetOffset, setTargetOffset }) {
       ref={meshRef}
       onClick={(e) => { openLink(); e.stopPropagation() }}
       // Onpo
-      onPointerEnter={(e) => { setHovered(true); e.stopPropagation() }}
-      onPointerOut={(e) => { setHovered(false); e.stopPropagation() }}
+      onPointerEnter={(e) => { setHovered(hovered + 1); }}
+      onPointerOut={(e) => { setHovered(hovered - 1); }}
     >
       <planeGeometry args={[2, 2]} />
       <meshStandardMaterial map={cover} toneMapped={false} />
@@ -88,6 +82,7 @@ function Scene({ setCurCenter }) {
   const [currentOffset, setCurrentOffset] = useState(0);
   const [mouseCurPos, setMouseCurPos] = useState(null);
   const [mousePrevPos, setMousePrevPos] = useState(null);
+  const [hovered, setHovered] = useState(0)
 
   function handleKeyPress(e: any) {
     if (e.key == 'ArrowLeft') setTargetOffset(targetOffset => Math.round(targetOffset + 1));
@@ -101,6 +96,10 @@ function Scene({ setCurCenter }) {
   }
 
   function handleSwipeMove(e: any) {
+    // if (e.target === document.body) {
+    //   console.log('fire');
+    // }
+    console.log
     if (mouseCurPos == null) return;
 
 
@@ -128,6 +127,10 @@ function Scene({ setCurCenter }) {
   }
 
   useEffect(() => {
+    document.body.style.cursor = (hovered > 0) ? 'pointer' : 'auto'
+  }, [hovered])
+
+  useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
     document.addEventListener('mousedown', handleSwipeStart)
     document.addEventListener('mousemove', handleSwipeMove)
@@ -153,6 +156,7 @@ function Scene({ setCurCenter }) {
 
     let curCenter = mod(Math.round(-currentOffset), projects.length)
     setCurCenter(curCenter)
+
   })
 
   return (
@@ -166,6 +170,8 @@ function Scene({ setCurCenter }) {
           index={index}
           targetOffset={targetOffset}
           setTargetOffset={setTargetOffset}
+          hovered={hovered}
+          setHovered={setHovered}
         />
       ))}
     </>

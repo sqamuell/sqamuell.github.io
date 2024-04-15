@@ -2,10 +2,10 @@ import Container from "~/container";
 
 export default function CollaborativeWinding() {
 	return (<Container>
-		<h1>Inverted Weaving: Robotic Collaboration (2020)</h1>
+		<h1>Collaborative Winding: Robotic Collaboration (2020)</h1>
 		<br />
 		<p>
-			Collabrative Weaving is a robotic research/ fabrication project that
+			Collabrative Winding is a robotic research/ fabrication project that
 			proposes a system that utilizes robotic weaving based on an object. This
 			project was a collaboration with Nick Coppula.
 		</p>

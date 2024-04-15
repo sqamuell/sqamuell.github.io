@@ -11,7 +11,7 @@ export default function NavBar() {
             <div className='fixed left-3 top-3 text-2xl w-2'>
                 <p className={`hover:text-yellow-500 cursor-pointer ${isVisible ? "hidden" : "show"}`} onClick={handleClick}>&#9776;</p>
             </div>
-            <div className={`transform top-0 p-4 left-0 w-auto bg-white bg-opacity-90 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${isVisible ? "translate-x-0" : "-translate-x-full"}`} onClick={handleClick}>
+            <div className={`transform top-0 p-4 left-0 w-auto bg-white fixed h-[97vh] m-4 mt-[1.5vh] border-2 border-neutral-250 rounded-md ease-in-out transition-all duration-300 z-30 ${isVisible ? "translate-x-0" : "-translate-x-[200%]"}`} onClick={handleClick}>
                 <ul className='hover:*:*:text-yellow-500'>
                     <li className='text-sm italic pt-3'>2024</li>
                     <li><Link to="./projects/wax-flamingos" >Wax Flamingos**</Link></li>
@@ -46,9 +46,7 @@ export default function NavBar() {
                     <li>About</li>
                     <li>Resume</li> */}
                 </ul>
-                <div className='absolute inset-x-40 inset-y-2'>
-                    <p className='hover:text-yellow-500 cursor-pointer font-bold' onClick={handleClick}>&#10005;</p>
-                </div>
+                <p className='absolute top-4 -right-7 hover:text-yellow-500 cursor-pointer font-bold' onClick={handleClick}>&#10005;</p>
             </div>
         </div >
     );

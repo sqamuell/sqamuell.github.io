@@ -11,8 +11,8 @@
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc",
-    "predeploy": "bun run build",
-    "deploy": "gh-pages -d build"
+    "transfer": "xcopy build\\ samlosi.com\\c$\\var\\www\\website /v /e /s /t /i /y /exclude:xcopy_exclude.txt /compress",
+    "deploy": "bun run build && bun run transfer && ssh -t samlosi.com 'cd /var/www/website && bun install --production && bun pm2 reload website && exit'"
   },
   "dependencies": {
     "@react-three/drei": "^9.105.1",
