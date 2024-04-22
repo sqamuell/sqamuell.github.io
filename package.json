@@ -3,16 +3,15 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
-  "homepage": "https://sqamuell.github.io/",
   "scripts": {
     "format": "npx @biomejs/biome check --diagnostic-level=error --max-diagnostics=100 --log-kind=compact --apply-unsafe --organize-imports-enabled=true ./app",
-    "build": "remix vite:build",
+    "build": "remix vite:build && cp bun.lockb build/bun.lockb && cp package.json build/package.json && cp server.js build/server.js",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve ./build/server/index.js",
+    "start": "cross-env NODE_ENV=production node ./server.js",
     "typecheck": "tsc",
-    "transfer": "xcopy build\\ samlosi.com\\c$\\var\\www\\website /v /e /s /t /i /y /exclude:xcopy_exclude.txt /compress",
-    "deploy": "bun run build && bun run transfer && ssh -t samlosi.com 'cd /var/www/website && bun install --production && bun pm2 reload website && exit'"
+    "transfer": "rsync -avz --exclude 'node_modules' --delete build/ samlosi.com:/var/www/website/",
+    "deploy": "bun run build && bun run transfer && ssh samlosi.com -t 'cd /var/www/website && /root/.bun/bin/bun install --production && source ~/.nvm/nvm.sh && /root/.nvm/versions/node/v20.12.2/bin/pm2 reload website && exit'"
   },
   "dependencies": {
     "@react-three/drei": "^9.105.1",

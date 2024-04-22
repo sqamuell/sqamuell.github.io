@@ -1,9 +1,8 @@
-import Container from "~/container";
 import { Link } from "@remix-run/react";
 
 export default function Honeycomb() {
 	return (
-		<Container>
+		<div>
 			<h1>Honeycomb: a Grasshopper Package (2023)</h1>
 			<div className="inline-flex pt-5">
 				<img
@@ -204,6 +203,6 @@ export default function Honeycomb() {
 				Fellowship for Research in Japan (Short-term), ID PE22747.
 			</p>
 			<br />
-		</Container>
+		</div>
 	);
 }

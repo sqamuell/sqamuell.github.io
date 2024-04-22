@@ -1,9 +1,8 @@
-import Container from "~/container";
 import { Link } from "@remix-run/react";
 
 export default function HorseChariot() {
 	return (
-		<Container>
+		<div>
 			<h1>Horse & Chariot (2023)</h1>
 			<br />
 			<p>
@@ -236,6 +235,6 @@ export default function HorseChariot() {
 				If one is to attempt to recreate this project based on what is shown
 				here, a newer model of a motor driver is recommended.
 			</p>
-		</Container>
+		</div>
 	);
 }

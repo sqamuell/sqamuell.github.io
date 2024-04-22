@@ -6,7 +6,7 @@ import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { useState, Suspense, useEffect, useRef } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three/src/loaders/TextureLoader";
+import { TextureLoader } from "three";
 const ABORT_DELAY = 5e3;
 function handleRequest(request, responseStatusCode, responseHeaders, remixContext, loadContext) {
   return isbot(request.headers.get("user-agent") || "") ? handleBotRequest(
@@ -319,6 +319,7 @@ function Scene({ setCurCenter }) {
       navigate("./projects/" + projects[mod(-targetOffset, projects.length)].name);
   }
   function handleSwipeStart(e) {
+    console.log(document.body.style.cursor);
     if (e.type == "mousedown")
       setMouseCurPos(e.screenX);
     else
@@ -349,9 +350,6 @@ function Scene({ setCurCenter }) {
     setMousePrevPos(null);
     setTargetOffset((targetOffset2) => Math.round(targetOffset2));
   }
-  useEffect(() => {
-    document.body.style.cursor = hovered > 0 ? "pointer" : "auto";
-  }, [hovered]);
   useEffect(() => {
     document.addEventListener("keydown", handleKeyPress);
     document.addEventListener("mousedown", handleSwipeStart);
@@ -396,7 +394,8 @@ function Scene({ setCurCenter }) {
 }
 const AlbumSelector = () => {
   const [curCenter, setCurCenter] = useState(0);
-  return /* @__PURE__ */ jsxs("div", { className: "absolute w-screen h-screen left-0 top-0", children: [
+  const [grab, setGrab] = useState(false);
+  return /* @__PURE__ */ jsxs("div", { className: `absolute w-screen h-screen left-0 top-0 ${grab ? "cursor-grabbing" : "cursor-grab"}`, onMouseDown: () => setGrab(true), onMouseUp: () => setGrab(false), children: [
     /* @__PURE__ */ jsx(
       Canvas,
       {
@@ -418,7 +417,7 @@ const AlbumSelector = () => {
   ] });
 };
 const AlbumSelector$1 = AlbumSelector;
-const stylesheet = "/assets/tailwind-G-eXl6Fs.css";
+const stylesheet = "/assets/tailwind-CwYWq2In.css";
 const links = () => [
   { rel: "stylesheet", href: stylesheet }
 ];
@@ -429,6 +428,13 @@ function Layout({ children }) {
       /* @__PURE__ */ jsx("meta", { name: "viewport", content: "width=device-width, initial-scale=1" }),
       /* @__PURE__ */ jsx("meta", { name: "description", content: "Samuel Losi is a student of Computational Design. He is attending the University of Stuttgart's ITECH Program to study intimate processes of digital making." }),
       /* @__PURE__ */ jsx("meta", { name: "keywords", content: "architect, computational design, student, architecture portfolio, carnegie mellon university, school of architecture, institue of compoutational design, university of stuttgart, design, architecture, ITECH, soa, sam losi, samuel losi, losi, undergraduate student, graduate student, computation, robotics, architectural robotics" }),
+      /* @__PURE__ */ jsx("link", { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" }),
+      /* @__PURE__ */ jsx("link", { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon/favicon-32x32.png" }),
+      /* @__PURE__ */ jsx("link", { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon//favicon-16x16.png" }),
+      /* @__PURE__ */ jsx("link", { rel: "manifest", href: "/favicon//site.webmanifest" }),
+      /* @__PURE__ */ jsx("link", { rel: "mask-icon", href: "/favicon//safari-pinned-tab.svg", color: "#5bbad5" }),
+      /* @__PURE__ */ jsx("meta", { name: "msapplication-TileColor", content: "#da532c" }),
+      /* @__PURE__ */ jsx("meta", { name: "theme-color", content: "#ffffff" }),
       /* @__PURE__ */ jsx(Meta, {}),
       /* @__PURE__ */ jsx(Links, {})
     ] }),
@@ -452,25 +458,8 @@ const route0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: App,
   links
 }, Symbol.toStringTag, { value: "Module" }));
-function Container({ children }) {
-  const navigate = useNavigate();
-  const handleKeyPress = (e) => {
-    if (e.key == "Escape")
-      navigate("/");
-  };
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyPress);
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
-  }, []);
-  return /* @__PURE__ */ jsx(Link, { to: "/", children: /* @__PURE__ */ jsx("div", { className: "absolute h-screen w-screen bg-white bg-opacity-50   backdrop-grayscale", children: /* @__PURE__ */ jsx(Link, { children: /* @__PURE__ */ jsxs("div", { className: "absolute left-1/2 -translate-x-1/2 rounded-md mt-0 lg:mt-[2.5vh] \n                            h-screen lg:h-[95vh] border-2 border-neutral-250 bg-white \n                            w-screen 3xl:w-[1400px] 2xl:w-[1200px] xl:w-[1000px] lg:w-[800px] md:w-[600px] cursor-default", children: [
-    /* @__PURE__ */ jsx("p", { className: "fixed -right-8 top-2 hover:text-yellow-500 cursor-pointer font-bold hidden md:block", children: /* @__PURE__ */ jsx(Link, { to: "/", children: "✕" }) }),
-    /* @__PURE__ */ jsx("div", { className: "bg-white overflow-y-scroll h-full p-10 md:p-8", children })
-  ] }) }) }) });
-}
 function CollaborativeWinding() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Collaborative Winding: Robotic Collaboration (2020)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "Collabrative Winding is a robotic research/ fabrication project that proposes a system that utilizes robotic weaving based on an object. This project was a collaboration with Nick Coppula." }),
@@ -517,7 +506,7 @@ const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: CollaborativeWinding
 }, Symbol.toStringTag, { value: "Module" }));
 function SprawlResilience() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Sprawl & Resilience (Undergraduate Thesis, 2022)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "“News of a human developer surveying the area has shaken the woodland creatures and native plant life. The forest has destabilized and there is chaos among its residents. Can the Woodland Creatures work together in order to combat the impending development?”" }),
@@ -637,7 +626,7 @@ const route2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: SprawlResilience
 }, Symbol.toStringTag, { value: "Module" }));
 function SpringGardenHostel() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Spring Garden Hostel (2019)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "The brick shell of a long-deserted shoe factory and a parcel of land adjacent to a heavy intersection served as the site for urban hostel. The two-story brick facades became the cornerstone of design throughout the adaptive reuse project and supported the play of interstitial space, manipulating the experiences of inside and out." }),
@@ -662,7 +651,7 @@ const route3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: SpringGardenHostel
 }, Symbol.toStringTag, { value: "Module" }));
 function DesignFabrication() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Design Fabrication: From 2D to 3D (2019)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "Ariane Et Pasiphae(below) was painted in 1935 by an artist and architect Le Corbusier. It is denoted by simple shapes void of detail and strong colors that imply the subject through composition. Purist paintings, such as this, tend to read as very flat; space is not clearly visible but is rather implied through color and proportion." }),
@@ -754,7 +743,7 @@ const route4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: DesignFabrication
 }, Symbol.toStringTag, { value: "Module" }));
 function HorseChariot() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Horse & Chariot (2023)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsxs("p", { children: [
@@ -906,7 +895,7 @@ const route5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: HorseChariot
 }, Symbol.toStringTag, { value: "Module" }));
 function CyberneticField() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Cybernetic Field: Responsive Algorithm (2021)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "This project considers W. Ross Ashby's model for cybernetic architecture and seeks to create a homeostatic machine through Processing and the use of projection mapping. Cybernetic Field was completed incollaboration with Joshua Cao. Cybernetic field begins with a scene of randomly-generated points that are influenced by an underlying vector field. They gradually find a dynamic stable loop or orbit within the field, collectively reaching homeostatsis. Then, flattening the depth image of a three-dimensional space to the projector plane with a Kinect, the algorithm captures objects and actors in the scene. From these environment elements, contour information is extracted and used to recalculate vector directions and amplitudes within the field. The points are then affected by the change in vectors, reaching many states of disorder in the process of restabilizing themselves. Balance will always restore itself and the system will return to stability, always in a new fashion. Throughout the entire process, human actors are motivated to interact with the system, affect the pattern in the vector field, and have agency to be creative with a series of experimental different movements." }),
@@ -928,7 +917,7 @@ const route6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: CyberneticField
 }, Symbol.toStringTag, { value: "Module" }));
 function HyperHydration() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsxs("h1", { children: [
       "Water Sports: ",
       /* @__PURE__ */ jsx("i", { children: "Hyper Hydration" }),
@@ -1008,7 +997,7 @@ const route7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: HyperHydration
 }, Symbol.toStringTag, { value: "Module" }));
 function ModularGarden() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Modular Garden: An Expanding Pattern (2019)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "The proposal of a hanging garden installation prompted this computationally-driven exploration. Iteration on a simple formal logic through digitally fabricated models led to an assembly of asymmetrical modules. This project was completed in CMU soa's Introduction to Computational Design seminar in collaboration with Jasmine Lee, Vivian Teng, and Adam He." }),
@@ -1042,7 +1031,7 @@ const route8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: ModularGarden
 }, Symbol.toStringTag, { value: "Module" }));
 function WaxFlamingos() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Wax Flamingos (2024)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("img", { alt: "", id: "1", src: "/mats/wax_flamingos/coming_soon.jpg" }),
@@ -1057,7 +1046,7 @@ const route9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: WaxFlamingos
 }, Symbol.toStringTag, { value: "Module" }));
 function FloodMuseum() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Flood Museum: Weathering Infrastructure (2019)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "Six-mile island, an island on the Allegheny River, is extremely prone to flooding. Its ecosystem and topography elegantly reflect and rely on the river's natural cycles of flood and regrowth." }),
@@ -1091,7 +1080,7 @@ const route10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   default: FloodMuseum
 }, Symbol.toStringTag, { value: "Module" }));
 function ELCCarrick() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "ELC: Carrick (2020)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "The Carrick Environmental Learning Center (ELC) project, located in Phillips Park is a synthesis of spatial and architectural knowledge completed during the third year of undergraduate architecture school. The program strongly mimics that of the Existing Frick Environmental Center (FEC). A building, located in Pittsburgh's Frick Park, at a net-zero energy usage, and elegantly tuned to both the landscape and visitors. Much like the FEC, the Carrick ELC derives its form from the drastic slope that it resides within." }),
@@ -1336,7 +1325,7 @@ const route11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   default: ELCCarrick
 }, Symbol.toStringTag, { value: "Module" }));
 function Placeholder() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "15-112: placeHolder (2020)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "A wide variety of 3D scanning technology exists today that use a series of images to construct a form based on the content of the images. This project situates itself on an edge of those, allowing the user to generate a 3D model from 360-degree images through online databases. Much other software including Autodesk Recap, Multi-view environment, and Meshroom all serve to generate geometry from image distances. In fact, human’s perception of space uses the same underlying logic as all these programs. The slight differences in images sent to our brain from our eyes tells us what is near and what is far." }),
@@ -1356,7 +1345,7 @@ const route12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   default: Placeholder
 }, Symbol.toStringTag, { value: "Module" }));
 function BubbleGAN() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "BubblesToFloors (2021)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "The Bubble2Floor is an implementation of the Pix2Pix GAN-model, and is a tool for spatial prototyping of built spaces. This project was completed in collaboration with Twisha Raja. It works in three main steps-" }),
@@ -1379,7 +1368,7 @@ const route13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   default: BubbleGAN
 }, Symbol.toStringTag, { value: "Module" }));
 function WaterQWOP() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsxs("h1", { children: [
       "Water Sports: ",
       /* @__PURE__ */ jsx("i", { children: "Water QWOP" }),
@@ -1457,7 +1446,7 @@ const route14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   default: WaterQWOP
 }, Symbol.toStringTag, { value: "Module" }));
 function Bathhouse() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Saco Lake Bathhouse (2019)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "This bathhouse is an exploration of experiential sequences a visitor takes throughout a structure's parti. Its structure is a reflection on the verticality of the New Hampshire forest where it resides. The entryway, changing rooms, and three baths (quite unrealistically) nestle inside the forest of pillars, floating above the forest floor and causing the internal relationships of the structure to become truly three-dimensional." }),
@@ -1502,7 +1491,7 @@ const route15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   default: Bathhouse
 }, Symbol.toStringTag, { value: "Module" }));
 function Honeycomb() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Honeycomb: a Grasshopper Package (2023)" }),
     /* @__PURE__ */ jsxs("div", { className: "inline-flex pt-5", children: [
       /* @__PURE__ */ jsx(
@@ -1658,7 +1647,7 @@ const route16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   default: Honeycomb
 }, Symbol.toStringTag, { value: "Module" }));
 function Hoophouse() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Hoop House (2018)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "Hoop House is a design/fabrication project in partnership with Phipps Conservatory. A hoop house is a structure created with the intent to maintain warmth in a space throughout cold winter months. It emulates a small-scale greenhouse and is often made of a tightly stretched plastic paired with a rigid structural material, but should still be light enough to move. Designed by a team of five: Joanne Chui, Yingying Yan, Ammar Hassonjee, Taisei Manheim, and Samuel Losi, this hoop house plays on the dueling aesthetics of amoeba-esque rope joints and an ordered Y-shaped structure." }),
@@ -1708,7 +1697,7 @@ const route17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   default: Hoophouse
 }, Symbol.toStringTag, { value: "Module" }));
 function Misc() {
-  return /* @__PURE__ */ jsxs(Container, { children: [
+  return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Misc Representation (2017-)" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "This page is dedicated to projects and representations that was not interesting enough or did not have enough content to merit an entire page. For this reason, there is quite a bit of random (possibly weird) stuff with no relation to each other. Please enjoy." }),
@@ -1746,6 +1735,27 @@ const route18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   __proto__: null,
   default: Misc
 }, Symbol.toStringTag, { value: "Module" }));
+function Container() {
+  const navigate = useNavigate();
+  const handleKeyPress = (e) => {
+    if (e.key == "Escape")
+      navigate("/");
+  };
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
+  return /* @__PURE__ */ jsx(Link, { to: "/", children: /* @__PURE__ */ jsx("div", { className: "absolute h-screen w-screen bg-white bg-opacity-50   backdrop-grayscale", children: /* @__PURE__ */ jsxs("div", { className: "absolute left-1/2 -translate-x-1/2 rounded-md mt-0 lg:mt-[2.5vh] \n                            h-screen lg:h-[95vh] border-2 border-neutral-250 bg-white \n                            w-screen 3xl:w-[1400px] 2xl:w-[1200px] xl:w-[1000px] lg:w-[800px] md:w-[600px] cursor-default", children: [
+    /* @__PURE__ */ jsx("p", { className: "fixed -right-8 top-2 hover:text-yellow-500 cursor-pointer font-bold hidden md:block", children: /* @__PURE__ */ jsx(Link, { to: "/", children: "✕" }) }),
+    /* @__PURE__ */ jsx("div", { className: "bg-white overflow-y-scroll h-full p-10 md:p-8", children: /* @__PURE__ */ jsx(Outlet, {}) })
+  ] }) }) });
+}
+const route19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Container
+}, Symbol.toStringTag, { value: "Module" }));
 const meta = () => {
   return [
     { title: "Samuel Losi: a Website Portfolio" },
@@ -1755,14 +1765,14 @@ const meta = () => {
 function Index() {
   return /* @__PURE__ */ jsx("div", {});
 }
-const route19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-PtWL7kzs.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-DzQgwK44.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.collaborative-winding": { "id": "routes/projects.collaborative-winding", "parentId": "root", "path": "projects/collaborative-winding", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.collaborative-winding-5KI3RFbR.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.sprawl-and-resilience": { "id": "routes/projects.sprawl-and-resilience", "parentId": "root", "path": "projects/sprawl-and-resilience", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.sprawl-and-resilience-BIPhrh5T.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.spring-garden-hostel": { "id": "routes/projects.spring-garden-hostel", "parentId": "root", "path": "projects/spring-garden-hostel", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.spring-garden-hostel-D4sbAt5l.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.design-fabrication": { "id": "routes/projects.design-fabrication", "parentId": "root", "path": "projects/design-fabrication", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.design-fabrication-r_ljhGgL.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.horse-and-chariot": { "id": "routes/projects.horse-and-chariot", "parentId": "root", "path": "projects/horse-and-chariot", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.horse-and-chariot-Cav2tY4c.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.cybernetic-field": { "id": "routes/projects.cybernetic-field", "parentId": "root", "path": "projects/cybernetic-field", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cybernetic-field-CKvYZBtP.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.hyper-hydration": { "id": "routes/projects.hyper-hydration", "parentId": "root", "path": "projects/hyper-hydration", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hyper-hydration-ewLBfggz.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.modular-garden": { "id": "routes/projects.modular-garden", "parentId": "root", "path": "projects/modular-garden", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.modular-garden-CxYJ91ko.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.wax-flamingos": { "id": "routes/projects.wax-flamingos", "parentId": "root", "path": "projects/wax-flamingos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.wax-flamingos-BH_5sQ3U.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.flood-museum": { "id": "routes/projects.flood-museum", "parentId": "root", "path": "projects/flood-museum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.flood-museum-ZiWAI0Jq.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.elc-carrick": { "id": "routes/projects.elc-carrick", "parentId": "root", "path": "projects/elc-carrick", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.elc-carrick-Se7RF7Jc.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.placeholder": { "id": "routes/projects.placeholder", "parentId": "root", "path": "projects/placeholder", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.placeholder-Bqw0stv7.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.bubble-gan": { "id": "routes/projects.bubble-gan", "parentId": "root", "path": "projects/bubble-gan", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bubble-gan-DmiEvDGF.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.water-qwop": { "id": "routes/projects.water-qwop", "parentId": "root", "path": "projects/water-qwop", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.water-qwop-BibuEOQD.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.bathhouse": { "id": "routes/projects.bathhouse", "parentId": "root", "path": "projects/bathhouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bathhouse-BfoxtbMQ.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.honeycomb": { "id": "routes/projects.honeycomb", "parentId": "root", "path": "projects/honeycomb", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.honeycomb-_-xtW3ZO.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.hoophouse": { "id": "routes/projects.hoophouse", "parentId": "root", "path": "projects/hoophouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hoophouse-AJL3zloP.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/projects.misc": { "id": "routes/projects.misc", "parentId": "root", "path": "projects/misc", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.misc-VHYu_zXw.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js", "/assets/container-0O1S_fQ-.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-BYSTAgK1.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] } }, "url": "/assets/manifest-7784b80c.js", "version": "7784b80c" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-PtWL7kzs.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-BEeK4XC7.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.collaborative-winding": { "id": "routes/projects.collaborative-winding", "parentId": "routes/projects", "path": "collaborative-winding", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.collaborative-winding-CDz1Ar3I.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.sprawl-and-resilience": { "id": "routes/projects.sprawl-and-resilience", "parentId": "routes/projects", "path": "sprawl-and-resilience", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.sprawl-and-resilience-BF7n52pP.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.spring-garden-hostel": { "id": "routes/projects.spring-garden-hostel", "parentId": "routes/projects", "path": "spring-garden-hostel", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.spring-garden-hostel-CnKmWgD2.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.design-fabrication": { "id": "routes/projects.design-fabrication", "parentId": "routes/projects", "path": "design-fabrication", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.design-fabrication-CtyZZ11g.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.horse-and-chariot": { "id": "routes/projects.horse-and-chariot", "parentId": "routes/projects", "path": "horse-and-chariot", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.horse-and-chariot-CJIWECXx.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.cybernetic-field": { "id": "routes/projects.cybernetic-field", "parentId": "routes/projects", "path": "cybernetic-field", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cybernetic-field-CowNYCBo.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.hyper-hydration": { "id": "routes/projects.hyper-hydration", "parentId": "routes/projects", "path": "hyper-hydration", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hyper-hydration-Cb0gyWiF.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.modular-garden": { "id": "routes/projects.modular-garden", "parentId": "routes/projects", "path": "modular-garden", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.modular-garden-QgkWHi9y.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.wax-flamingos": { "id": "routes/projects.wax-flamingos", "parentId": "routes/projects", "path": "wax-flamingos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.wax-flamingos-B_RhDs8M.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.flood-museum": { "id": "routes/projects.flood-museum", "parentId": "routes/projects", "path": "flood-museum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.flood-museum-DWfQNAoK.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.elc-carrick": { "id": "routes/projects.elc-carrick", "parentId": "routes/projects", "path": "elc-carrick", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.elc-carrick-CtrbhzZC.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.placeholder": { "id": "routes/projects.placeholder", "parentId": "routes/projects", "path": "placeholder", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.placeholder-9pLeG0_i.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.bubble-gan": { "id": "routes/projects.bubble-gan", "parentId": "routes/projects", "path": "bubble-gan", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bubble-gan-DuYNToKq.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.water-qwop": { "id": "routes/projects.water-qwop", "parentId": "routes/projects", "path": "water-qwop", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.water-qwop-DuB-U_FY.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.bathhouse": { "id": "routes/projects.bathhouse", "parentId": "routes/projects", "path": "bathhouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bathhouse-DvrRVe2-.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.honeycomb": { "id": "routes/projects.honeycomb", "parentId": "routes/projects", "path": "honeycomb", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.honeycomb-BKy7C-0h.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.hoophouse": { "id": "routes/projects.hoophouse", "parentId": "routes/projects", "path": "hoophouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hoophouse-CIbPlylj.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.misc": { "id": "routes/projects.misc", "parentId": "routes/projects", "path": "misc", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.misc-DO9PMfip.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects": { "id": "routes/projects", "parentId": "root", "path": "projects", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects-zqU-V2RB.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-BYSTAgK1.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] } }, "url": "/assets/manifest-5b5ad687.js", "version": "5b5ad687" };
 const mode = "production";
-const assetsBuildDirectory = "build\\client";
+const assetsBuildDirectory = "build/client";
 const basename = "/";
 const future = { "v3_fetcherPersist": false, "v3_relativeSplatPath": false, "v3_throwAbortReason": false };
 const isSpaMode = false;
@@ -1779,147 +1789,155 @@ const routes = {
   },
   "routes/projects.collaborative-winding": {
     id: "routes/projects.collaborative-winding",
-    parentId: "root",
-    path: "projects/collaborative-winding",
+    parentId: "routes/projects",
+    path: "collaborative-winding",
     index: void 0,
     caseSensitive: void 0,
     module: route1
   },
   "routes/projects.sprawl-and-resilience": {
     id: "routes/projects.sprawl-and-resilience",
-    parentId: "root",
-    path: "projects/sprawl-and-resilience",
+    parentId: "routes/projects",
+    path: "sprawl-and-resilience",
     index: void 0,
     caseSensitive: void 0,
     module: route2
   },
   "routes/projects.spring-garden-hostel": {
     id: "routes/projects.spring-garden-hostel",
-    parentId: "root",
-    path: "projects/spring-garden-hostel",
+    parentId: "routes/projects",
+    path: "spring-garden-hostel",
     index: void 0,
     caseSensitive: void 0,
     module: route3
   },
   "routes/projects.design-fabrication": {
     id: "routes/projects.design-fabrication",
-    parentId: "root",
-    path: "projects/design-fabrication",
+    parentId: "routes/projects",
+    path: "design-fabrication",
     index: void 0,
     caseSensitive: void 0,
     module: route4
   },
   "routes/projects.horse-and-chariot": {
     id: "routes/projects.horse-and-chariot",
-    parentId: "root",
-    path: "projects/horse-and-chariot",
+    parentId: "routes/projects",
+    path: "horse-and-chariot",
     index: void 0,
     caseSensitive: void 0,
     module: route5
   },
   "routes/projects.cybernetic-field": {
     id: "routes/projects.cybernetic-field",
-    parentId: "root",
-    path: "projects/cybernetic-field",
+    parentId: "routes/projects",
+    path: "cybernetic-field",
     index: void 0,
     caseSensitive: void 0,
     module: route6
   },
   "routes/projects.hyper-hydration": {
     id: "routes/projects.hyper-hydration",
-    parentId: "root",
-    path: "projects/hyper-hydration",
+    parentId: "routes/projects",
+    path: "hyper-hydration",
     index: void 0,
     caseSensitive: void 0,
     module: route7
   },
   "routes/projects.modular-garden": {
     id: "routes/projects.modular-garden",
-    parentId: "root",
-    path: "projects/modular-garden",
+    parentId: "routes/projects",
+    path: "modular-garden",
     index: void 0,
     caseSensitive: void 0,
     module: route8
   },
   "routes/projects.wax-flamingos": {
     id: "routes/projects.wax-flamingos",
-    parentId: "root",
-    path: "projects/wax-flamingos",
+    parentId: "routes/projects",
+    path: "wax-flamingos",
     index: void 0,
     caseSensitive: void 0,
     module: route9
   },
   "routes/projects.flood-museum": {
     id: "routes/projects.flood-museum",
-    parentId: "root",
-    path: "projects/flood-museum",
+    parentId: "routes/projects",
+    path: "flood-museum",
     index: void 0,
     caseSensitive: void 0,
     module: route10
   },
   "routes/projects.elc-carrick": {
     id: "routes/projects.elc-carrick",
-    parentId: "root",
-    path: "projects/elc-carrick",
+    parentId: "routes/projects",
+    path: "elc-carrick",
     index: void 0,
     caseSensitive: void 0,
     module: route11
   },
   "routes/projects.placeholder": {
     id: "routes/projects.placeholder",
-    parentId: "root",
-    path: "projects/placeholder",
+    parentId: "routes/projects",
+    path: "placeholder",
     index: void 0,
     caseSensitive: void 0,
     module: route12
   },
   "routes/projects.bubble-gan": {
     id: "routes/projects.bubble-gan",
-    parentId: "root",
-    path: "projects/bubble-gan",
+    parentId: "routes/projects",
+    path: "bubble-gan",
     index: void 0,
     caseSensitive: void 0,
     module: route13
   },
   "routes/projects.water-qwop": {
     id: "routes/projects.water-qwop",
-    parentId: "root",
-    path: "projects/water-qwop",
+    parentId: "routes/projects",
+    path: "water-qwop",
     index: void 0,
     caseSensitive: void 0,
     module: route14
   },
   "routes/projects.bathhouse": {
     id: "routes/projects.bathhouse",
-    parentId: "root",
-    path: "projects/bathhouse",
+    parentId: "routes/projects",
+    path: "bathhouse",
     index: void 0,
     caseSensitive: void 0,
     module: route15
   },
   "routes/projects.honeycomb": {
     id: "routes/projects.honeycomb",
-    parentId: "root",
-    path: "projects/honeycomb",
+    parentId: "routes/projects",
+    path: "honeycomb",
     index: void 0,
     caseSensitive: void 0,
     module: route16
   },
   "routes/projects.hoophouse": {
     id: "routes/projects.hoophouse",
-    parentId: "root",
-    path: "projects/hoophouse",
+    parentId: "routes/projects",
+    path: "hoophouse",
     index: void 0,
     caseSensitive: void 0,
     module: route17
   },
   "routes/projects.misc": {
     id: "routes/projects.misc",
-    parentId: "root",
-    path: "projects/misc",
+    parentId: "routes/projects",
+    path: "misc",
     index: void 0,
     caseSensitive: void 0,
     module: route18
+  },
+  "routes/projects": {
+    id: "routes/projects",
+    parentId: "root",
+    path: "projects",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route19
   },
   "routes/_index": {
     id: "routes/_index",
@@ -1927,7 +1945,7 @@ const routes = {
     path: void 0,
     index: true,
     caseSensitive: void 0,
-    module: route19
+    module: route20
   }
 };
 export {

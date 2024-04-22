@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, Suspense, createContext } from 'react';
 import { Canvas, useLoader, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Plane, RoundedBox, Stats, Text } from "@react-three/drei";
-import { TextureLoader } from 'three/src/loaders/TextureLoader';
+import { TextureLoader } from 'three';
 import { useNavigate } from "@remix-run/react";
 import { roundedRectShape } from './round-rectangle';
 import projects from './project-data.json';
@@ -91,14 +91,12 @@ function Scene({ setCurCenter }) {
   };
 
   function handleSwipeStart(e: any) {
+    console.log(document.body.style.cursor)
     if (e.type == "mousedown") setMouseCurPos(e.screenX)
     else setMouseCurPos(e.touches[0].screenX)
   }
 
   function handleSwipeMove(e: any) {
-    // if (e.target === document.body) {
-    //   console.log('fire');
-    // }
     console.log
     if (mouseCurPos == null) return;
 
@@ -126,9 +124,9 @@ function Scene({ setCurCenter }) {
     setTargetOffset(targetOffset => Math.round(targetOffset));
   }
 
-  useEffect(() => {
-    document.body.style.cursor = (hovered > 0) ? 'pointer' : 'auto'
-  }, [hovered])
+  // useEffect(() => {
+  //   document.body.style.cursor = (hovered > 0) ? 'pointer' : 'auto'
+  // }, [hovered])
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
@@ -180,9 +178,10 @@ function Scene({ setCurCenter }) {
 
 const AlbumSelector = () => {
   const [curCenter, setCurCenter] = useState(0);
+  const [grab, setGrab] = useState(false);
 
   return (
-    <div className='absolute w-screen h-screen left-0 top-0'>
+    <div className={`absolute w-screen h-screen left-0 top-0 ${grab ? "cursor-grabbing" : "cursor-grab"}`} onMouseDown={() => setGrab(true)} onMouseUp={() => setGrab(false)}>
       <Canvas
         linear
       >
