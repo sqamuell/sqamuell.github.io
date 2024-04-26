@@ -113,7 +113,7 @@ function Scene({ setCurCenter }) {
     if (moveAmount == null) return;
 
     if (e.type == "mousemove") moveAmount /= 250
-    else moveAmount /= 100
+    else moveAmount /= 60
     setTargetOffset(targetOffset => targetOffset - moveAmount);
   }
 
@@ -192,8 +192,8 @@ const AlbumSelector = () => {
         </Suspense>
       </Canvas>
       <h1 className='absolute left-1/2 top-[69%] md:top-[70%] -translate-x-1/2 text-nowrap'>{projects[curCenter].name}</h1>
-      <h2 className='absolute left-1/2 top-[76%] md:top-[73%] -translate-x-1/2'>{projects[curCenter].year}</h2>
-      <p className='absolute left-1/2 top-[82%] md:top-[76%] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
+      <h2 className='absolute left-1/2 top-[75%] md:top-[73%] -translate-x-1/2'>{projects[curCenter].year}</h2>
+      <p className='absolute left-1/2 top-[80%] md:top-[76%] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
     </div >
   );
 };
