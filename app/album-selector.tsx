@@ -5,10 +5,11 @@ import { ConstantColorFactor, TextureLoader } from 'three';
 import { useNavigate, useNavigation } from "@remix-run/react";
 import { roundedRectShape } from './round-rectangle';
 import projects from './project-data.json';
+import RoundedRectangle from './rounded-rectangle';
 
 let movementFactor = 0.08;
 let rotationAmount = 0.5;
-let centerAlbumZoom = 1.0;
+let centerAlbumZoom = 1.2;
 
 function mod(d: number, n: number) {
   return ((d % n) + n) % n;
@@ -70,7 +71,7 @@ function Album({ cover, location, index, targetOffset, setTargetOffset, hovered,
       onPointerOut={(e) => { setHovered(hovered - 1); }}
     >
       <planeGeometry args={[2, 2]} />
-      <meshStandardMaterial map={cover} toneMapped={false} />
+      <meshStandardMaterial map={cover} toneMapped={false} transparent={true} alphaMap={useLoader(TextureLoader, "/mats/homepage/cover-alpha-map-md.jpg")} />
     </mesh>
   )
 }
@@ -195,9 +196,9 @@ const AlbumSelector = () => {
           />
         </Suspense>
       </Canvas>
-      <h1 className='absolute left-1/2 top-[69%] md:top-[70%] -translate-x-1/2 text-nowrap'>{projects[curCenter].name}</h1>
-      <h2 className='absolute left-1/2 top-[75%] md:top-[73%] -translate-x-1/2'>{projects[curCenter].year}</h2>
-      <p className='absolute left-1/2 top-[80%] md:top-[76%] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
+      <h1 className='select-none absolute left-1/2 top-[69%] md:top-[70%] -translate-x-1/2 text-nowrap'>{projects[curCenter].name}</h1>
+      <h2 className='select-none absolute left-1/2 top-[75%] md:top-[73%] -translate-x-1/2'>{projects[curCenter].year}</h2>
+      <p className='select-none	absolute left-1/2 top-[80%] md:top-[76%] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
     </div >
   );
 };
