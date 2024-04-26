@@ -17,7 +17,6 @@ export default function Container() {
     }, []);
 
     return (
-        // <Link to="/">
         <div className='absolute h-screen w-screen'>
             <div className="absolute h-screen w-screen bg-white bg-opacity-50 backdrop-grayscale cursor-alias" onClick={() => navigate("/")}></div>
             <div className="absolute left-1/2 -translate-x-1/2 rounded-md mt-0 lg:mt-[2.5vh] 
@@ -31,6 +30,5 @@ export default function Container() {
                 </div>
             </div>
         </div>
-        // </Link>
     )
 }

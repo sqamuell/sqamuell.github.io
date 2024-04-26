@@ -10,7 +10,7 @@
     }
 
     p {
-        @apply text-justify;
+        @apply text-justify cursor-text;
     }
 
     img {

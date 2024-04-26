@@ -14,6 +14,7 @@
     "deploy": "bun run build && bun run transfer && ssh samlosi.com -t 'cd /var/www/website && /root/.bun/bin/bun install --production && source ~/.nvm/nvm.sh && /root/.nvm/versions/node/v20.12.2/bin/pm2 reload website && exit'"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.1.17",
     "@react-three/drei": "^9.105.1",
     "@react-three/fiber": "^8.16.1",
     "@remix-run/node": "^2.8.1",

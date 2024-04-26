@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState, Suspense, createContext } from 'react';
 import { Canvas, useLoader, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Plane, RoundedBox, Stats, Text } from "@react-three/drei";
-import { TextureLoader } from 'three';
-import { useNavigate } from "@remix-run/react";
+import { ConstantColorFactor, TextureLoader } from 'three';
+import { useNavigate, useNavigation } from "@remix-run/react";
 import { roundedRectShape } from './round-rectangle';
 import projects from './project-data.json';
 
@@ -85,18 +85,21 @@ function Scene({ setCurCenter }) {
   const [hovered, setHovered] = useState(0)
 
   function handleKeyPress(e: any) {
+    if (window.location.href.includes("projects")) return;
     if (e.key == 'ArrowLeft') setTargetOffset(targetOffset => Math.round(targetOffset + 1));
     else if (e.key == 'ArrowRight') setTargetOffset(targetOffset => Math.round(targetOffset - 1));
     else if (e.key == 'Enter') navigate("./projects/" + projects[mod(-targetOffset, projects.length)].name);
   };
 
   function handleSwipeStart(e: any) {
+    if (window.location.href.includes("projects")) return;
     console.log(document.body.style.cursor)
     if (e.type == "mousedown") setMouseCurPos(e.screenX)
     else setMouseCurPos(e.touches[0].screenX)
   }
 
   function handleSwipeMove(e: any) {
+    if (window.location.href.includes("projects")) return;
     console.log
     if (mouseCurPos == null) return;
 
@@ -118,6 +121,7 @@ function Scene({ setCurCenter }) {
   }
 
   function handleSwipeEnd(e: any) {
+    if (window.location.href.includes("projects")) return;
     setMouseCurPos(null);
     setMousePrevPos(null);
 
