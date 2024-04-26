@@ -174,6 +174,11 @@ const projects = [
     keywords: "Machine Learning, Optimization, Product Design"
   },
   {
+    name: "cloud-sketch",
+    year: "2022",
+    keywords: "p5.js, Phenomena Modeling, Generative Art"
+  },
+  {
     name: "sprawl-and-resilience",
     year: "2022",
     keywords: "Landscape Ecology, Board Game Design, Urban Planning"
@@ -400,7 +405,7 @@ function Scene({ setCurCenter }) {
 const AlbumSelector = () => {
   const [curCenter, setCurCenter] = useState(0);
   const [grab, setGrab] = useState(false);
-  return /* @__PURE__ */ jsxs("div", { className: `absolute w-screen h-screen left-0 top-0 ${grab ? "cursor-grabbing" : "cursor-grab"}`, onMouseDown: () => setGrab(true), onMouseUp: () => setGrab(false), children: [
+  return /* @__PURE__ */ jsxs("div", { className: `absolute w-screen h-[85vh] md:h-screen left-0 top-0 ${grab ? "cursor-grabbing" : "cursor-grab"}`, onMouseDown: () => setGrab(true), onMouseUp: () => setGrab(false), children: [
     /* @__PURE__ */ jsx(
       Canvas,
       {
@@ -413,16 +418,16 @@ const AlbumSelector = () => {
         ) })
       }
     ),
-    /* @__PURE__ */ jsx("h1", { className: "absolute left-1/2 top-[68%] md:top-[70%] -translate-x-1/2 text-nowrap", children: projects[curCenter].name }),
-    /* @__PURE__ */ jsx("h2", { className: "absolute left-1/2 top-[73%] -translate-x-1/2", children: projects[curCenter].year }),
-    /* @__PURE__ */ jsxs("p", { className: "absolute left-1/2 top-[77%] md:top-[76%] -translate-x-1/2 w-80 text-center", children: [
+    /* @__PURE__ */ jsx("h1", { className: "absolute left-1/2 top-[69%] md:top-[70%] -translate-x-1/2 text-nowrap", children: projects[curCenter].name }),
+    /* @__PURE__ */ jsx("h2", { className: "absolute left-1/2 top-[76%] md:top-[73%] -translate-x-1/2", children: projects[curCenter].year }),
+    /* @__PURE__ */ jsxs("p", { className: "absolute left-1/2 top-[82%] md:top-[76%] -translate-x-1/2 w-80 text-center", children: [
       /* @__PURE__ */ jsx("i", { children: "Keywords: " }),
       projects[curCenter].keywords
     ] })
   ] });
 };
 const AlbumSelector$1 = AlbumSelector;
-const stylesheet = "/assets/tailwind-CvmA_8jN.css";
+const stylesheet = "/assets/tailwind-D0cvgI-6.css";
 const links = () => [
   { rel: "stylesheet", href: stylesheet }
 ];
@@ -921,7 +926,7 @@ const route6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: CyberneticField
 }, Symbol.toStringTag, { value: "Module" }));
-function HyperHydration$1() {
+function HyperHydration$2() {
   return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsxs("h1", { children: [
       "Water Sports: ",
@@ -999,7 +1004,7 @@ function HyperHydration$1() {
 }
 const route7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: HyperHydration$1
+  default: HyperHydration$2
 }, Symbol.toStringTag, { value: "Module" }));
 function ModularGarden() {
   return /* @__PURE__ */ jsxs("div", { children: [
@@ -1050,6 +1055,19 @@ const route9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   default: WaxFlamingos
 }, Symbol.toStringTag, { value: "Module" }));
+function HyperHydration$1() {
+  return /* @__PURE__ */ jsxs("div", { children: [
+    /* @__PURE__ */ jsx("h1", { children: "Cloud Sketch (2022)" }),
+    /* @__PURE__ */ jsx("br", {}),
+    /* @__PURE__ */ jsx("p", { children: "Aenean at suscipit massa. In at diam feugiat, feugiat elit eu, maximus enim. Nulla consequat eleifend iaculis. Mauris viverra tempus augue. Donec vitae suscipit orci. Phasellus vehicula ipsum vel nisl egestas ullamcorper. Maecenas ac leo eu eros elementum porta." }),
+    /* @__PURE__ */ jsx("br", {}),
+    /* @__PURE__ */ jsx("img", { className: "m-auto md:w-7/12", src: "/mats/cloud-sketch/clouds.gif" })
+  ] });
+}
+const route10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: HyperHydration$1
+}, Symbol.toStringTag, { value: "Module" }));
 function FloodMuseum() {
   return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Flood Museum: Weathering Infrastructure (2019)" }),
@@ -1080,7 +1098,7 @@ function FloodMuseum() {
     /* @__PURE__ */ jsx("img", { alt: "", id: "5", src: "/mats/six_mile_island/section_short.jpg" })
   ] });
 }
-const route10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: FloodMuseum
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1325,7 +1343,7 @@ function ELCCarrick() {
     ] }) })
   ] });
 }
-const route11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ELCCarrick
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1345,7 +1363,7 @@ function Placeholder() {
     /* @__PURE__ */ jsx("img", { alt: "", id: "1", src: "/mats/place_holder/workflow.jpg" })
   ] });
 }
-const route12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Placeholder
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1368,7 +1386,7 @@ function BubbleGAN() {
     /* @__PURE__ */ jsx("p", { children: "The generated floor plan image is then passed through openCV to define the locations of walls. Finally, the walls are extruded with Rhino & Grasshopper, then tweaked to the designers’ liking." })
   ] });
 }
-const route13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: BubbleGAN
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1446,7 +1464,7 @@ function WaterQWOP() {
     /* @__PURE__ */ jsx("p", { children: "The observed behavior of the agent, as described above, indicates a tendency to swing the bucket back and forth before dumping the geometry out. It is hypothesized that additional training runs and further fine-tuning of parameters are necessary to achieve the desired outcome and refine the model's behavior. This iterative process of experimentation, adjustment, and evaluation is often required to optimize the training of machine learning models and align their actions more closely with the intended objectives. By conducting additional runs and carefully tweaking the parameters, it is expected that the agent's performance can be further improved and the undesired swinging behavior can be mitigated." })
   ] });
 }
-const route14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: WaterQWOP
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1491,7 +1509,7 @@ function Bathhouse() {
     ] }) })
   ] });
 }
-const route15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Bathhouse
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1647,7 +1665,7 @@ function Honeycomb() {
     /* @__PURE__ */ jsx("br", {})
   ] });
 }
-const route16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Honeycomb
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1697,7 +1715,7 @@ function Hoophouse() {
     ] }) })
   ] });
 }
-const route17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Hoophouse
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1707,32 +1725,14 @@ function HyperHydration() {
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "Donec sed tincidunt dolor. Praesent laoreet mattis vehicula. Quisque suscipit diam in nisi laoreet fermentum. Curabitur sollicitudin eleifend lorem vel consectetur. Quisque porta nec tellus et elementum. Cras eget turpis eget leo ornare congue et et nibh. Sed non eros a odio facilisis facilisis. Curabitur sollicitudin at ipsum et pretium. Curabitur vestibulum mi justo, eu iaculis arcu cursus non. Phasellus pellentesque euismod ligula nec suscipit. Aliquam scelerisque nec lectus sed placerat." }),
     /* @__PURE__ */ jsx("br", {}),
-    /* @__PURE__ */ jsxs("video", { className: "m-auto md:w-1/2", controls: true, children: [
-      /* @__PURE__ */ jsx(
-        "source",
-        {
-          src: "/mats/droplets/figure-ground.mp4",
-          type: "video/mp4"
-        }
-      ),
-      "Your browser does not support the video tag."
-    ] }),
+    /* @__PURE__ */ jsx("img", { className: "m-auto md:w-7/12", src: "/mats/droplets/figure-ground.gif" }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "Aenean at suscipit massa. In at diam feugiat, feugiat elit eu, maximus enim. Nulla consequat eleifend iaculis. Mauris viverra tempus augue. Donec vitae suscipit orci. Phasellus vehicula ipsum vel nisl egestas ullamcorper. Maecenas ac leo eu eros elementum porta." }),
     /* @__PURE__ */ jsx("br", {}),
-    /* @__PURE__ */ jsxs("video", { className: "m-auto md:w-1/2", controls: true, children: [
-      /* @__PURE__ */ jsx(
-        "source",
-        {
-          src: "/mats/droplets/marble.mp4",
-          type: "video/mp4"
-        }
-      ),
-      "Your browser does not support the video tag."
-    ] })
+    /* @__PURE__ */ jsx("img", { className: "m-auto md:w-7/12", src: "/mats/droplets/marble.gif" })
   ] });
 }
-const route18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: HyperHydration
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1771,7 +1771,7 @@ function Misc() {
     /* @__PURE__ */ jsx("img", { alt: "", id: "13", src: "/mats/misc/eggwerd.gif" })
   ] });
 }
-const route19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Misc
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1798,7 +1798,7 @@ function Container() {
     ] })
   );
 }
-const route20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Container
 }, Symbol.toStringTag, { value: "Module" }));
@@ -1811,12 +1811,12 @@ const meta = () => {
 function Index() {
   return /* @__PURE__ */ jsx("div", {});
 }
-const route21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const route22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Index,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-PtWL7kzs.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-DakfMQFj.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.collaborative-winding": { "id": "routes/projects.collaborative-winding", "parentId": "routes/projects", "path": "collaborative-winding", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.collaborative-winding-CDz1Ar3I.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.sprawl-and-resilience": { "id": "routes/projects.sprawl-and-resilience", "parentId": "routes/projects", "path": "sprawl-and-resilience", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.sprawl-and-resilience-BF7n52pP.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.spring-garden-hostel": { "id": "routes/projects.spring-garden-hostel", "parentId": "routes/projects", "path": "spring-garden-hostel", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.spring-garden-hostel-CnKmWgD2.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.design-fabrication": { "id": "routes/projects.design-fabrication", "parentId": "routes/projects", "path": "design-fabrication", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.design-fabrication-CtyZZ11g.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.horse-and-chariot": { "id": "routes/projects.horse-and-chariot", "parentId": "routes/projects", "path": "horse-and-chariot", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.horse-and-chariot-CJIWECXx.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.cybernetic-field": { "id": "routes/projects.cybernetic-field", "parentId": "routes/projects", "path": "cybernetic-field", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cybernetic-field-CowNYCBo.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.hyper-hydration": { "id": "routes/projects.hyper-hydration", "parentId": "routes/projects", "path": "hyper-hydration", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hyper-hydration-Cb0gyWiF.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.modular-garden": { "id": "routes/projects.modular-garden", "parentId": "routes/projects", "path": "modular-garden", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.modular-garden-QgkWHi9y.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.wax-flamingos": { "id": "routes/projects.wax-flamingos", "parentId": "routes/projects", "path": "wax-flamingos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.wax-flamingos-B_RhDs8M.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.flood-museum": { "id": "routes/projects.flood-museum", "parentId": "routes/projects", "path": "flood-museum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.flood-museum-DWfQNAoK.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.elc-carrick": { "id": "routes/projects.elc-carrick", "parentId": "routes/projects", "path": "elc-carrick", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.elc-carrick-CtrbhzZC.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.placeholder": { "id": "routes/projects.placeholder", "parentId": "routes/projects", "path": "placeholder", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.placeholder-9pLeG0_i.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.bubble-gan": { "id": "routes/projects.bubble-gan", "parentId": "routes/projects", "path": "bubble-gan", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bubble-gan-DuYNToKq.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.water-qwop": { "id": "routes/projects.water-qwop", "parentId": "routes/projects", "path": "water-qwop", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.water-qwop-DuB-U_FY.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.bathhouse": { "id": "routes/projects.bathhouse", "parentId": "routes/projects", "path": "bathhouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bathhouse-DvrRVe2-.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.honeycomb": { "id": "routes/projects.honeycomb", "parentId": "routes/projects", "path": "honeycomb", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.honeycomb-BKy7C-0h.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.hoophouse": { "id": "routes/projects.hoophouse", "parentId": "routes/projects", "path": "hoophouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hoophouse-CIbPlylj.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.droplets": { "id": "routes/projects.droplets", "parentId": "routes/projects", "path": "droplets", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.droplets-B2enLWlH.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.misc": { "id": "routes/projects.misc", "parentId": "routes/projects", "path": "misc", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.misc-DO9PMfip.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects": { "id": "routes/projects", "parentId": "root", "path": "projects", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects-D3JFiXKS.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-BYSTAgK1.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] } }, "url": "/assets/manifest-739e9a2e.js", "version": "739e9a2e" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-PtWL7kzs.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-AWMnLfd4.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.collaborative-winding": { "id": "routes/projects.collaborative-winding", "parentId": "routes/projects", "path": "collaborative-winding", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.collaborative-winding-CDz1Ar3I.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.sprawl-and-resilience": { "id": "routes/projects.sprawl-and-resilience", "parentId": "routes/projects", "path": "sprawl-and-resilience", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.sprawl-and-resilience-BF7n52pP.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.spring-garden-hostel": { "id": "routes/projects.spring-garden-hostel", "parentId": "routes/projects", "path": "spring-garden-hostel", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.spring-garden-hostel-CnKmWgD2.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.design-fabrication": { "id": "routes/projects.design-fabrication", "parentId": "routes/projects", "path": "design-fabrication", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.design-fabrication-CtyZZ11g.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.horse-and-chariot": { "id": "routes/projects.horse-and-chariot", "parentId": "routes/projects", "path": "horse-and-chariot", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.horse-and-chariot-CJIWECXx.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.cybernetic-field": { "id": "routes/projects.cybernetic-field", "parentId": "routes/projects", "path": "cybernetic-field", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cybernetic-field-CowNYCBo.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.hyper-hydration": { "id": "routes/projects.hyper-hydration", "parentId": "routes/projects", "path": "hyper-hydration", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hyper-hydration-Cb0gyWiF.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.modular-garden": { "id": "routes/projects.modular-garden", "parentId": "routes/projects", "path": "modular-garden", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.modular-garden-QgkWHi9y.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.wax-flamingos": { "id": "routes/projects.wax-flamingos", "parentId": "routes/projects", "path": "wax-flamingos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.wax-flamingos-B_RhDs8M.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.cloud-sketch": { "id": "routes/projects.cloud-sketch", "parentId": "routes/projects", "path": "cloud-sketch", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cloud-sketch-B2jbmWDK.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.flood-museum": { "id": "routes/projects.flood-museum", "parentId": "routes/projects", "path": "flood-museum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.flood-museum-DWfQNAoK.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.elc-carrick": { "id": "routes/projects.elc-carrick", "parentId": "routes/projects", "path": "elc-carrick", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.elc-carrick-CtrbhzZC.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.placeholder": { "id": "routes/projects.placeholder", "parentId": "routes/projects", "path": "placeholder", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.placeholder-9pLeG0_i.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.bubble-gan": { "id": "routes/projects.bubble-gan", "parentId": "routes/projects", "path": "bubble-gan", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bubble-gan-DuYNToKq.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.water-qwop": { "id": "routes/projects.water-qwop", "parentId": "routes/projects", "path": "water-qwop", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.water-qwop-DuB-U_FY.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.bathhouse": { "id": "routes/projects.bathhouse", "parentId": "routes/projects", "path": "bathhouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bathhouse-DvrRVe2-.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.honeycomb": { "id": "routes/projects.honeycomb", "parentId": "routes/projects", "path": "honeycomb", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.honeycomb-BKy7C-0h.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.hoophouse": { "id": "routes/projects.hoophouse", "parentId": "routes/projects", "path": "hoophouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hoophouse-CIbPlylj.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.droplets": { "id": "routes/projects.droplets", "parentId": "routes/projects", "path": "droplets", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.droplets-BcRSCfr4.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.misc": { "id": "routes/projects.misc", "parentId": "routes/projects", "path": "misc", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.misc-DO9PMfip.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects": { "id": "routes/projects", "parentId": "root", "path": "projects", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects-D3JFiXKS.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-BYSTAgK1.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] } }, "url": "/assets/manifest-a30c8e1b.js", "version": "a30c8e1b" };
 const mode = "production";
 const assetsBuildDirectory = "build/client";
 const basename = "/";
@@ -1905,13 +1905,21 @@ const routes = {
     caseSensitive: void 0,
     module: route9
   },
+  "routes/projects.cloud-sketch": {
+    id: "routes/projects.cloud-sketch",
+    parentId: "routes/projects",
+    path: "cloud-sketch",
+    index: void 0,
+    caseSensitive: void 0,
+    module: route10
+  },
   "routes/projects.flood-museum": {
     id: "routes/projects.flood-museum",
     parentId: "routes/projects",
     path: "flood-museum",
     index: void 0,
     caseSensitive: void 0,
-    module: route10
+    module: route11
   },
   "routes/projects.elc-carrick": {
     id: "routes/projects.elc-carrick",
@@ -1919,7 +1927,7 @@ const routes = {
     path: "elc-carrick",
     index: void 0,
     caseSensitive: void 0,
-    module: route11
+    module: route12
   },
   "routes/projects.placeholder": {
     id: "routes/projects.placeholder",
@@ -1927,7 +1935,7 @@ const routes = {
     path: "placeholder",
     index: void 0,
     caseSensitive: void 0,
-    module: route12
+    module: route13
   },
   "routes/projects.bubble-gan": {
     id: "routes/projects.bubble-gan",
@@ -1935,7 +1943,7 @@ const routes = {
     path: "bubble-gan",
     index: void 0,
     caseSensitive: void 0,
-    module: route13
+    module: route14
   },
   "routes/projects.water-qwop": {
     id: "routes/projects.water-qwop",
@@ -1943,7 +1951,7 @@ const routes = {
     path: "water-qwop",
     index: void 0,
     caseSensitive: void 0,
-    module: route14
+    module: route15
   },
   "routes/projects.bathhouse": {
     id: "routes/projects.bathhouse",
@@ -1951,7 +1959,7 @@ const routes = {
     path: "bathhouse",
     index: void 0,
     caseSensitive: void 0,
-    module: route15
+    module: route16
   },
   "routes/projects.honeycomb": {
     id: "routes/projects.honeycomb",
@@ -1959,7 +1967,7 @@ const routes = {
     path: "honeycomb",
     index: void 0,
     caseSensitive: void 0,
-    module: route16
+    module: route17
   },
   "routes/projects.hoophouse": {
     id: "routes/projects.hoophouse",
@@ -1967,7 +1975,7 @@ const routes = {
     path: "hoophouse",
     index: void 0,
     caseSensitive: void 0,
-    module: route17
+    module: route18
   },
   "routes/projects.droplets": {
     id: "routes/projects.droplets",
@@ -1975,7 +1983,7 @@ const routes = {
     path: "droplets",
     index: void 0,
     caseSensitive: void 0,
-    module: route18
+    module: route19
   },
   "routes/projects.misc": {
     id: "routes/projects.misc",
@@ -1983,7 +1991,7 @@ const routes = {
     path: "misc",
     index: void 0,
     caseSensitive: void 0,
-    module: route19
+    module: route20
   },
   "routes/projects": {
     id: "routes/projects",
@@ -1991,7 +1999,7 @@ const routes = {
     path: "projects",
     index: void 0,
     caseSensitive: void 0,
-    module: route20
+    module: route21
   },
   "routes/_index": {
     id: "routes/_index",
@@ -1999,7 +2007,7 @@ const routes = {
     path: void 0,
     index: true,
     caseSensitive: void 0,
-    module: route21
+    module: route22
   }
 };
 export {

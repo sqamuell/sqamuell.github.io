@@ -181,7 +181,7 @@ const AlbumSelector = () => {
   const [grab, setGrab] = useState(false);
 
   return (
-    <div className={`absolute w-screen h-screen left-0 top-0 ${grab ? "cursor-grabbing" : "cursor-grab"}`} onMouseDown={() => setGrab(true)} onMouseUp={() => setGrab(false)}>
+    <div className={`absolute w-screen h-[85vh] md:h-screen left-0 top-0 ${grab ? "cursor-grabbing" : "cursor-grab"}`} onMouseDown={() => setGrab(true)} onMouseUp={() => setGrab(false)}>
       <Canvas
         linear
       >
@@ -191,9 +191,9 @@ const AlbumSelector = () => {
           />
         </Suspense>
       </Canvas>
-      <h1 className='absolute left-1/2 top-[68%] md:top-[70%] -translate-x-1/2 text-nowrap'>{projects[curCenter].name}</h1>
-      <h2 className='absolute left-1/2 top-[73%] -translate-x-1/2'>{projects[curCenter].year}</h2>
-      <p className='absolute left-1/2 top-[77%] md:top-[76%] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
+      <h1 className='absolute left-1/2 top-[69%] md:top-[70%] -translate-x-1/2 text-nowrap'>{projects[curCenter].name}</h1>
+      <h2 className='absolute left-1/2 top-[76%] md:top-[73%] -translate-x-1/2'>{projects[curCenter].year}</h2>
+      <p className='absolute left-1/2 top-[82%] md:top-[76%] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
     </div >
   );
 };
