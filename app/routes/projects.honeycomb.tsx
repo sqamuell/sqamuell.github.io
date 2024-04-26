@@ -3,25 +3,24 @@ import { Link } from "@remix-run/react";
 export default function Honeycomb() {
 	return (
 		<div>
-			<h1>Honeycomb: a Grasshopper Package (2023)</h1>
-			<div className="inline-flex pt-5">
-				<img
-					alt="Honeycomb Logo"
-					className="h-32 m-4 max-h-full"
-					id="1"
-					src={"/mats/honeycomb/Honeycomb.png"}
-				/>
-				<p>
-					Honeycomb, a pattern generating grasshopper plugin, enables the
-					creation of 2D and 3D patterns through symmetric transformations, each
-					derived from the 17 wallpaper groups. Users can choose any of the
-					wallpaper groups to create tilings based on Voronoi Domains and custom
-					topological interlocking blocks. This project was completed in
-					collaboration with Tom Görtzen and Reymond Akpanya from the RWTH
-					Aachen University and Sebastian Wiesenhütter from the Technische
-					Universität Dresden.
-				</p>
-			</div>
+			<h1>Honeycomb: a Grasshopper Plugin (2023)</h1>
+			<br />
+			<img
+				alt="Honeycomb Logo"
+				className="h-20 m-4 max-h-full float-left"
+				id="1"
+				src={"/mats/honeycomb/Honeycomb.png"}
+			/>
+			<p>
+				Honeycomb, a pattern generating grasshopper plugin, enables the
+				creation of 2D and 3D patterns through symmetric transformations, each
+				derived from the 17 wallpaper groups. Users can choose any of the
+				wallpaper groups to create tilings based on Voronoi Domains and custom
+				topological interlocking blocks. This project was completed in
+				collaboration with Tom Görtzen and Reymond Akpanya from the RWTH
+				Aachen University and Sebastian Wiesenhütter from the Technische
+				Universität Dresden.
+			</p>
 			<br />
 			<p>
 				Any feedback would be greatly appreciated and please share anything
