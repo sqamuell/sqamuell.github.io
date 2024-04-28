@@ -9,7 +9,7 @@ export default function WaterQWOP() {
 				<i>Water Sports: Water QWOP</i> is a foray into
 				machine learning involving reinforcement learning. Conceptually,
 				it is quite similar to the flash game <i>QWOP</i>. This project was developed as part of the Computational Explorations
-				seminar at ITECH master´s program in collaboration with Chris Kang,
+				seminar at ITECH master's program in collaboration with Chris Kang,
 				Markus Renner, and Cornerlius Carl.
 			</p>
 			<br />
