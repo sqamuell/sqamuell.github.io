@@ -1,13 +1,10 @@
-import React, { useRef, useEffect, useState, Suspense, createContext } from 'react';
-import { Canvas, useLoader, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, Plane, RoundedBox, Stats, Text } from "@react-three/drei";
-import { ConstantColorFactor, TextureLoader } from 'three';
-import { useNavigate, useNavigation } from "@remix-run/react";
-import { roundedRectShape } from './round-rectangle';
+import { useRef, useEffect, useState, Suspense, useMemo } from 'react';
+import { Canvas, useLoader, useFrame } from '@react-three/fiber';
+import { TextureLoader } from 'three';
+import { useNavigate } from "@remix-run/react";
 import projects from './project-data.json';
-import RoundedRectangle from './rounded-rectangle';
 
-let movementFactor = 0.08;
+let movementFactor = 0.05;
 let rotationAmount = 0.5;
 let centerAlbumZoom = 1.2;
 
@@ -25,7 +22,9 @@ function easeOutSine(x: number): number {
   return Math.sin((x * Math.PI) / 2);
 }
 
-function Album({ cover, location, index, targetOffset, setTargetOffset, hovered, setHovered }) {
+
+
+function Album({ cover, location, index, targetOffset, setTargetOffset, hovered, setHovered, op }) {
   const meshRef = useRef();
   const navigate = useNavigate();
 
@@ -43,8 +42,8 @@ function Album({ cover, location, index, targetOffset, setTargetOffset, hovered,
   }, [location]);
 
   useFrame(() => {
-    if (meshRef.current) {
 
+    if (meshRef.current) {
 
       if (meshRef.current.position.x >= 1) {
         meshRef.current.rotation.y = -rotationAmount;
@@ -58,7 +57,6 @@ function Album({ cover, location, index, targetOffset, setTargetOffset, hovered,
         meshRef.current.rotation.y = easeInOutSine(meshRef.current.position.x) * rotationAmount;
         meshRef.current.position.z = (easeInOutSine(Math.abs(meshRef.current.position.x)) + 1) * centerAlbumZoom;
       }
-
     }
   });
 
@@ -71,7 +69,7 @@ function Album({ cover, location, index, targetOffset, setTargetOffset, hovered,
       onPointerOut={(e) => { setHovered(hovered - 1); }}
     >
       <planeGeometry args={[2, 2]} />
-      <meshStandardMaterial map={cover} toneMapped={false} transparent={true} alphaMap={useLoader(TextureLoader, "/mats/homepage/cover-alpha-map-md.jpg")} />
+      <meshStandardMaterial map={cover} toneMapped={false} transparent={true} alphaMap={useLoader(TextureLoader, "/mats/homepage/cover-alpha-map-md.jpg")} opacity={op} />
     </mesh>
   )
 }
@@ -84,6 +82,8 @@ function Scene({ setCurCenter }) {
   const [mouseCurPos, setMouseCurPos] = useState(null);
   const [mousePrevPos, setMousePrevPos] = useState(null);
   const [hovered, setHovered] = useState(0)
+  let op = useRef(0.0)
+  const [renderTrigger, setRenderTrigger] = useState(false);
 
   function handleKeyPress(e: any) {
     if (window.location.href.includes("projects")) return;
@@ -129,10 +129,6 @@ function Scene({ setCurCenter }) {
     setTargetOffset(targetOffset => Math.round(targetOffset));
   }
 
-  // useEffect(() => {
-  //   document.body.style.cursor = (hovered > 0) ? 'pointer' : 'auto'
-  // }, [hovered])
-
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
     document.addEventListener('mousedown', handleSwipeStart)
@@ -160,7 +156,13 @@ function Scene({ setCurCenter }) {
     let curCenter = mod(Math.round(-currentOffset), projects.length)
     setCurCenter(curCenter)
 
+    let opacityDistance = 1.0 - op.current;
+    let opacitySpeed = easeOutSine(opacityDistance);
+    op.current += opacitySpeed * 0.04;
+    if (op.current > 1.0) op.current = 1.0;
+    setRenderTrigger((renderTrigger) => !renderTrigger);
   })
+
 
   return (
     <>
@@ -175,9 +177,30 @@ function Scene({ setCurCenter }) {
           setTargetOffset={setTargetOffset}
           hovered={hovered}
           setHovered={setHovered}
+          op={op.current}
         />
       ))}
     </>
+  )
+}
+
+import { Html, useProgress } from '@react-three/drei'
+
+function Loader() {
+  let num = 15;
+  const { loaded } = useProgress()
+
+  var str = "";
+  for (var i = 0; i < projects.length; i++) {
+    if (i < loaded) str += "▓";
+    else str += "░";
+  }
+
+
+  return (
+    <Html center>
+      <p className='font-mono'>{str}</p>
+    </Html>
   )
 }
 
@@ -186,19 +209,24 @@ const AlbumSelector = () => {
   const [grab, setGrab] = useState(false);
 
   return (
-    <div className={`absolute w-screen h-[85vh] md:h-screen left-0 top-0 ${grab ? "cursor-grabbing" : "cursor-grab"}`} onMouseDown={() => setGrab(true)} onMouseUp={() => setGrab(false)}>
+    <div className={`absolute w-screen h-[85vh] md:h-screen left-0 top-0 animate-fade ${grab ? "cursor-grabbing" : "cursor-grab"}`} onMouseDown={() => setGrab(true)} onMouseUp={() => setGrab(false)}>
       <Canvas
         linear
       >
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <Scene
             setCurCenter={setCurCenter}
           />
+          <Html
+            center
+            zIndexRange={[0, 0]}
+          >
+            <h1 className='select-none absolute left-1/2 top-[19vh] md:top-[20vh] -translate-x-1/2 text-nowrap'>{projects[curCenter].name}</h1>
+            <h2 className='select-none absolute left-1/2 top-[25vh] md:top-[23vh] -translate-x-1/2'>{projects[curCenter].year}</h2>
+            <p className='select-none	absolute left-1/2 top-[30vh] md:top-[26vh] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
+          </Html>
         </Suspense>
       </Canvas>
-      <h1 className='select-none absolute left-1/2 top-[69%] md:top-[70%] -translate-x-1/2 text-nowrap'>{projects[curCenter].name}</h1>
-      <h2 className='select-none absolute left-1/2 top-[75%] md:top-[73%] -translate-x-1/2'>{projects[curCenter].year}</h2>
-      <p className='select-none	absolute left-1/2 top-[80%] md:top-[76%] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
     </div >
   );
 };

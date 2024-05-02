@@ -4,9 +4,10 @@ import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer, Link, useNavigate, Outlet, Meta, Links, ScrollRestoration, Scripts } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
-import { useState, Suspense, useEffect, useRef } from "react";
+import { useState, Suspense, useRef, useEffect } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
+import { Html, useProgress } from "@react-three/drei";
 const ABORT_DELAY = 5e3;
 function handleRequest(request, responseStatusCode, responseHeaders, remixContext, loadContext) {
   return isbot(request.headers.get("user-agent") || "") ? handleBotRequest(
@@ -113,30 +114,32 @@ function NavBar() {
     /* @__PURE__ */ jsxs("div", { className: `transform top-0 p-4 left-0 w-auto bg-white fixed h-[97vh] m-4 mt-[1.5vh] border-2 border-neutral-250 rounded-md ease-in-out transition-all duration-300 z-30 ${isVisible ? "translate-x-0" : "-translate-x-[200%]"}`, onClick: handleClick, children: [
       /* @__PURE__ */ jsxs("ul", { className: "hover:*:*:text-yellow-500", children: [
         /* @__PURE__ */ jsx("li", { className: "text-sm italic pt-3", children: "2024" }),
-        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/wax-flamingos", children: "Wax Flamingos**" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/wax-flamingos", children: "Wax Flamingos" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/droplets", children: "Droplets" }) }),
         /* @__PURE__ */ jsx("li", { className: "text-sm italic pt-3", children: "2023" }),
-        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/honeycomb", children: "Honeycomb**" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/honeycomb", children: "Honeycomb" }) }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/water-qwop", children: "Water-QWOP" }) }),
-        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/horse-and-chariot", children: "Horse & Chariot*" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/horse-and-chariot", children: "Horse & Chariot" }) }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/hyper-hydration", children: "Hyper-hydration" }) }),
         /* @__PURE__ */ jsx("li", { className: "text-sm italic pt-3", children: "2022" }),
-        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/sprawl-and-resilience", children: "Sprawl & Resilience*" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/cloud-sketch", children: "Cloud Sketch" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/sprawl-and-resilience", children: "Sprawl & Resilience" }) }),
         /* @__PURE__ */ jsx("li", { className: "text-sm italic pt-3", children: "2021" }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/cybernetic-field", children: "Cybernetic Field" }) }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/bubble-gan", children: "Bubble-GAN" }) }),
         /* @__PURE__ */ jsx("li", { className: "text-sm italic pt-3", children: "2020" }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/elc-carrick", children: "ELC: Carrick" }) }),
-        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/placeholder", children: "15-112: placeHolder**" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/placeholder", children: "15-112: placeHolder" }) }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/collaborative-winding", children: "Collaborative Winding" }) }),
         /* @__PURE__ */ jsx("li", { className: "text-sm italic pt-3", children: "2019" }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/flood-museum", children: "Flood Museum" }) }),
-        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/design-fabrication", children: "Design Fabrication*" }) }),
-        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/spring-garden-hostel", children: "Spring Garden Hostel*" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/design-fabrication", children: "Design Fabrication" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/spring-garden-hostel", children: "Spring Garden Hostel" }) }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/modular-garden", children: "Modular Garden" }) }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/bathhouse", children: "Bathhouse" }) }),
         /* @__PURE__ */ jsx("li", { className: "text-sm italic pt-3", children: "2018" }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/hoophouse", children: "Hoophouse" }) }),
-        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/misc", children: "Misc" }) })
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/drawings", children: "Drawings" }) })
       ] }),
       /* @__PURE__ */ jsx("p", { className: "absolute top-4 -right-7 hover:text-yellow-500 cursor-pointer font-bold", onClick: handleClick, children: "✕" })
     ] })
@@ -240,11 +243,11 @@ const projects = [
   },
   {
     name: "drawings",
-    year: "2017",
+    year: "2018",
     keywords: "Charcoal, Pastel"
   }
 ];
-let movementFactor = 0.08;
+let movementFactor = 0.05;
 let rotationAmount = 0.5;
 let centerAlbumZoom = 1.2;
 function mod(d, n) {
@@ -259,7 +262,7 @@ function easeInOutSine(x) {
 function easeOutSine(x) {
   return Math.sin(x * Math.PI / 2);
 }
-function Album({ cover, location, index, targetOffset, setTargetOffset, hovered, setHovered }) {
+function Album({ cover, location, index, targetOffset, setTargetOffset, hovered, setHovered, op }) {
   const meshRef = useRef();
   const navigate = useNavigate();
   const openLink = () => {
@@ -308,7 +311,7 @@ function Album({ cover, location, index, targetOffset, setTargetOffset, hovered,
       },
       children: [
         /* @__PURE__ */ jsx("planeGeometry", { args: [2, 2] }),
-        /* @__PURE__ */ jsx("meshStandardMaterial", { map: cover, toneMapped: false, transparent: true, alphaMap: useLoader(TextureLoader, "/mats/homepage/cover-alpha-map-md.jpg") })
+        /* @__PURE__ */ jsx("meshStandardMaterial", { map: cover, toneMapped: false, transparent: true, alphaMap: useLoader(TextureLoader, "/mats/homepage/cover-alpha-map-md.jpg"), opacity: op })
       ]
     }
   );
@@ -320,6 +323,8 @@ function Scene({ setCurCenter }) {
   const [mouseCurPos, setMouseCurPos] = useState(null);
   const [mousePrevPos, setMousePrevPos] = useState(null);
   const [hovered, setHovered] = useState(0);
+  let op = useRef(0);
+  const [renderTrigger, setRenderTrigger] = useState(false);
   function handleKeyPress(e) {
     if (window.location.href.includes("projects"))
       return;
@@ -392,6 +397,12 @@ function Scene({ setCurCenter }) {
     setCurrentOffset(currentOffset + movementSpeed);
     let curCenter = mod(Math.round(-currentOffset), projects.length);
     setCurCenter(curCenter);
+    let opacityDistance = 1 - op.current;
+    let opacitySpeed = easeOutSine(opacityDistance);
+    op.current += opacitySpeed * 0.04;
+    if (op.current > 1)
+      op.current = 1;
+    setRenderTrigger((renderTrigger2) => !renderTrigger2);
   });
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsx("ambientLight", { intensity: 3.1 }),
@@ -404,38 +415,59 @@ function Scene({ setCurCenter }) {
         targetOffset,
         setTargetOffset,
         hovered,
-        setHovered
+        setHovered,
+        op: op.current
       },
       index
     ))
   ] });
 }
+function Loader() {
+  const { loaded } = useProgress();
+  var str = "";
+  for (var i = 0; i < projects.length; i++) {
+    if (i < loaded)
+      str += "▓";
+    else
+      str += "░";
+  }
+  return /* @__PURE__ */ jsx(Html, { center: true, children: /* @__PURE__ */ jsx("p", { className: "font-mono", children: str }) });
+}
 const AlbumSelector = () => {
   const [curCenter, setCurCenter] = useState(0);
   const [grab, setGrab] = useState(false);
-  return /* @__PURE__ */ jsxs("div", { className: `absolute w-screen h-[85vh] md:h-screen left-0 top-0 ${grab ? "cursor-grabbing" : "cursor-grab"}`, onMouseDown: () => setGrab(true), onMouseUp: () => setGrab(false), children: [
-    /* @__PURE__ */ jsx(
-      Canvas,
-      {
-        linear: true,
-        children: /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsx("div", { className: `absolute w-screen h-[85vh] md:h-screen left-0 top-0 animate-fade ${grab ? "cursor-grabbing" : "cursor-grab"}`, onMouseDown: () => setGrab(true), onMouseUp: () => setGrab(false), children: /* @__PURE__ */ jsx(
+    Canvas,
+    {
+      linear: true,
+      children: /* @__PURE__ */ jsxs(Suspense, { fallback: /* @__PURE__ */ jsx(Loader, {}), children: [
+        /* @__PURE__ */ jsx(
           Scene,
           {
             setCurCenter
           }
-        ) })
-      }
-    ),
-    /* @__PURE__ */ jsx("h1", { className: "select-none absolute left-1/2 top-[69%] md:top-[70%] -translate-x-1/2 text-nowrap", children: projects[curCenter].name }),
-    /* @__PURE__ */ jsx("h2", { className: "select-none absolute left-1/2 top-[75%] md:top-[73%] -translate-x-1/2", children: projects[curCenter].year }),
-    /* @__PURE__ */ jsxs("p", { className: "select-none	absolute left-1/2 top-[80%] md:top-[76%] -translate-x-1/2 w-80 text-center", children: [
-      /* @__PURE__ */ jsx("i", { children: "Keywords: " }),
-      projects[curCenter].keywords
-    ] })
-  ] });
+        ),
+        /* @__PURE__ */ jsxs(
+          Html,
+          {
+            center: true,
+            zIndexRange: [0, 0],
+            children: [
+              /* @__PURE__ */ jsx("h1", { className: "select-none absolute left-1/2 top-[19vh] md:top-[20vh] -translate-x-1/2 text-nowrap", children: projects[curCenter].name }),
+              /* @__PURE__ */ jsx("h2", { className: "select-none absolute left-1/2 top-[25vh] md:top-[23vh] -translate-x-1/2", children: projects[curCenter].year }),
+              /* @__PURE__ */ jsxs("p", { className: "select-none	absolute left-1/2 top-[30vh] md:top-[26vh] -translate-x-1/2 w-80 text-center", children: [
+                /* @__PURE__ */ jsx("i", { children: "Keywords: " }),
+                projects[curCenter].keywords
+              ] })
+            ]
+          }
+        )
+      ] })
+    }
+  ) });
 };
 const AlbumSelector$1 = AlbumSelector;
-const stylesheet = "/assets/tailwind-BM2lO6Z3.css";
+const stylesheet = "/assets/tailwind-D2XI_oQA.css";
 const links = () => [
   { rel: "stylesheet", href: stylesheet }
 ];
@@ -1054,7 +1086,7 @@ function WaxFlamingos() {
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("img", { alt: "", id: "1", src: "/mats/wax_flamingos/coming_soon.jpg" }),
     /* @__PURE__ */ jsx("br", {}),
-    /* @__PURE__ */ jsx("p", { children: "Using a found-object with an off-balance supporting location, a method was devised to incrementally add wax with the aim of positioning the object’s Center Of Mass (COM) above a support location and bring the object into balance." }),
+    /* @__PURE__ */ jsx("p", { children: "Using a found-object with an off-balance supporting location, a method was devised to incrementally add wax with the aim of positioning the object's Center Of Mass above a support location and bring the object into balance." }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("p", { children: "COMING SOON" })
   ] });
@@ -1067,7 +1099,11 @@ function HyperHydration$1() {
   return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Cloud Sketch (2022)" }),
     /* @__PURE__ */ jsx("br", {}),
-    /* @__PURE__ */ jsx("p", { children: "Aenean at suscipit massa. In at diam feugiat, feugiat elit eu, maximus enim. Nulla consequat eleifend iaculis. Mauris viverra tempus augue. Donec vitae suscipit orci. Phasellus vehicula ipsum vel nisl egestas ullamcorper. Maecenas ac leo eu eros elementum porta." }),
+    /* @__PURE__ */ jsxs("p", { children: [
+      "This p5.js sketch was a personal attempt to algorthimically capture the varied movement of clouds. It uses non-linear mapping of simplex noise to create both the arrangement and the drift of the clouds. Check out the ",
+      /* @__PURE__ */ jsx(Link, { className: "underline hover:text-yellow-500", to: "https://editor.p5js.org/sqamuel/sketches/-uHONRpZg", rel: "noopener noreferrer", target: "_blank", children: "script" }),
+      " (press ►) if you would like to see the procedural variety output by the algorithm."
+    ] }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("img", { className: "m-auto md:w-7/12", src: "/mats/cloud-sketch/clouds.gif" })
   ] });
@@ -1410,7 +1446,7 @@ function WaterQWOP() {
       /* @__PURE__ */ jsx("i", { children: "Water Sports: Water QWOP" }),
       " is a foray into machine learning involving reinforcement learning. Conceptually, it is quite similar to the flash game ",
       /* @__PURE__ */ jsx("i", { children: "QWOP" }),
-      ". This project was developed as part of the Computational Explorations seminar at ITECH master´s program in collaboration with Chris Kang, Markus Renner, and Cornerlius Carl."
+      ". This project was developed as part of the Computational Explorations seminar at ITECH master's program in collaboration with Chris Kang, Markus Renner, and Cornerlius Carl."
     ] }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("img", { alt: "", id: "2", src: "/mats/water_sports/qwop_agent_begin.gif", className: "md:w-2/4" }),
@@ -1728,9 +1764,9 @@ const route18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
 }, Symbol.toStringTag, { value: "Module" }));
 function Misc() {
   return /* @__PURE__ */ jsxs("div", { children: [
-    /* @__PURE__ */ jsx("h1", { children: "Drawings (2017)" }),
+    /* @__PURE__ */ jsx("h1", { children: "Drawings (2018)" }),
     /* @__PURE__ */ jsx("br", {}),
-    /* @__PURE__ */ jsx("p", { children: "These are some nice drawings that I did during my first year drawing class in architecture school. Please enjoy." }),
+    /* @__PURE__ */ jsx("p", { children: "These are some charcoal and pastel drawings that I created during my frist-year drawing class in architecture school. Please enjoy." }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("img", { className: "m-auto md:w-7/12", src: "/mats/misc/drawing2.jpg" }),
     /* @__PURE__ */ jsx("br", {}),
@@ -1751,11 +1787,15 @@ function HyperHydration() {
   return /* @__PURE__ */ jsxs("div", { children: [
     /* @__PURE__ */ jsx("h1", { children: "Droplets (2024)" }),
     /* @__PURE__ */ jsx("br", {}),
-    /* @__PURE__ */ jsx("p", { children: "Donec sed tincidunt dolor. Praesent laoreet mattis vehicula. Quisque suscipit diam in nisi laoreet fermentum. Curabitur sollicitudin eleifend lorem vel consectetur. Quisque porta nec tellus et elementum. Cras eget turpis eget leo ornare congue et et nibh. Sed non eros a odio facilisis facilisis. Curabitur sollicitudin at ipsum et pretium. Curabitur vestibulum mi justo, eu iaculis arcu cursus non. Phasellus pellentesque euismod ligula nec suscipit. Aliquam scelerisque nec lectus sed placerat." }),
+    /* @__PURE__ */ jsxs("p", { children: [
+      "This series of p5.js scripts is a study of the natural system of droplets on a smooth surface (e.g. marble). The motion of this system is emergent from the behaviors of each of individual droplet and the continual addition of agents to the environment. Check out the ",
+      /* @__PURE__ */ jsx(Link, { className: "underline hover:text-yellow-500", to: "https://editor.p5js.org/sqamuel/sketches/O5TDu6eHo", rel: "noopener noreferrer", target: "_blank", children: "script" }),
+      " (press ►) if you would like to see the procedural variety output by the algorithm."
+    ] }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("img", { className: "m-auto md:w-7/12", src: "/mats/droplets/figure-ground.gif" }),
     /* @__PURE__ */ jsx("br", {}),
-    /* @__PURE__ */ jsx("p", { children: "Aenean at suscipit massa. In at diam feugiat, feugiat elit eu, maximus enim. Nulla consequat eleifend iaculis. Mauris viverra tempus augue. Donec vitae suscipit orci. Phasellus vehicula ipsum vel nisl egestas ullamcorper. Maecenas ac leo eu eros elementum porta." }),
+    /* @__PURE__ */ jsx("p", { children: "A droplet is defined by its mass, location, and three behaviors. (1) A gravity force behavior induced when it has a certain mass. (2) A spawn additional droplet behavior induced by movement. And (3) a merging behavior induced when coming in contact with another droplet. While each inidivual droplet has no systematic outcome, the summation of them in an enviornment results in the emergent system shown in the surrounding gifs." }),
     /* @__PURE__ */ jsx("br", {}),
     /* @__PURE__ */ jsx("img", { className: "m-auto md:w-7/12", src: "/mats/droplets/marble.gif" })
   ] });
@@ -1788,21 +1828,14 @@ const route21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   __proto__: null,
   default: Container
 }, Symbol.toStringTag, { value: "Module" }));
-const meta = () => {
-  return [
-    { title: "Samuel Losi: a Website Portfolio" },
-    { name: "description", content: "Welcome to Remix!" }
-  ];
-};
 function Index() {
   return /* @__PURE__ */ jsx("div", {});
 }
 const route22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: Index,
-  meta
+  default: Index
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-PtWL7kzs.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-DJ3miOcu.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.collaborative-winding": { "id": "routes/projects.collaborative-winding", "parentId": "routes/projects", "path": "collaborative-winding", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.collaborative-winding-CDz1Ar3I.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.sprawl-and-resilience": { "id": "routes/projects.sprawl-and-resilience", "parentId": "routes/projects", "path": "sprawl-and-resilience", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.sprawl-and-resilience-BF7n52pP.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.spring-garden-hostel": { "id": "routes/projects.spring-garden-hostel", "parentId": "routes/projects", "path": "spring-garden-hostel", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.spring-garden-hostel-CnKmWgD2.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.design-fabrication": { "id": "routes/projects.design-fabrication", "parentId": "routes/projects", "path": "design-fabrication", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.design-fabrication-CtyZZ11g.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.horse-and-chariot": { "id": "routes/projects.horse-and-chariot", "parentId": "routes/projects", "path": "horse-and-chariot", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.horse-and-chariot-CJIWECXx.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.cybernetic-field": { "id": "routes/projects.cybernetic-field", "parentId": "routes/projects", "path": "cybernetic-field", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cybernetic-field-CowNYCBo.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.hyper-hydration": { "id": "routes/projects.hyper-hydration", "parentId": "routes/projects", "path": "hyper-hydration", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hyper-hydration-Cb0gyWiF.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.modular-garden": { "id": "routes/projects.modular-garden", "parentId": "routes/projects", "path": "modular-garden", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.modular-garden-QgkWHi9y.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.wax-flamingos": { "id": "routes/projects.wax-flamingos", "parentId": "routes/projects", "path": "wax-flamingos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.wax-flamingos-B_RhDs8M.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.cloud-sketch": { "id": "routes/projects.cloud-sketch", "parentId": "routes/projects", "path": "cloud-sketch", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cloud-sketch-B2jbmWDK.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.flood-museum": { "id": "routes/projects.flood-museum", "parentId": "routes/projects", "path": "flood-museum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.flood-museum-DWfQNAoK.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.elc-carrick": { "id": "routes/projects.elc-carrick", "parentId": "routes/projects", "path": "elc-carrick", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.elc-carrick-CtrbhzZC.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.placeholder": { "id": "routes/projects.placeholder", "parentId": "routes/projects", "path": "placeholder", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.placeholder-9pLeG0_i.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.bubble-gan": { "id": "routes/projects.bubble-gan", "parentId": "routes/projects", "path": "bubble-gan", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bubble-gan-DuYNToKq.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.water-qwop": { "id": "routes/projects.water-qwop", "parentId": "routes/projects", "path": "water-qwop", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.water-qwop-DuB-U_FY.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.bathhouse": { "id": "routes/projects.bathhouse", "parentId": "routes/projects", "path": "bathhouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bathhouse-DvrRVe2-.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.honeycomb": { "id": "routes/projects.honeycomb", "parentId": "routes/projects", "path": "honeycomb", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.honeycomb-CBFmTj5Q.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/projects.hoophouse": { "id": "routes/projects.hoophouse", "parentId": "routes/projects", "path": "hoophouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hoophouse-CIbPlylj.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.drawings": { "id": "routes/projects.drawings", "parentId": "routes/projects", "path": "drawings", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.drawings-Dl6z0fqY.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects.droplets": { "id": "routes/projects.droplets", "parentId": "routes/projects", "path": "droplets", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.droplets-BcRSCfr4.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] }, "routes/projects": { "id": "routes/projects", "parentId": "root", "path": "projects", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects-D_Ap76fr.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js", "/assets/components--iMuTRih.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-BYSTAgK1.js", "imports": ["/assets/jsx-runtime-BlSqMCxk.js"], "css": [] } }, "url": "/assets/manifest-030b9088.js", "version": "030b9088" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-u1Mz-iCE.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js", "/assets/client-lLho4FXR.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-PdajP46F.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js", "/assets/client-lLho4FXR.js"], "css": [] }, "routes/projects.collaborative-winding": { "id": "routes/projects.collaborative-winding", "parentId": "routes/projects", "path": "collaborative-winding", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.collaborative-winding-DJmrHdWm.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.sprawl-and-resilience": { "id": "routes/projects.sprawl-and-resilience", "parentId": "routes/projects", "path": "sprawl-and-resilience", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.sprawl-and-resilience-DMeawsk5.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.spring-garden-hostel": { "id": "routes/projects.spring-garden-hostel", "parentId": "routes/projects", "path": "spring-garden-hostel", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.spring-garden-hostel-BKWLf7CZ.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.design-fabrication": { "id": "routes/projects.design-fabrication", "parentId": "routes/projects", "path": "design-fabrication", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.design-fabrication-CikwiMsT.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.horse-and-chariot": { "id": "routes/projects.horse-and-chariot", "parentId": "routes/projects", "path": "horse-and-chariot", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.horse-and-chariot-Cv5v0Ri3.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.cybernetic-field": { "id": "routes/projects.cybernetic-field", "parentId": "routes/projects", "path": "cybernetic-field", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cybernetic-field-BE37HJvM.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.hyper-hydration": { "id": "routes/projects.hyper-hydration", "parentId": "routes/projects", "path": "hyper-hydration", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hyper-hydration-B__HdMp7.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.modular-garden": { "id": "routes/projects.modular-garden", "parentId": "routes/projects", "path": "modular-garden", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.modular-garden-gKppdDDM.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.wax-flamingos": { "id": "routes/projects.wax-flamingos", "parentId": "routes/projects", "path": "wax-flamingos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.wax-flamingos-BkCwqM2O.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.cloud-sketch": { "id": "routes/projects.cloud-sketch", "parentId": "routes/projects", "path": "cloud-sketch", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cloud-sketch-_C6o15x9.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.flood-museum": { "id": "routes/projects.flood-museum", "parentId": "routes/projects", "path": "flood-museum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.flood-museum-DY0RLsOu.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.elc-carrick": { "id": "routes/projects.elc-carrick", "parentId": "routes/projects", "path": "elc-carrick", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.elc-carrick-CSdLsKoa.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.placeholder": { "id": "routes/projects.placeholder", "parentId": "routes/projects", "path": "placeholder", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.placeholder-DqZVDhO6.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.bubble-gan": { "id": "routes/projects.bubble-gan", "parentId": "routes/projects", "path": "bubble-gan", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bubble-gan-D2dJM_oP.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.water-qwop": { "id": "routes/projects.water-qwop", "parentId": "routes/projects", "path": "water-qwop", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.water-qwop-m-KazIa_.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.bathhouse": { "id": "routes/projects.bathhouse", "parentId": "routes/projects", "path": "bathhouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bathhouse-B4WGWeRB.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.honeycomb": { "id": "routes/projects.honeycomb", "parentId": "routes/projects", "path": "honeycomb", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.honeycomb-CvlwlPcM.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.hoophouse": { "id": "routes/projects.hoophouse", "parentId": "routes/projects", "path": "hoophouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hoophouse-CSPH13UN.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.drawings": { "id": "routes/projects.drawings", "parentId": "routes/projects", "path": "drawings", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.drawings-D8Wo1BTF.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.droplets": { "id": "routes/projects.droplets", "parentId": "routes/projects", "path": "droplets", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.droplets-BfrSpvK6.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects": { "id": "routes/projects", "parentId": "root", "path": "projects", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects-h_UQQmxi.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-BjJ17_yl.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] } }, "url": "/assets/manifest-697e5a0d.js", "version": "697e5a0d" };
 const mode = "production";
 const assetsBuildDirectory = "build/client";
 const basename = "/";
