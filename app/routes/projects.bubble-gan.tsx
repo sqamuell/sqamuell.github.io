@@ -34,6 +34,8 @@ export default function BubbleGAN() {
 				the locations of walls. Finally, the walls are extruded with Rhino &
 				Grasshopper, then tweaked to the designers’ liking.
 			</p>
+			<br />
+			<img alt="" id="2" src={"/mats/bubbles_floors/floor_plans.png"} />
 		</div>
 	);
 }
