@@ -3,6 +3,17 @@ import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { TextureLoader } from 'three';
 import { useNavigate } from "@remix-run/react";
 import projects from './project-data.json';
+import { Label } from "app/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "app/components/ui/radio-group"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "app/components/ui/select"
 
 let movementFactor = 0.05;
 let rotationAmount = 0.5;
@@ -24,7 +35,7 @@ function easeOutSine(x: number): number {
 
 
 
-function Album({ cover, location, index, targetOffset, setTargetOffset, hovered, setHovered, op }) {
+function Album({ cover, location, index, targetOffset, setTargetOffset, hovered, setHovered, op }: { cover: any, location: number, index: number, targetOffset: number, setTargetOffset: any, hovered: number, setHovered: any, op: number }) {
   const meshRef = useRef();
   const navigate = useNavigate();
 
@@ -74,7 +85,7 @@ function Album({ cover, location, index, targetOffset, setTargetOffset, hovered,
   )
 }
 
-function Scene({ setCurCenter }) {
+function Scene({ setCurCenter }: { setCurCenter: any }) {
   const navigate = useNavigate();
 
   const [targetOffset, setTargetOffset] = useState(0);
@@ -187,7 +198,6 @@ function Scene({ setCurCenter }) {
 import { Html, useProgress } from '@react-three/drei'
 
 function Loader() {
-  let num = 15;
   const { loaded } = useProgress()
 
   var str = "";
@@ -227,6 +237,22 @@ const AlbumSelector = () => {
           </Html>
         </Suspense>
       </Canvas>
+      {/* <div className='absolute bottom-4 left-1/2 -translate-x-1/2'>
+        <Select>
+          <SelectTrigger className="w-[200px]">
+            <SelectValue placeholder="Select a category" /> 
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup className=''>
+              <SelectItem value=" ">All</SelectItem>
+              <SelectItem value="banana">Computational Design</SelectItem>
+              <SelectItem value="blueberry">Architecture</SelectItem>
+              <SelectItem value="grapes">Digital Fabrication</SelectItem>
+              <SelectItem value="software development">Software Development</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div> */}
     </div >
   );
 };

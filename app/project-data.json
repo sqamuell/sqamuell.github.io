@@ -1,5 +1,14 @@
 [
   {
+    "name": "itech-2024-pavilion",
+    "year": "2024",
+    "keywords": "Codesign Framework, Design for Material, Robotic Fabrication"
+  },{
+    "name": "conversational-floor-plans",
+    "year": "2024",
+    "keywords": "Generative AI Agent System, UX/UI Design, Architectural Representation"
+  },
+  {
     "name": "wax-flamingos",
     "year": "2024",
     "keywords": "Behavioral Robotics, Additive Manufacturing, Material Indeterminancy"
