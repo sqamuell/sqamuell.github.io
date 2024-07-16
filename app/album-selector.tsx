@@ -1,19 +1,8 @@
 import { useRef, useEffect, useState, Suspense, useMemo } from 'react';
 import { Canvas, useLoader, useFrame } from '@react-three/fiber';
-import { TextureLoader } from 'three';
+import { MathUtils, TextureLoader } from 'three';
 import { useNavigate } from "@remix-run/react";
 import projects from './project-data.json';
-import { Label } from "app/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "app/components/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "app/components/ui/select"
 
 let movementFactor = 0.05;
 let rotationAmount = 0.5;
@@ -35,14 +24,33 @@ function easeOutSine(x: number): number {
 
 
 
-function Album({ cover, location, index, targetOffset, setTargetOffset, hovered, setHovered, op }: { cover: any, location: number, index: number, targetOffset: number, setTargetOffset: any, hovered: number, setHovered: any, op: number }) {
+function Album({ cover, location, index, targetOffset, setTargetOffset, hovered, setHovered, op, filters, filter_tags }: { cover: any, location: number, index: number, targetOffset: number, setTargetOffset: any, hovered: number, setHovered: any, op: number }) {
   const meshRef = useRef();
   const navigate = useNavigate();
 
   const openLink = () => {
-    if (meshRef.current.position.x > -0.5 && meshRef.current.position.x < 0.5) { navigate("./projects/" + projects[index].name); }
-    else setTargetOffset(Math.round(targetOffset - meshRef.current.position.x))
+    if (meshRef.current) {
+      if (meshRef.current.position.x > -0.5 && meshRef.current.position.x < 0.5) { navigate("./projects/" + projects[index].name); }
+      else setTargetOffset(Math.round(targetOffset - meshRef.current.position.x))
+    }
   }
+
+  useFrame(() => {
+    if (meshRef.current) {
+      if (filters.length == 0) {
+        meshRef.current.scale.x = MathUtils.damp(meshRef.current.scale.x, 1, 2.5, 0.1)
+        meshRef.current.scale.y = MathUtils.damp(meshRef.current.scale.y, 1, 2.5, 0.1)
+      }
+      else if (filters.every(tag => filter_tags.includes(tag))) {
+        meshRef.current.scale.x = MathUtils.damp(meshRef.current.scale.x, 1, 2.5, 0.1)
+        meshRef.current.scale.y = MathUtils.damp(meshRef.current.scale.y, 1, 2.5, 0.1)
+      }
+      else {
+        meshRef.current.scale.x = MathUtils.damp(meshRef.current.scale.x, 0.2, 2.5, 0.1)
+        meshRef.current.scale.y = MathUtils.damp(meshRef.current.scale.y, 0.2, 2.5, 0.1)
+      }
+    }
+  });
 
   useEffect(() => {
     if (meshRef.current) {
@@ -85,7 +93,7 @@ function Album({ cover, location, index, targetOffset, setTargetOffset, hovered,
   )
 }
 
-function Scene({ setCurCenter }: { setCurCenter: any }) {
+function Scene({ setCurCenter, filters }: { setCurCenter: any, filters: string[] }) {
   const navigate = useNavigate();
 
   const [targetOffset, setTargetOffset] = useState(0);
@@ -181,6 +189,8 @@ function Scene({ setCurCenter }: { setCurCenter: any }) {
       {projects.map((project, index) => (
         <Album
           key={index}
+          filters={filters}
+          filter_tags={project.filter_tags}
           cover={useLoader(TextureLoader, '/mats/homepage/cover-' + project.name + '.jpg')}
           location={mod(index + currentOffset, projects.length)}
           index={index}
@@ -214,9 +224,32 @@ function Loader() {
   )
 }
 
+const FilterSelector = ({ category, setFilter }) => {
+  const [selected, setSelected] = useState(false);
+  return (
+    <div className='select-none'
+      onClick={() => {
+        setSelected(!selected);
+        setFilter((prev) => {
+          if (selected) {
+            const newFilter = prev.filter(topic => topic !== category);
+            return newFilter.length === 0 ? [] : newFilter;
+          } else {
+            return [...prev, category];
+          }
+        });
+      }}
+    >
+      <p className={`text-right cursor-pointer ${selected ? "hidden" : "block"}`}>&#160;&#9744; {category}&#160;</p>
+      <p className={`text-right cursor-pointer ${selected ? "block" : "hidden"}`}>&#160;&#9746; {category}&#160;</p>
+    </div>
+  )
+}
+
 const AlbumSelector = () => {
   const [curCenter, setCurCenter] = useState(0);
   const [grab, setGrab] = useState(false);
+  const [filters, setFilter] = useState([]);
 
   return (
     <div className={`absolute w-screen h-[85vh] md:h-screen left-0 top-0 animate-fade ${grab ? "cursor-grabbing" : "cursor-grab"}`} onMouseDown={() => setGrab(true)} onMouseUp={() => setGrab(false)}>
@@ -226,6 +259,7 @@ const AlbumSelector = () => {
         <Suspense fallback={<Loader />}>
           <Scene
             setCurCenter={setCurCenter}
+            filters={filters}
           />
           <Html
             center
@@ -237,22 +271,14 @@ const AlbumSelector = () => {
           </Html>
         </Suspense>
       </Canvas>
-      {/* <div className='absolute bottom-4 left-1/2 -translate-x-1/2'>
-        <Select>
-          <SelectTrigger className="w-[200px]">
-            <SelectValue placeholder="Select a category" /> 
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup className=''>
-              <SelectItem value=" ">All</SelectItem>
-              <SelectItem value="banana">Computational Design</SelectItem>
-              <SelectItem value="blueberry">Architecture</SelectItem>
-              <SelectItem value="grapes">Digital Fabrication</SelectItem>
-              <SelectItem value="software development">Software Development</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-      </div> */}
+      <div className='p-4 w-2/3 absolute top-0 right-0 text-nowrap hidden md:flex flex-wrap justify-end'>
+        <FilterSelector category={"computational design"} setFilter={setFilter} />|
+        <FilterSelector category={"digital fabrication"} setFilter={setFilter} />|
+        <FilterSelector category={"artificial intelligence"} setFilter={setFilter} />|
+        <FilterSelector category={"robotics"} setFilter={setFilter} />|
+        <FilterSelector category={"software development"} setFilter={setFilter} />|
+        <FilterSelector category={"architecture"} setFilter={setFilter} />
+      </div>
     </div >
   );
 };

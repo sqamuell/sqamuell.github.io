@@ -5,6 +5,7 @@
     "keywords": "Codesign Framework, Design for Material, Robotic Fabrication",
     "filter_tags": [
       "computational design",
+      "architecture",
       "digital fabrication",
       "robotics"
     ]
@@ -15,7 +16,7 @@
     "keywords": "Generative AI Agent System, UX/UI Design, Architectural Representation",
     "filter_tags": [
       "computational design",
-      "artificial intellegnce",
+      "artificial intelligence",
       "software development"
     ]
   },
@@ -49,7 +50,7 @@
     "year": "2023",
     "keywords": "Reinforcement Learning, Unity Modeling, Game Agent Design",
     "filter_tags": [
-      "artificial intellegnce"
+      "artificial intelligence"
     ]
   },
   {
@@ -65,13 +66,14 @@
     "year": "2023",
     "keywords": "Machine Learning, Optimization, Product Design",
     "filter_tags": [
-      "artificial intellegnce"
+      "artificial intelligence"
     ]
   },
   {
     "name": "cloud-sketch",
     "year": "2022",
-    "keywords": "p5.js, Phenomena Modeling, Generative Art"
+    "keywords": "p5.js, Phenomena Modeling, Generative Art",
+    "filter_tags": []
   },
   {
     "name": "sprawl-and-resilience",
@@ -94,7 +96,7 @@
     "year": "2021",
     "keywords": "Machine Learning, Generative Adversarial Network, Architectural AI",
     "filter_tags": [
-      "artificial intellegnce"
+      "artificial intelligence"
     ]
   },
   {
@@ -174,6 +176,7 @@
   {
     "name": "drawings",
     "year": "2018",
-    "keywords": "Charcoal, Pastel"
+    "keywords": "Charcoal, Pastel",
+    "filter_tags": []
   }
 ]
