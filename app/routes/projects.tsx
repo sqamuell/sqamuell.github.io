@@ -27,7 +27,7 @@ export default function Container() {
         setIsVisible(false);
         setTimeout(() => {
             navigate("/");
-        }, 100);
+        }, 500);
     }
 
     return (
