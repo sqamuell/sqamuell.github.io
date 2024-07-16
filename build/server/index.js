@@ -114,6 +114,8 @@ function NavBar() {
     /* @__PURE__ */ jsxs("div", { className: `transform select-none  top-0 p-4 left-0 w-auto bg-white fixed h-[97vh] m-4 mt-[1.5vh] border-2 border-neutral-250 rounded-md ease-in-out transition-all duration-300 z-30 ${isVisible ? "translate-x-0" : "-translate-x-[200%]"}`, onClick: handleClick, children: [
       /* @__PURE__ */ jsxs("ul", { className: "hover:*:*:text-yellow-500", children: [
         /* @__PURE__ */ jsx("li", { className: "text-sm italic pt-3", children: "2024" }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/conversational-floor-plans", children: "Converstional Floor Plans" }) }),
+        /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/itech-2024-pavilion", children: "ITECH Research Pavilion" }) }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/wax-flamingos", children: "Wax Flamingos" }) }),
         /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: "./projects/droplets", children: "Droplets" }) }),
         /* @__PURE__ */ jsx("li", { className: "text-sm italic pt-3", children: "2023" }),
@@ -149,42 +151,71 @@ const projects = [
   {
     name: "itech-2024-pavilion",
     year: "2024",
-    keywords: "Codesign Framework, Design for Material, Robotic Fabrication"
+    keywords: "Codesign Framework, Design for Material, Robotic Fabrication",
+    filter_tags: [
+      "computational design",
+      "digital fabrication",
+      "robotics"
+    ]
   },
   {
     name: "conversational-floor-plans",
     year: "2024",
-    keywords: "Generative AI Agent System, UX/UI Design, Architectural Representation"
+    keywords: "Generative AI Agent System, UX/UI Design, Architectural Representation",
+    filter_tags: [
+      "computational design",
+      "artificial intellegnce",
+      "software development"
+    ]
   },
   {
     name: "wax-flamingos",
     year: "2024",
-    keywords: "Behavioral Robotics, Additive Manufacturing, Material Indeterminancy"
+    keywords: "Behavioral Robotics, Additive Manufacturing, Material Indeterminancy",
+    filter_tags: [
+      "computational design",
+      "digital fabrication",
+      "robotics"
+    ]
   },
   {
     name: "droplets",
     year: "2024",
-    keywords: "p5.js, Agent-Based Modeling, Phenomena Modeling"
+    keywords: "p5.js, Agent-Based Modeling, Phenomena Modeling",
+    filter_tags: []
   },
   {
     name: "honeycomb",
     year: "2023",
-    keywords: "Symmetry Groups, Parametric Design, Grasshopper Development"
+    keywords: "Symmetry Groups, Parametric Design, Grasshopper Development",
+    filter_tags: [
+      "computational design",
+      "software development"
+    ]
   },
   {
     name: "water-qwop",
     year: "2023",
-    keywords: "Reinforcement Learning, Unity Modeling, Game Agent Design"
+    keywords: "Reinforcement Learning, Unity Modeling, Game Agent Design",
+    filter_tags: [
+      "artificial intellegnce"
+    ]
   },
   {
     name: "horse-and-chariot",
     year: "2023",
-    keywords: "Arduino Programming, Mobile Robotics, Data Transmission"
+    keywords: "Arduino Programming, Mobile Robotics, Data Transmission",
+    filter_tags: [
+      "robotics"
+    ]
   },
   {
     name: "hyper-hydration",
     year: "2023",
-    keywords: "Machine Learning, Optimization, Product Design"
+    keywords: "Machine Learning, Optimization, Product Design",
+    filter_tags: [
+      "artificial intellegnce"
+    ]
   },
   {
     name: "cloud-sketch",
@@ -194,62 +225,100 @@ const projects = [
   {
     name: "sprawl-and-resilience",
     year: "2022",
-    keywords: "Landscape Ecology, Board Game Design, Urban Planning"
+    keywords: "Landscape Ecology, Board Game Design, Urban Planning",
+    filter_tags: [
+      "architecture"
+    ]
   },
   {
     name: "cybernetic-field",
     year: "2021",
-    keywords: "Cybernetics, Agent-Based Modeling, Human-Computer Interaction"
+    keywords: "Cybernetics, Agent-Based Modeling, Human-Computer Interaction",
+    filter_tags: [
+      "computational design"
+    ]
   },
   {
     name: "bubble-gan",
     year: "2021",
-    keywords: "Machine Learning, Generative Adversarial Network, Architectural AI"
+    keywords: "Machine Learning, Generative Adversarial Network, Architectural AI",
+    filter_tags: [
+      "artificial intellegnce"
+    ]
   },
   {
     name: "elc-carrick",
     year: "2020",
-    keywords: "Educational Architecture, Materials and Assembly, Pittsburgh"
+    keywords: "Educational Architecture, Materials and Assembly, Pittsburgh",
+    filter_tags: [
+      "architecture"
+    ]
   },
   {
     name: "placeholder",
     year: "2020",
-    keywords: "Photogrammetry, Python Programming, Software Design"
+    keywords: "Photogrammetry, Python Programming, Software Design",
+    filter_tags: [
+      "software development"
+    ]
   },
   {
     name: "collaborative-winding",
     year: "2020",
-    keywords: "Architectural Robotics, Dual-Robot, Digital Fabrication"
+    keywords: "Architectural Robotics, Dual-Robot, Digital Fabrication",
+    filter_tags: [
+      "digital fabrication",
+      "robotics"
+    ]
   },
   {
     name: "flood-museum",
     year: "2019",
-    keywords: "Cultural Architecture, Combined Sewer System, Pittsburgh"
+    keywords: "Cultural Architecture, Combined Sewer System, Pittsburgh",
+    filter_tags: [
+      "architecture"
+    ]
   },
   {
     name: "design-fabrication",
     year: "2019",
-    keywords: "Digital Fabrication, Computer-Aided-Design, Spatial Extrapolation"
+    keywords: "Digital Fabrication, Computer-Aided-Design, Spatial Extrapolation",
+    filter_tags: [
+      "computational design",
+      "digital fabrication"
+    ]
   },
   {
     name: "spring-garden-hostel",
     year: "2019",
-    keywords: "Residential Architecture, Adaptive Reuse, Pittsburgh"
+    keywords: "Residential Architecture, Adaptive Reuse, Pittsburgh",
+    filter_tags: [
+      "architecture"
+    ]
   },
   {
     name: "modular-garden",
     year: "2019",
-    keywords: "Digital Fabrication, CNC Milling, Parametric Design"
+    keywords: "Digital Fabrication, CNC Milling, Parametric Design",
+    filter_tags: [
+      "computational design"
+    ]
   },
   {
     name: "bathhouse",
     year: "2019",
-    keywords: "Recreational Archtiecture, Architectural Sequencing, White Mountains"
+    keywords: "Recreational Archtiecture, Architectural Sequencing, White Mountains",
+    filter_tags: [
+      "architecture"
+    ]
   },
   {
     name: "hoophouse",
     year: "2018",
-    keywords: "Residential (for plants), Design & Build, Phipps Conservatory"
+    keywords: "Residential (for plants), Design & Build, Phipps Conservatory",
+    filter_tags: [
+      "architecture"
+    ]
   },
   {
     name: "drawings",
@@ -1886,7 +1955,7 @@ const route24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   __proto__: null,
   default: Index
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/assets/entry.client-u1Mz-iCE.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js", "/assets/client-lLho4FXR.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-Xrnhdvo1.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js", "/assets/client-lLho4FXR.js"], "css": [] }, "routes/projects.conversational-floor-plans": { "id": "routes/projects.conversational-floor-plans", "parentId": "routes/projects", "path": "conversational-floor-plans", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.conversational-floor-plans-CjsSQn9p.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.collaborative-winding": { "id": "routes/projects.collaborative-winding", "parentId": "routes/projects", "path": "collaborative-winding", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.collaborative-winding-DJmrHdWm.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.sprawl-and-resilience": { "id": "routes/projects.sprawl-and-resilience", "parentId": "routes/projects", "path": "sprawl-and-resilience", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.sprawl-and-resilience-DMeawsk5.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.spring-garden-hostel": { "id": "routes/projects.spring-garden-hostel", "parentId": "routes/projects", "path": "spring-garden-hostel", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.spring-garden-hostel-BKWLf7CZ.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.itech-2024-pavilion": { "id": "routes/projects.itech-2024-pavilion", "parentId": "routes/projects", "path": "itech-2024-pavilion", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.itech-2024-pavilion-DVotvFty.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.design-fabrication": { "id": "routes/projects.design-fabrication", "parentId": "routes/projects", "path": "design-fabrication", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.design-fabrication-CikwiMsT.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.horse-and-chariot": { "id": "routes/projects.horse-and-chariot", "parentId": "routes/projects", "path": "horse-and-chariot", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.horse-and-chariot-Cv5v0Ri3.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.cybernetic-field": { "id": "routes/projects.cybernetic-field", "parentId": "routes/projects", "path": "cybernetic-field", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cybernetic-field-CYt9ZeQt.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.hyper-hydration": { "id": "routes/projects.hyper-hydration", "parentId": "routes/projects", "path": "hyper-hydration", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hyper-hydration-B__HdMp7.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.modular-garden": { "id": "routes/projects.modular-garden", "parentId": "routes/projects", "path": "modular-garden", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.modular-garden-gKppdDDM.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.wax-flamingos": { "id": "routes/projects.wax-flamingos", "parentId": "routes/projects", "path": "wax-flamingos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.wax-flamingos-BkCwqM2O.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.cloud-sketch": { "id": "routes/projects.cloud-sketch", "parentId": "routes/projects", "path": "cloud-sketch", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cloud-sketch-_C6o15x9.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.flood-museum": { "id": "routes/projects.flood-museum", "parentId": "routes/projects", "path": "flood-museum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.flood-museum-DY0RLsOu.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.elc-carrick": { "id": "routes/projects.elc-carrick", "parentId": "routes/projects", "path": "elc-carrick", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.elc-carrick-CSdLsKoa.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.placeholder": { "id": "routes/projects.placeholder", "parentId": "routes/projects", "path": "placeholder", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.placeholder-DqZVDhO6.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.bubble-gan": { "id": "routes/projects.bubble-gan", "parentId": "routes/projects", "path": "bubble-gan", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bubble-gan-C18_fJdw.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.water-qwop": { "id": "routes/projects.water-qwop", "parentId": "routes/projects", "path": "water-qwop", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.water-qwop-m-KazIa_.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.bathhouse": { "id": "routes/projects.bathhouse", "parentId": "routes/projects", "path": "bathhouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bathhouse-B4WGWeRB.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.honeycomb": { "id": "routes/projects.honeycomb", "parentId": "routes/projects", "path": "honeycomb", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.honeycomb-CvlwlPcM.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.hoophouse": { "id": "routes/projects.hoophouse", "parentId": "routes/projects", "path": "hoophouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hoophouse-CSPH13UN.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.drawings": { "id": "routes/projects.drawings", "parentId": "routes/projects", "path": "drawings", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.drawings-D8Wo1BTF.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.droplets": { "id": "routes/projects.droplets", "parentId": "routes/projects", "path": "droplets", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.droplets-BfrSpvK6.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects": { "id": "routes/projects", "parentId": "root", "path": "projects", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects-h_UQQmxi.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-BjJ17_yl.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] } }, "url": "/assets/manifest-bbea5a36.js", "version": "bbea5a36" };
+const serverManifest = { "entry": { "module": "/assets/entry.client-u1Mz-iCE.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js", "/assets/client-lLho4FXR.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/root-ZOLBmU-O.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js", "/assets/client-lLho4FXR.js"], "css": [] }, "routes/projects.conversational-floor-plans": { "id": "routes/projects.conversational-floor-plans", "parentId": "routes/projects", "path": "conversational-floor-plans", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.conversational-floor-plans-CjsSQn9p.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.collaborative-winding": { "id": "routes/projects.collaborative-winding", "parentId": "routes/projects", "path": "collaborative-winding", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.collaborative-winding-DJmrHdWm.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.sprawl-and-resilience": { "id": "routes/projects.sprawl-and-resilience", "parentId": "routes/projects", "path": "sprawl-and-resilience", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.sprawl-and-resilience-DMeawsk5.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.spring-garden-hostel": { "id": "routes/projects.spring-garden-hostel", "parentId": "routes/projects", "path": "spring-garden-hostel", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.spring-garden-hostel-BKWLf7CZ.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.itech-2024-pavilion": { "id": "routes/projects.itech-2024-pavilion", "parentId": "routes/projects", "path": "itech-2024-pavilion", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.itech-2024-pavilion-DVotvFty.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.design-fabrication": { "id": "routes/projects.design-fabrication", "parentId": "routes/projects", "path": "design-fabrication", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.design-fabrication-CikwiMsT.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.horse-and-chariot": { "id": "routes/projects.horse-and-chariot", "parentId": "routes/projects", "path": "horse-and-chariot", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.horse-and-chariot-Cv5v0Ri3.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.cybernetic-field": { "id": "routes/projects.cybernetic-field", "parentId": "routes/projects", "path": "cybernetic-field", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cybernetic-field-CYt9ZeQt.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.hyper-hydration": { "id": "routes/projects.hyper-hydration", "parentId": "routes/projects", "path": "hyper-hydration", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hyper-hydration-B__HdMp7.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.modular-garden": { "id": "routes/projects.modular-garden", "parentId": "routes/projects", "path": "modular-garden", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.modular-garden-gKppdDDM.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.wax-flamingos": { "id": "routes/projects.wax-flamingos", "parentId": "routes/projects", "path": "wax-flamingos", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.wax-flamingos-BkCwqM2O.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.cloud-sketch": { "id": "routes/projects.cloud-sketch", "parentId": "routes/projects", "path": "cloud-sketch", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.cloud-sketch-_C6o15x9.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.flood-museum": { "id": "routes/projects.flood-museum", "parentId": "routes/projects", "path": "flood-museum", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.flood-museum-DY0RLsOu.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.elc-carrick": { "id": "routes/projects.elc-carrick", "parentId": "routes/projects", "path": "elc-carrick", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.elc-carrick-CSdLsKoa.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.placeholder": { "id": "routes/projects.placeholder", "parentId": "routes/projects", "path": "placeholder", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.placeholder-DqZVDhO6.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.bubble-gan": { "id": "routes/projects.bubble-gan", "parentId": "routes/projects", "path": "bubble-gan", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bubble-gan-C18_fJdw.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.water-qwop": { "id": "routes/projects.water-qwop", "parentId": "routes/projects", "path": "water-qwop", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.water-qwop-m-KazIa_.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.bathhouse": { "id": "routes/projects.bathhouse", "parentId": "routes/projects", "path": "bathhouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.bathhouse-B4WGWeRB.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.honeycomb": { "id": "routes/projects.honeycomb", "parentId": "routes/projects", "path": "honeycomb", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.honeycomb-CvlwlPcM.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects.hoophouse": { "id": "routes/projects.hoophouse", "parentId": "routes/projects", "path": "hoophouse", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.hoophouse-CSPH13UN.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.drawings": { "id": "routes/projects.drawings", "parentId": "routes/projects", "path": "drawings", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.drawings-D8Wo1BTF.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] }, "routes/projects.droplets": { "id": "routes/projects.droplets", "parentId": "routes/projects", "path": "droplets", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects.droplets-BfrSpvK6.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/projects": { "id": "routes/projects", "parentId": "root", "path": "projects", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/projects-h_UQQmxi.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js", "/assets/components-Usr3xzF4.js"], "css": [] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/assets/_index-BjJ17_yl.js", "imports": ["/assets/jsx-runtime-DdyehQyT.js"], "css": [] } }, "url": "/assets/manifest-949dcc83.js", "version": "949dcc83" };
 const mode = "production";
 const assetsBuildDirectory = "build/client";
 const basename = "/";

@@ -14,6 +14,8 @@ export default function NavBar() {
             <div className={`transform select-none  top-0 p-4 left-0 w-auto bg-white fixed h-[97vh] m-4 mt-[1.5vh] border-2 border-neutral-250 rounded-md ease-in-out transition-all duration-300 z-30 ${isVisible ? "translate-x-0" : "-translate-x-[200%]"}`} onClick={handleClick}>
                 <ul className='hover:*:*:text-yellow-500'>
                     <li className='text-sm italic pt-3'>2024</li>
+                    <li><Link to="./projects/conversational-floor-plans" >Converstional Floor Plans</Link></li>
+                    <li><Link to="./projects/itech-2024-pavilion" >ITECH Research Pavilion</Link></li>
                     <li><Link to="./projects/wax-flamingos" >Wax Flamingos</Link></li>
                     <li><Link to="./projects/droplets" >Droplets</Link></li>
                     <li className='text-sm italic pt-3'>2023</li>
