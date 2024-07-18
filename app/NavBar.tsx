@@ -11,11 +11,15 @@ export default function NavBar() {
             <div className='fixed left-3 top-3 text-2xl w-2'>
                 <p className={`hover:text-yellow-500 cursor-pointer select-none ${isVisible ? "hidden" : "show"}`} onClick={handleClick}>&#9776;</p>
             </div>
-            <div className={`transform select-none  top-0 p-4 left-0 w-auto bg-white fixed h-[97vh] m-4 mt-[1.5vh] border-2 border-neutral-250 rounded-md ease-in-out transition-all duration-300 z-30 ${isVisible ? "translate-x-0" : "-translate-x-[200%]"}`} onClick={handleClick}>
+            <div className={`transform select-none top-0 p-4 left-0 w-auto bg-white fixed h-screen md:h-[97vh] m-0 md:m-4 md:mt-[1.5vh] border-2 border-neutral-250
+                             rounded-md ease-in-out transition-all duration-300 z-30 overflow-y-scroll md:overflow-visible
+                             ${isVisible ? "translate-x-0" : "-translate-x-[200%]"}`}
+                onClick={handleClick}
+            >
                 <ul className='hover:*:*:text-yellow-500'>
                     <li className='text-sm italic pt-3'>2024</li>
                     <li><Link to="./projects/conversational-floor-plans" >Converstional Floor Plans</Link></li>
-                    <li><Link to="./projects/itech-2024-pavilion" >ITECH Research Pavilion</Link></li>
+                    <li><Link to="./projects/itech-research-pavilion" >ITECH Research Pavilion</Link></li>
                     <li><Link to="./projects/wax-flamingos" >Wax Flamingos</Link></li>
                     <li><Link to="./projects/droplets" >Droplets</Link></li>
                     <li className='text-sm italic pt-3'>2023</li>
@@ -42,15 +46,8 @@ export default function NavBar() {
                     <li className='text-sm italic pt-3'>2018</li>
                     <li><Link to="./projects/hoophouse" >Hoophouse</Link></li>
                     <li><Link to="./projects/drawings">Drawings</Link></li>
-                    {/* <br />
-                    <br />
-                    <br />
-                    <br />
-                    <li><Link to="./">Home</Link></li>
-                    <li>About</li>
-                    <li>Resume</li> */}
                 </ul>
-                <p className='absolute top-4 select-none  -right-7 hover:text-yellow-500 cursor-pointer font-bold' onClick={handleClick}>&#10005;</p>
+                <p className='fixed top-4 select-none right-7 md:-right-7 hover:text-yellow-500 cursor-pointer font-bold' onClick={handleClick}>&#10005;</p>
             </div>
         </div >
     );

@@ -139,9 +139,9 @@ export default function HyperHydration() {
 			<p>
 				<b>Results (in simulation steps)</b>
 			</p>
-			<table>
+			<table className="hidden md:block" >
 				<tbody>
-					<tr>
+					<tr className="*:w-1/4">
 						<td>
 							<img alt="" id="12" src={"/mats/water_sports/hh_normal.gif"} />
 						</td>
@@ -156,8 +156,36 @@ export default function HyperHydration() {
 						</td>
 					</tr>
 					<tr>
-						<td>Unoptimized: 17,396</td>
+						<td>None: 17,396</td>
 						<td>RBFOpt: 15,849</td>
+						<td>CMAE-S: 15,863</td>
+						<td>Random: 16,004</td>
+					</tr>
+				</tbody>
+			</table>
+			<table className="block md:hidden" >
+				<tbody>
+					<tr className="*:w-1/2">
+						<td>
+							<img alt="" id="12" src={"/mats/water_sports/hh_normal.gif"} />
+						</td>
+						<td>
+							<img alt="" id="13" src={"/mats/water_sports/hh_rbf_opt.gif"} />
+						</td>
+					</tr>
+					<tr>
+						<td>None: 17,396</td>
+						<td>RBFOpt: 15,849</td>
+					</tr>
+					<tr className="*:w-1/2">
+						<td>
+							<img alt="" id="14" src={"/mats/water_sports/hh_cmaes.gif"} />
+						</td>
+						<td>
+							<img alt="" id="15" src={"/mats/water_sports/hh_random.gif"} />
+						</td>
+					</tr>
+					<tr>
 						<td>CMAE-S: 15,863</td>
 						<td>Random: 16,004</td>
 					</tr>

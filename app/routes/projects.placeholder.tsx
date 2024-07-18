@@ -4,9 +4,9 @@ export default function Placeholder() {
 			<h1>15-112: placeHolder (2020)</h1>
 			<br />
 			<p>
-				A wide variety of 3D scanning technology exists today that use a series
-				of images to construct a form based on the content of the images. This
-				project situates itself on an edge of those, allowing the user to
+				A wide variety of Photogrammetry technology exists today. They take a series
+				of images and reconstruct a 3D form based on the content of the images. This
+				project situates itself amongst these, allowing the user to
 				generate a 3D model from 360-degree images through online databases.
 				Much other software including Autodesk Recap, Multi-view environment,
 				and Meshroom all serve to generate geometry from image distances. In
@@ -21,7 +21,7 @@ export default function Placeholder() {
 			</video>
 			<br />
 			<p>
-				The project, titled placeMaker, was an exploration of photogrammetric
+				The project, titled placeHolder, was an exploration of photogrammetric
 				techniques written from-scratch with Python. It is an inquiry into quick
 				generation of site geometry (buildings, roads, etc.) for use in site
 				mapping and architectural design. First, the user selects two 360-degree

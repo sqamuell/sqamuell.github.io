@@ -88,7 +88,7 @@ function Album({ cover, location, index, targetOffset, setTargetOffset, hovered,
       onPointerOut={(e) => { setHovered(hovered - 1); }}
     >
       <planeGeometry args={[2, 2]} />
-      <meshStandardMaterial map={cover} toneMapped={false} transparent={true} alphaMap={useLoader(TextureLoader, "/mats/homepage/cover-alpha-map-md.jpg")} opacity={op} />
+      <meshStandardMaterial map={cover} toneMapped={false} transparent={true} alphaMap={useLoader(TextureLoader, "/mats/homepage/cover-alpha-map-sm.jpg")} opacity={op} />
     </mesh>
   )
 }
@@ -240,8 +240,8 @@ const FilterSelector = ({ category, setFilter }) => {
         });
       }}
     >
-      <p className={`text-right cursor-pointer ${selected ? "hidden" : "block"}`}>&#160;&#9744; {category}&#160;</p>
-      <p className={`text-right cursor-pointer ${selected ? "block" : "hidden"}`}>&#160;&#9746; {category}&#160;</p>
+      <p className={`text-right cursor-pointer text-neutral-600 ${selected ? "hidden" : "block"}`}>&#160;&#9744; {category.charAt(0).toUpperCase() + category.slice(1)}&#160;</p>
+      <p className={`text-right cursor-pointer text-black ${selected ? "block" : "hidden"}`}>&#160;&#9746; {category.charAt(0).toUpperCase() + category.slice(1)}&#160;</p>
     </div>
   )
 }
@@ -265,13 +265,13 @@ const AlbumSelector = () => {
             center
             zIndexRange={[0, 0]}
           >
-            <h1 className='select-none absolute left-1/2 top-[19vh] md:top-[20vh] -translate-x-1/2 text-nowrap'>{projects[curCenter].name}</h1>
-            <h2 className='select-none absolute left-1/2 top-[25vh] md:top-[23vh] -translate-x-1/2'>{projects[curCenter].year}</h2>
-            <p className='select-none	absolute left-1/2 top-[30vh] md:top-[26vh] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
+            <h1 className='select-none absolute left-1/2 top-[21vh] md:top-[20vh] -translate-x-1/2 text-nowrap'>{projects[curCenter].name.replace(/-/g, ' ')}</h1>
+            <h2 className='select-none absolute left-1/2 top-[24.5vh] md:top-[23vh] -translate-x-1/2'>{projects[curCenter].year}</h2>
+            <p className='text-sm pointer-events-none md:text-base select-none	absolute left-1/2 top-[28.5vh] md:top-[26vh] -translate-x-1/2 w-80 text-center'><i>Keywords: </i>{projects[curCenter].keywords}</p>
           </Html>
         </Suspense>
       </Canvas>
-      <div className='p-4 w-2/3 absolute top-0 right-0 text-nowrap hidden md:flex flex-wrap justify-end'>
+      <div className='p-4 w-2/3 absolute top-0 right-0 text-nowrap hidden md:flex flex-wrap justify-end text-neutral-600'>
         <FilterSelector category={"computational design"} setFilter={setFilter} />|
         <FilterSelector category={"digital fabrication"} setFilter={setFilter} />|
         <FilterSelector category={"artificial intelligence"} setFilter={setFilter} />|

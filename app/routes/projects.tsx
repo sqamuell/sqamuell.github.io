@@ -33,9 +33,9 @@ export default function Container() {
     return (
         <div className='absolute h-screen w-screen overflow-clip'>
             {/* THE BACKGROUND FILTER */}
-            <div className={`absolute h-screen w-screen  bg-opacity-50 backdrop-grayscale cursor-alias`} onClick={() => exit()}></div>
+            <div className={`absolute h-screen w-screen bg-white bg-opacity-10 backdrop-grayscale cursor-alias`} onClick={() => exit()}></div>
             {/* THE ANIMATED BOX */}
-            <div className={`absolute left-1/2 -translate-x-1/2 rounded-md mt-0 lg:mt-[2.5vh] transition-all ease-in-out duration-500 ${isVisible ? "translate-y-0" : "translate-y-[100vh]"}
+            <div className={`absolute left-1/2 -translate-x-1/2 rounded-md mt-0 md:mt-[2.5vh] transition-all ease-out duration-500 ${isVisible ? "translate-y-0" : "translate-y-[100vh]"}
                             h-screen lg:h-[95vh] border-2 border-neutral-250 bg-white 
                             w-screen 3xl:w-[1400px] 2xl:w-[1200px] xl:w-[1000px] lg:w-[800px] md:w-[600px] cursor-default`}>
                 {/* THE CONTENT */}

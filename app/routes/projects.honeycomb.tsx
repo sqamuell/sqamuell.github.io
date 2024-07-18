@@ -100,20 +100,18 @@ export default function Honeycomb() {
 			<p>
 				Each symmetry group has an infinite amount of fundamental domains, so
 				the number of patterns that can be quickly created is quite large.
-				Historically, Dutch Graphic Artist M. C. Escher employed the use of the{" "}
-				<i>pg</i>
-				wallpaper group. Honeycomb enables users to make generate similar
+				Historically, Dutch Graphic Artist M. C. Escher employed the use of the <i>pg</i> wallpaper group. Honeycomb enables users to make generate similar
 				imagery.
 			</p>
 			<br />
-			<video controls>
+			<video className="hidden md:block" controls>
 				<source
 					src={"/mats/honeycomb/interlocking_vid_desktop.mp4"}
 					type="video/mp4"
 				/>
 				Your browser does not support the video tag.
 			</video>
-			<video className="hidden" controls>
+			<video className="block md:hidden" controls>
 				<source
 					src={"/mats/honeycomb/interlocking_vid_mobile.mp4"}
 					type="video/mp4"
