@@ -19,7 +19,7 @@ export default function Hoophouse() {
 			<br />
 			<p>
 				A few notable things came from researching precedents of hoop houses.
-				Firstly, the method of inner access was always the dealbreaker for
+				Firstly, the method of inner access was always the deal-breaker for
 				functioning as a warmth-containing enclosure. The final design’s zipper
 				opening is rationalized by its ease of access, and air-tightness. And
 				secondly, each hoop house we found used the aluminum-conduit skeleton as
@@ -37,7 +37,7 @@ export default function Hoophouse() {
 				determine the shape of the plastic. We concocted a joint that consists
 				of two washers adhered together and held it by tensioned rope to the
 				skeleton. The surrounding Y-structure provides an extra layer of
-				structure for Pittsburgh’s heavy snowfall.
+				structure for Pittsburgh's heavy snowfall.
 			</p>
 			<br />
 			<img alt="" id="6" src={"/mats/hoop_house/photo_between.jpg"} />

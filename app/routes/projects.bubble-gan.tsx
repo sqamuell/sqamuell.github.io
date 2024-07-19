@@ -32,7 +32,7 @@ export default function BubbleGAN() {
 			<p>
 				The generated floor plan image is then passed through openCV to define
 				the locations of walls. Finally, the walls are extruded with Rhino &
-				Grasshopper, then tweaked to the designers’ liking.
+				Grasshopper, then tweaked to the designers' liking.
 			</p>
 			<br />
 			<img alt="" id="2" src={"/mats/bubbles_floors/floor_plans.png"} />

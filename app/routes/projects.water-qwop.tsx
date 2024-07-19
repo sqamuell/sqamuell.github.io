@@ -107,7 +107,7 @@ export default function WaterQWOP() {
 				a bug affecting the rewards attributed to the water being tossed and the
 				subsequent average calculation, the agent's behavior became excessively
 				reliant on the speed of the bucket. This unintended outcome manifested
-				as the observed "shaky-shakey" behavior. Consequently, it was necessary
+				as the observed "shaky-shaky" behavior. Consequently, it was necessary
 				to fine-tune both the observation inputs and reward system in order to
 				correct this issue and achieve the desired behavior from the agent.
 			</p>

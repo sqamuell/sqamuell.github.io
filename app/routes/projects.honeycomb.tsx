@@ -120,7 +120,7 @@ export default function Honeycomb() {
 			</video>
 			<br />
 			<p>
-				The below script is responsible for the creation of the abovce
+				The below script is responsible for the creation of the above
 				animation. It did require some post-processing in blender, but the
 				entire generation of interlocking blocks and their movement was enabled
 				by Honeycomb.
@@ -130,7 +130,7 @@ export default function Honeycomb() {
 			<br />
 			<p>
 				Users also have the option to draw their own geometry and repeat it via
-				the logic of the wallpaper group. Whether it is an iterlocking geometry
+				the logic of the wallpaper group. Whether it is an interlocking geometry
 				(created via one of the <i>Make Interlocking Block</i> components) or a
 				geometry created within Rhino-space, the grasshopper tool quickly allows
 				for a repeating transformation.
@@ -159,7 +159,7 @@ export default function Honeycomb() {
 			<br />
 			<p>
 				The software has potentials to move into the physical space and become
-				3D. 3D printed geometry is quick to output with a few addtional rhino or
+				3D. 3D printed geometry is quick to output with a few additional rhino or
 				grasshopper commands to make a printable solid. If you, the reader, uses
 				Honeycomb and creates something interesting and beautiful, please share
 				it!

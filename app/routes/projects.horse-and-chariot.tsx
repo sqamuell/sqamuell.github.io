@@ -47,7 +47,7 @@ export default function HorseChariot() {
 				from the Chariot and decodes it into a movement command, which it
 				promptly executes. The Horse pulls the Chariot along with it via a
 				string and together they traverse the path. All the while, the Chariot
-				drags chalk to mark out the users’ drawing.
+				drags chalk to mark out the users' drawing.
 			</p>
 			<br />
 			<img alt="" id="3" src={"/mats/horse_chariot/organization.png"} />
@@ -87,7 +87,7 @@ export default function HorseChariot() {
 			</table >
 			<br />
 			<p>
-				The process of drawing is initated by drawing a custom path on the
+				The process of drawing is initiated by drawing a custom path on the
 				Chariot's touchscreen. It records the drawing from the moment of contact
 				until you release your finger. Internally, the path is divided into
 				segments.
@@ -98,7 +98,7 @@ export default function HorseChariot() {
 			<img alt="" id="6" src={"/mats/horse_chariot/encoding.png"} />
 			<br />
 			<p>
-				Next, the path segemtns are converted into vectors, orient via the
+				Next, the path segments are converted into vectors, orient via the
 				previous direction. These values are encoded as numbers between 0.000
 				and 0.999, where 0.000 is left and 0.999 is right. Each value is
 				converted into a series of five frequencies that are stored in a list.
@@ -118,7 +118,7 @@ export default function HorseChariot() {
 			<img alt="" id="8" src={"/mats/horse_chariot/decoding.png"} />
 			<br />
 			<p>
-				Upon recieveing audio, the Horse decodes the direction, virtually
+				Upon receiving audio, the Horse decodes the direction, virtually
 				reverse engineering the encoding steps to determine the direction
 				vector. The Horse then changes the speed of each wheel in relation to
 				the movement direction.

@@ -11,10 +11,10 @@ export default function HyperHydration() {
 				machine learning involving optimization algorithms. It places a tubular geometry, representing a
 				water bottle at the center of the inquiry. Firstly, single objective
 				optimization for the 3D profile that empties itself the fastest and then
-				mulit-objective optimization by balancing emptying speed and surface
+				multi-objective optimization by balancing emptying speed and surface
 				area. This project was developed as part of the Computational Explorations
 				seminar at ITECH master's program in collaboration with Chris Kang,
-				Markus Renner, and Cornerlius Carl. The code and studies for this project can be found on <Link className="underline hover:text-yellow-500" to="https://github.com/sqamuell/hyper-hydration" rel="noopener noreferrer" target="_blank">GitHub</Link>.
+				Markus Renner, and Cornelius Carl. The code and studies for this project can be found on <Link className="underline hover:text-yellow-500" to="https://github.com/sqamuell/hyper-hydration" rel="noopener noreferrer" target="_blank">GitHub</Link>.
 			</p>
 			<br />
 			<img alt="" id="1" src={"/mats/water_sports/hh_cover.jpg"} className="lg:w-2/4" />

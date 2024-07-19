@@ -13,7 +13,7 @@ export default function HyperHydration() {
 			<img className="m-auto md:w-7/12" src={"/mats/droplets/figure-ground.gif"} />
 			<br />
 			<p>
-				A droplet is defined by its mass, location, and three behaviors. (1) A gravity force behavior induced when it has a certain mass. (2) A spawn additional droplet behavior induced by movement. And (3) a merging behavior induced when coming in contact with another droplet. While each inidivual droplet has no systematic outcome, the summation of them in an enviornment results in the emergent system shown in the surrounding gifs.
+				A droplet is defined by its mass, location, and three behaviors. (1) A gravity force behavior induced when it has a certain mass. (2) A spawn additional droplet behavior induced by movement. And (3) a merging behavior induced when coming in contact with another droplet. While each inidivual droplet has no systematic outcome, the summation of them in an environment results in the emergent system shown in the surrounding gifs.
 			</p>
 			<br />
 			<img className="m-auto md:w-7/12" src={"/mats/droplets/marble.gif"} />
